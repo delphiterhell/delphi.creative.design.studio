@@ -6,7 +6,6 @@
 
   <title>Delphi — Digital Creative Studio</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -20,41 +19,19 @@
 
 <body>
 
+  <!-- HERO ORIGINALE -->
   <header class="hero" id="top">
 
-    <!-- MARBLING -->
     <div class="hero-art" aria-hidden="true">
-
-      <!--
-      Se hai il video animato:
-      -->
-<div class="hero-art" aria-hidden="true">
-  <img
-    class="hero-image"
-    src="herodesign.png"
-    alt=""
-  >
-  <div class="hero-art-fade"></div>
-</div>
-
-      <!--
-      Se per ora vuoi usare un'immagine statica,
-      elimina/commenta il video e usa:
-
       <img
-        class="hero-video"
-        src="assets/delphi-marbling.jpg"
+        class="hero-image"
+        src="herodesign.png"
         alt=""
       >
-      -->
-
       <div class="hero-art-fade"></div>
     </div>
 
-
-    <!-- NAV -->
     <nav class="nav">
-
       <a href="#top" class="brand">
         <span class="brand-name">DELPHI</span>
         <span class="brand-sub">Digital Creative Studio</span>
@@ -70,13 +47,9 @@
       <div class="language">
         IT / EN
       </div>
-
     </nav>
 
-
-    <!-- MAIN COPY -->
     <div class="hero-copy">
-
       <div class="eyebrow">
         Design · Digital · Content
       </div>
@@ -98,17 +71,17 @@
         <span>Scopri i progetti</span>
         <span class="arrow">→</span>
       </a>
-
     </div>
 
+    <div
+      class="cross cross-top"
+      aria-hidden="true"
+    ></div>
 
-    <!-- DECORATIVE CROSS -->
-    <div class="cross cross-top" aria-hidden="true"></div>
-
-
-    <!-- STRUCTURAL GRID -->
-    <div class="layout-grid" aria-hidden="true">
-
+    <div
+      class="layout-grid"
+      aria-hidden="true"
+    >
       <span class="grid-v grid-v-1"></span>
       <span class="grid-v grid-v-2"></span>
       <span class="grid-v grid-v-3"></span>
@@ -116,16 +89,12 @@
       <span class="grid-h grid-h-1"></span>
       <span class="grid-h grid-h-2"></span>
       <span class="grid-h grid-h-3"></span>
-
     </div>
-
-
-    <!-- PALETTE FRAMES -->
 
     <div
       class="palette-card palette-card-01"
       data-color="#EEEAE2"
-      style="--swatch:#EEEAE2;"
+      style="--swatch:#EEEAE2"
     >
       <span class="palette-number">01</span>
 
@@ -135,11 +104,10 @@
       </div>
     </div>
 
-
     <div
       class="palette-card palette-card-02"
       data-color="#96A08D"
-      style="--swatch:#96A08D;"
+      style="--swatch:#96A08D"
     >
       <span class="palette-number">02</span>
 
@@ -149,11 +117,10 @@
       </div>
     </div>
 
-
     <div
       class="palette-card palette-card-03"
       data-color="#C3A471"
-      style="--swatch:#C3A471;"
+      style="--swatch:#C3A471"
     >
       <span class="palette-number">03</span>
 
@@ -163,32 +130,225 @@
       </div>
     </div>
 
-
-    <!-- SCROLL -->
-    <a href="#works" class="scroll-indicator">
-
-      <span class="scroll-circle">
-        ↓
-      </span>
-
+    <a href="#services" class="scroll-indicator">
+      <span class="scroll-circle">↓</span>
       <span class="scroll-line"></span>
-
     </a>
 
   </header>
 
-
-  <!-- Placeholder per vedere lo scroll -->
   <main>
 
-    <section class="placeholder" id="works">
-      <span>Selected Work</span>
+    <!-- SERVICES -->
+    <section
+      class="services-section"
+      id="services"
+      aria-labelledby="services-title"
+    >
+      <div class="section-intro" data-reveal>
+        <span class="section-label">Services</span>
+        <span class="section-count">03 Areas</span>
+
+        <h2 id="services-title">
+          Cosa posso costruire<br>
+          per il tuo progetto.
+        </h2>
+      </div>
+
+      <div class="services-fan" data-reveal>
+
+        <article
+          class="service-panel service-panel--web is-active"
+          tabindex="0"
+          aria-expanded="true"
+        >
+          <header class="service-heading">
+            <span class="service-number">01</span>
+            <h3>Web</h3>
+            <span class="service-toggle" aria-hidden="true"></span>
+          </header>
+
+          <div class="service-content">
+            <p>
+              Siti web e landing page progettati su misura,
+              dalla struttura alla pubblicazione.
+            </p>
+
+            <div class="service-list">
+              <span>Web Design</span>
+              <span>Development</span>
+              <span>Responsive Design</span>
+              <span>Gestione &amp; aggiornamenti</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="service-panel service-panel--identity"
+          tabindex="0"
+          aria-expanded="false"
+        >
+          <header class="service-heading">
+            <span class="service-number">02</span>
+            <h3>Identity</h3>
+            <span class="service-toggle" aria-hidden="true"></span>
+          </header>
+
+          <div class="service-content">
+            <p>
+              Direzione visiva e sistemi grafici per costruire
+              una presenza digitale coerente e riconoscibile.
+            </p>
+
+            <div class="service-list">
+              <span>Creative Direction</span>
+              <span>Visual Identity</span>
+              <span>Digital Graphics</span>
+              <span>Brand Applications</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="service-panel service-panel--presence"
+          tabindex="0"
+          aria-expanded="false"
+        >
+          <header class="service-heading">
+            <span class="service-number">03</span>
+            <h3>Digital Presence</h3>
+            <span class="service-toggle" aria-hidden="true"></span>
+          </header>
+
+          <div class="service-content">
+            <p>
+              Contenuti e strumenti digitali per costruire
+              e mantenere una presenza online coerente.
+            </p>
+
+            <div class="service-list">
+              <span>Social Content</span>
+              <span>Email Marketing</span>
+              <span>Google Presence</span>
+              <span>Digital Strategy</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SELECTED WORK -->
+    <section
+      class="work-section"
+      id="works"
+      aria-labelledby="works-title"
+    >
+      <div class="section-intro" data-reveal>
+        <span class="section-label">Selected Work</span>
+        <span class="section-count">03 Projects</span>
+
+        <h2 id="works-title">
+          Progetti digitali costruiti<br>
+          intorno a identità diverse.
+        </h2>
+      </div>
+
+      <div class="projects">
+
+        <article class="project" data-reveal>
+          <div class="project-meta">
+            <span class="project-number">01</span>
+
+            <div class="project-title-group">
+              <h3>Lorenzo Magnanini</h3>
+              <p>Drone &amp; FPV Filmmaker</p>
+            </div>
+
+            <div class="project-services">
+              <span>Web Design</span>
+              <span>Creative Direction</span>
+              <span>Development</span>
+            </div>
+          </div>
+
+          <a
+            class="project-preview project-preview--lorenzo"
+            href="https://lorenzomagnanini.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visita il sito di Lorenzo Magnanini"
+          >
+            <div class="preview-placeholder preview-lorenzo">
+              <small>FPV / AERIAL / FILM</small>
+              <strong>LM</strong>
+            </div>
+
+            <span class="project-hover">
+              Vedi progetto ↗
+            </span>
+          </a>
+        </article>
+
+        <article class="project" data-reveal>
+          <div class="project-meta">
+            <span class="project-number">02</span>
+
+            <div class="project-title-group">
+              <h3>Pomeranze</h3>
+              <p>Coltivazione e vendita di fiori</p>
+            </div>
+
+            <div class="project-services">
+              <span>Web Design</span>
+              <span>Creative Direction</span>
+              <span>Development</span>
+            </div>
+          </div>
+
+          <div class="project-preview project-preview--pomeranze">
+            <div class="preview-placeholder preview-pomeranze">
+              <strong>Pomeranze</strong>
+              <small>Fiori coltivati lentamente.</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" data-reveal>
+          <div class="project-meta">
+            <span class="project-number">03</span>
+
+            <div class="project-title-group">
+              <h3>La Maga Alchemy</h3>
+              <p>Gioielli artigianali</p>
+            </div>
+
+            <div class="project-services">
+              <span>Web Design</span>
+              <span>Art Direction</span>
+              <span>Development</span>
+            </div>
+          </div>
+
+          <div class="project-preview project-preview--maga">
+            <div class="preview-placeholder preview-maga">
+              <small>HANDMADE OBJECTS</small>
+
+              <strong>
+                LA MAGA<br>
+                ALCHEMY
+              </strong>
+
+              <i class="orbit" aria-hidden="true"></i>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </section>
 
   </main>
 
-
   <script src="script.js"></script>
-
 </body>
 </html>
