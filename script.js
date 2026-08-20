@@ -104,6 +104,87 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*
   |--------------------------------------------------------------------------
+  | CROSS CURSOR FOLLOWER (solo dentro la hero)
+  |--------------------------------------------------------------------------
+  */
+
+  const crossFollower =
+    document.querySelector(".cross-top");
+
+  if (
+    hero &&
+    crossFollower &&
+    finePointer.matches &&
+    !reducedMotion.matches
+  ) {
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let crossRafId = null;
+
+    function renderCrossFollower() {
+      currentX += (targetX - currentX) * 0.13;
+      currentY += (targetY - currentY) * 0.13;
+
+      crossFollower.style.left = `${currentX}px`;
+      crossFollower.style.top = `${currentY}px`;
+
+      crossRafId =
+        requestAnimationFrame(renderCrossFollower);
+    }
+
+    hero.addEventListener("pointerenter", event => {
+      const rect =
+        hero.getBoundingClientRect();
+
+      targetX = event.clientX - rect.left;
+      targetY = event.clientY - rect.top;
+      currentX = targetX;
+      currentY = targetY;
+
+      crossFollower.style.left = `${currentX}px`;
+      crossFollower.style.top = `${currentY}px`;
+
+      crossFollower.classList.add("is-visible");
+
+      if (crossRafId === null) {
+        crossRafId =
+          requestAnimationFrame(renderCrossFollower);
+      }
+    });
+
+    hero.addEventListener("pointermove", event => {
+      const rect =
+        hero.getBoundingClientRect();
+
+      targetX = event.clientX - rect.left;
+      targetY = event.clientY - rect.top;
+    });
+
+    hero.addEventListener("pointerleave", () => {
+      crossFollower.classList.remove("is-visible");
+
+      if (crossRafId !== null) {
+        cancelAnimationFrame(crossRafId);
+        crossRafId = null;
+      }
+    });
+
+    paletteCards.forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        crossFollower.classList.add("is-small");
+      });
+
+      card.addEventListener("mouseleave", () => {
+        crossFollower.classList.remove("is-small");
+      });
+    });
+  }
+
+
+  /*
+  |--------------------------------------------------------------------------
   | SERVICES FAN / MOBILE ACCORDION
   |--------------------------------------------------------------------------
   */
