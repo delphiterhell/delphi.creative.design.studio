@@ -179,10 +179,16 @@
                   <span></span>
                   <span></span>
                   <span></span>
+                  <span class="wire-cta"></span>
                 </div>
               </div>
 
               <span class="wire-mobile"></span>
+            </div>
+
+            <div class="wire-annotations">
+              <span>12 col / 1440</span>
+              <span>390 · responsive</span>
             </div>
           </div>
 
@@ -215,13 +221,24 @@
           <div class="service-visual service-visual--identity" aria-hidden="true">
             <div class="identity-type">
               <span class="identity-aa">Aa</span>
-              <span class="identity-font">Manrope / Light</span>
+              <span class="identity-font">Manrope</span>
+              <span class="identity-font">Light / 300</span>
             </div>
 
-            <div class="identity-swatches">
-              <span class="identity-swatch identity-swatch--paper"></span>
-              <span class="identity-swatch identity-swatch--sage"></span>
-              <span class="identity-swatch identity-swatch--gold"></span>
+            <div class="identity-meta">
+              <div class="identity-scale">
+                <div class="scale-row"><span>H1</span><span>72</span></div>
+                <div class="scale-row"><span>H2</span><span>40</span></div>
+                <div class="scale-row"><span>Body</span><span>16</span></div>
+                <div class="scale-row"><span>Label</span><span>10</span></div>
+              </div>
+
+              <div class="identity-swatches">
+                <span class="identity-swatch identity-swatch--paper"></span>
+                <span class="identity-swatch identity-swatch--sage"></span>
+                <span class="identity-swatch identity-swatch--deep-sage"></span>
+                <span class="identity-swatch identity-swatch--gold"></span>
+              </div>
             </div>
 
             <span class="identity-word">Identity</span>
@@ -255,17 +272,38 @@
           </header>
 
           <div class="service-visual service-visual--presence" aria-hidden="true">
-            <div class="digital-post"></div>
+            <div class="map-board">
+              <span class="map-line map-line--n"></span>
+              <span class="map-line map-line--s"></span>
+              <span class="map-line map-line--e"></span>
+              <span class="map-line map-line--w"></span>
 
-            <div class="digital-content-block">
-              <span></span>
-              <span></span>
+              <span class="map-node map-node--social">Social</span>
+              <span class="map-node map-node--search">Search</span>
+              <span class="map-node map-node--email">Email</span>
+              <span class="map-node map-node--google">Google</span>
+
+              <span class="map-hub">Content</span>
+            </div>
+
+            <div class="format-row">
+              <span class="format-post"></span>
+
+              <div class="format-block">
+                <span></span>
+                <span></span>
+              </div>
+
+              <div class="format-result">
+                <span></span>
+                <span></span>
+              </div>
             </div>
 
             <div class="digital-schedule">
-              <span>MON</span>
-              <span>WED</span>
-              <span>FRI</span>
+              <span>Mon <span class="schedule-num">01</span></span>
+              <span>Wed <span class="schedule-num">02</span></span>
+              <span>Fri <span class="schedule-num">03</span></span>
             </div>
           </div>
 
@@ -305,13 +343,22 @@
 
       <div class="projects">
 
-        <article class="project" data-reveal>
+        <article class="project project--lorenzo" data-reveal>
           <div class="project-meta">
             <span class="project-number">01</span>
 
-            <div class="project-title-group">
-              <h3>Lorenzo Magnanini</h3>
-              <p>Drone &amp; FPV Filmmaker</p>
+            <div class="project-copy">
+              <div class="project-title-group">
+                <h3>Lorenzo Magnanini</h3>
+                <p>Drone &amp; FPV Filmmaker</p>
+              </div>
+
+              <p class="project-description">
+                Portfolio digitale sviluppato per valorizzare un lavoro
+                fortemente visivo. Il progetto mette al centro video e
+                riprese, costruendo un'esperienza essenziale e
+                cinematografica attorno ai contenuti.
+              </p>
             </div>
 
             <div class="project-services">
@@ -326,26 +373,74 @@
             href="https://lorenzomagnanini.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visita il sito di Lorenzo Magnanini"
+            aria-label="Visita il sito Lorenzo Magnanini — Drone & FPV"
           >
-            <div class="preview-placeholder preview-lorenzo">
-              <small>FPV / AERIAL / FILM</small>
-              <strong>LM</strong>
+            <div class="lorenzo-showcase" aria-hidden="true">
+              <div class="lorenzo-showcase__viewport">
+
+                <video
+                  class="lorenzo-showcase__video"
+                  data-project-video
+                  data-src="fpv.mp4"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  aria-hidden="true"
+                ></video>
+
+                <div class="lorenzo-showcase__overlay"></div>
+
+                <div class="lorenzo-showcase__header">
+                  <span class="lorenzo-showcase__logo">
+                    <!-- TODO: logo non presente nel repository. Se disponibile, sostituire con <img src="images/logodefinitivo.jpeg" alt=""> -->
+                    Lorenzo Magnanini
+                  </span>
+
+                  <nav class="lorenzo-showcase__nav">
+                    <span>Home</span>
+                    <span>Drone</span>
+                    <span>Progetti</span>
+                    <span>Chi sono</span>
+                    <span>Contatti</span>
+                  </nav>
+                </div>
+
+                <div class="lorenzo-showcase__content">
+                  <p class="lorenzo-showcase__title">Drone &amp; FPV</p>
+                  <p class="lorenzo-showcase__tagline">Riprese che prendono il volo.</p>
+
+                  <div class="lorenzo-showcase__actions">
+                    <span>Guarda cosa faccio</span>
+                    <span>Parliamo del tuo progetto</span>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
-            <span class="project-hover">
-              Vedi progetto ↗
+            <span class="project-view">
+              Visita il sito ↗
             </span>
           </a>
         </article>
 
-        <article class="project" data-reveal>
+        <article class="project project--pomeranze" data-reveal>
           <div class="project-meta">
             <span class="project-number">02</span>
 
-            <div class="project-title-group">
-              <h3>Pomeranze</h3>
-              <p>Coltivazione e vendita di fiori</p>
+            <div class="project-copy">
+              <div class="project-title-group">
+                <h3>Pomeranze</h3>
+                <p>Coltivazione e vendita di fiori</p>
+              </div>
+
+              <p class="project-description">
+                Un sito caldo e naturale costruito attorno al mondo dei
+                fiori e alla produzione indipendente. La direzione visiva
+                traduce il carattere artigianale del progetto in una
+                presenza digitale semplice e riconoscibile.
+              </p>
             </div>
 
             <div class="project-services">
@@ -355,21 +450,43 @@
             </div>
           </div>
 
-          <div class="project-preview project-preview--pomeranze">
-            <div class="preview-placeholder preview-pomeranze">
-              <strong>Pomeranze</strong>
-              <small>Fiori coltivati lentamente.</small>
+          <a
+            class="project-preview project-preview--pomeranze"
+            href="https://pomeranz-e.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visita il sito di Pomeranze"
+          >
+            <div class="preview-frame">
+              <!-- TODO: sostituire con <img class="preview-image" src="images/work-pomeranze.webp" alt="Anteprima del sito Pomeranze" loading="lazy"> -->
+              <div class="preview-placeholder preview-pomeranze" aria-hidden="true">
+                <strong>Pomeranze</strong>
+                <small>Fiori coltivati lentamente.</small>
+              </div>
             </div>
-          </div>
+
+            <span class="project-view">
+              Vedi progetto ↗
+            </span>
+          </a>
         </article>
 
-        <article class="project" data-reveal>
+        <article class="project project--maga" data-reveal>
           <div class="project-meta">
             <span class="project-number">03</span>
 
-            <div class="project-title-group">
-              <h3>La Maga Alchemy</h3>
-              <p>Gioielli artigianali</p>
+            <div class="project-copy">
+              <div class="project-title-group">
+                <h3>La Maga Alchemy</h3>
+                <p>Gioielli artigianali</p>
+              </div>
+
+              <p class="project-description">
+                Identità digitale e sito per un progetto di gioielli
+                artigianali, sviluppati per valorizzare materia, dettagli
+                e unicità dei pezzi attraverso un linguaggio visivo
+                evocativo e contemporaneo.
+              </p>
             </div>
 
             <div class="project-services">
@@ -379,18 +496,31 @@
             </div>
           </div>
 
-          <div class="project-preview project-preview--maga">
-            <div class="preview-placeholder preview-maga">
-              <small>HANDMADE OBJECTS</small>
+          <a
+            class="project-preview project-preview--maga"
+            href="https://la-maga-alchemy.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visita il sito di La Maga Alchemy"
+          >
+            <div class="preview-frame">
+              <!-- TODO: sostituire con <img class="preview-image" src="images/work-maga.webp" alt="Anteprima del sito La Maga Alchemy" loading="lazy"> -->
+              <div class="preview-placeholder preview-maga" aria-hidden="true">
+                <small>HANDMADE OBJECTS</small>
 
-              <strong>
-                LA MAGA<br>
-                ALCHEMY
-              </strong>
+                <strong>
+                  LA MAGA<br>
+                  ALCHEMY
+                </strong>
 
-              <i class="orbit" aria-hidden="true"></i>
+                <i class="orbit" aria-hidden="true"></i>
+              </div>
             </div>
-          </div>
+
+            <span class="project-view">
+              Vedi progetto ↗
+            </span>
+          </a>
         </article>
 
       </div>

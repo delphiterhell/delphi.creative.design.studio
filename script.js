@@ -253,6 +253,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*
   |--------------------------------------------------------------------------
+  | PROJECT VIDEO LAZY LOAD (preview Lorenzo)
+  |--------------------------------------------------------------------------
+  |
+  | Osservatore dedicato: a differenza dello SCROLL REVEAL qui sotto,
+  | non basta attivarsi una sola volta — il video deve mettersi in pausa
+  | ogni volta che la preview esce dal viewport, quindi resta osservato
+  | per tutta la vita della pagina.
+  |
+  */
+
+  const projectVideos =
+    document.querySelectorAll(
+      "[data-project-video]"
+    );
+
+  if (
+    projectVideos.length &&
+    "IntersectionObserver" in window
+  ) {
+    const videoObserver =
+      new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            const video = entry.target;
+
+            if (entry.isIntersecting) {
+              if (!video.src && video.dataset.src) {
+                video.src = video.dataset.src;
+                video.load();
+              }
+
+              if (!reducedMotion.matches) {
+                video.play().catch(() => {});
+              }
+            } else {
+              video.pause();
+            }
+          });
+        },
+        {
+          rootMargin: "400px 0px"
+        }
+      );
+
+    projectVideos.forEach(video => {
+      videoObserver.observe(video);
+    });
+  }
+
+
+  /*
+  |--------------------------------------------------------------------------
   | SCROLL REVEAL
   |--------------------------------------------------------------------------
   */
