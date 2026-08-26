@@ -305,6 +305,114 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*
   |--------------------------------------------------------------------------
+  | LIVE PREVIEW IFRAME LAZY LOAD (Pomeranze / La Maga Alchemy — temporaneo)
+  |--------------------------------------------------------------------------
+  |
+  | Sistema separato dal video Lorenzo qui sopra: qui basta assegnare il
+  | src una sola volta quando ci si avvicina, l'iframe resta caricato.
+  |
+  */
+
+  const liveFrames =
+    document.querySelectorAll(
+      "[data-live-preview]"
+    );
+
+  if (
+    liveFrames.length &&
+    "IntersectionObserver" in window
+  ) {
+    const liveFrameObserver =
+      new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const container = entry.target;
+
+            const iframe =
+              container.querySelector(
+                ".project-live-frame__iframe"
+              );
+
+            if (
+              iframe &&
+              !iframe.src &&
+              container.dataset.src
+            ) {
+              iframe.src = container.dataset.src;
+            }
+
+            liveFrameObserver.unobserve(container);
+          });
+        },
+        {
+          threshold: 0,
+          rootMargin: "500px 0px"
+        }
+      );
+
+    liveFrames.forEach(container => {
+      liveFrameObserver.observe(container);
+    });
+  }
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | ABOUT PHOTO MICRO PARALLAX
+  |--------------------------------------------------------------------------
+  */
+
+  const aboutFrame =
+    document.querySelector(".about-frame");
+
+  const aboutPhoto =
+    document.querySelector(".about-photo");
+
+  if (
+    aboutFrame &&
+    aboutPhoto &&
+    !reducedMotion.matches
+  ) {
+    let aboutTicking = false;
+
+    function updateAboutParallax() {
+      const rect =
+        aboutFrame.getBoundingClientRect();
+
+      const travel =
+        window.innerHeight / 2 -
+        (rect.top + rect.height / 2);
+
+      const progress =
+        Math.max(
+          -1,
+          Math.min(1, travel / window.innerHeight)
+        );
+
+      aboutPhoto.style.transform =
+        `translateY(${(progress * 10).toFixed(2)}px)`;
+
+      aboutTicking = false;
+    }
+
+    updateAboutParallax();
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (aboutTicking) return;
+        aboutTicking = true;
+        requestAnimationFrame(updateAboutParallax);
+      },
+      { passive: true }
+    );
+  }
+
+
+  /*
+  |--------------------------------------------------------------------------
   | SCROLL REVEAL
   |--------------------------------------------------------------------------
   */
