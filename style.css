@@ -207,21 +207,10 @@ a {
   position: absolute;
   z-index: 10;
   left: 6.7vw;
-  top: 50%;
+  top: 51%;
   width: min(690px, 49vw);
 
-  transform: translateY(-45%);
-}
-
-.eyebrow {
-  margin-bottom: 35px;
-  color: #65705f;
-
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 11px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: .18em;
+  transform: translateY(-40%);
 }
 
 .hero h1 {
@@ -230,8 +219,8 @@ a {
 
   font-size: clamp(58px, 5.1vw, 98px);
   font-weight: 300;
-  line-height: .96;
-  letter-spacing: -.055em;
+  line-height: 1.02;
+  letter-spacing: -.045em;
 }
 
 .hero h1 span {
@@ -618,10 +607,6 @@ a {
 
 body.loaded .nav {
   animation: fadeDown .9s .15s forwards;
-}
-
-body.loaded .eyebrow {
-  animation: fadeUp .8s .3s forwards;
 }
 
 body.loaded .hero h1 {
