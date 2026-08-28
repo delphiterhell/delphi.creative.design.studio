@@ -253,29 +253,6 @@ a {
   letter-spacing: -.015em;
 }
 
-.hero-cta {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  width: fit-content;
-  margin-top: 51px;
-
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: .17em;
-}
-
-.arrow {
-  font-size: 22px;
-  transition: transform .35s ease;
-}
-
-.hero-cta:hover .arrow {
-  transform: translateX(8px);
-}
-
-
 /* STRUCTURAL GRID */
 
 .layout-grid {
@@ -344,22 +321,87 @@ a {
   height: 48px;
 }
 
-.cross-top {
-  top: 14%;
-  left: 46%;
-  transform: translate(-50%, -50%);
-  will-change: left, top;
+/* CUSTOM CURSOR (hero only) */
+
+@media (pointer: fine) {
+  .hero,
+  .hero a,
+  .hero button,
+  .hero .palette-card {
+    cursor: none;
+  }
+}
+
+.hero-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+
+  opacity: 0;
+  transform: translate3d(-100px, -100px, 0);
+
+  transition: opacity .2s ease;
+}
+
+.hero-cursor.is-visible {
+  opacity: 1;
+}
+
+.hero-cursor__dot {
+  position: absolute;
+  top: -4.5px;
+  left: -4.5px;
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+  background: #c3a471;
+  border: 1px solid transparent;
+
   transition:
-    opacity .25s ease,
-    scale .25s ease;
+    width .3s cubic-bezier(.16, 1, .3, 1),
+    height .3s cubic-bezier(.16, 1, .3, 1),
+    top .3s cubic-bezier(.16, 1, .3, 1),
+    left .3s cubic-bezier(.16, 1, .3, 1),
+    background-color .3s cubic-bezier(.16, 1, .3, 1),
+    border-color .3s cubic-bezier(.16, 1, .3, 1);
 }
 
-.cross-top.is-visible {
-  opacity: .65;
+.hero-cursor__dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+  background: #c3a471;
+  transform: translate(-50%, -50%) scale(0);
+
+  transition: transform .3s cubic-bezier(.16, 1, .3, 1);
 }
 
-.cross-top.is-small {
-  scale: .55;
+.hero-cursor.is-interactive .hero-cursor__dot {
+  top: -17px;
+  left: -17px;
+  width: 34px;
+  height: 34px;
+
+  background: transparent;
+  border-color: #c3a471;
+}
+
+.hero-cursor.is-interactive .hero-cursor__dot::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@media (pointer: coarse) {
+  .hero-cursor {
+    display: none;
+  }
 }
 
 
@@ -501,9 +543,9 @@ a {
 }
 
 
-/* SCROLL INDICATOR */
+/* HERO DISCOVER CTA */
 
-.scroll-indicator {
+.hero-discover {
   position: absolute;
   z-index: 10;
   bottom: 7%;
@@ -511,39 +553,57 @@ a {
 
   display: flex;
   align-items: center;
+  gap: 22px;
   width: 56%;
 }
 
-.scroll-circle {
+.hero-discover__label {
+  flex: 0 0 auto;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .17em;
+}
+
+.hero-discover__line {
+  flex: 1 1 auto;
+  height: 1px;
+  background: rgba(95, 106, 94, .38);
+
+  transition: background-color .35s ease;
+}
+
+.hero-discover__circle {
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  width: 62px;
-  height: 62px;
+  width: 50px;
+  height: 50px;
 
-  border: 1px solid #727c70;
+  border: 1px solid rgba(118, 129, 111, .7);
   border-radius: 50%;
 
   color: #687265;
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 300;
 
   transition:
     transform .35s ease,
-    background .35s ease,
-    color .35s ease;
+    background-color .35s ease,
+    color .35s ease,
+    border-color .35s ease;
 }
 
-.scroll-line {
-  width: 100%;
-  height: 1px;
-  background: rgba(95, 106, 94, .45);
+.hero-discover:hover .hero-discover__line {
+  background: rgba(95, 106, 94, .6);
 }
 
-.scroll-indicator:hover .scroll-circle {
-  color: white;
-  background: #73806e;
-  transform: translateY(6px);
+.hero-discover:hover .hero-discover__circle {
+  background: #c3a471;
+  border-color: #c3a471;
+  color: #20211f;
+  transform: translateY(4px);
 }
 
 
@@ -574,10 +634,6 @@ body.loaded .copy-line {
 
 body.loaded .hero-description {
   animation: fadeUp .9s .75s forwards;
-}
-
-body.loaded .hero-cta {
-  animation: fadeUp .9s .85s forwards;
 }
 
 body.loaded .palette-card {
@@ -3245,7 +3301,7 @@ a.project-preview {
     top: 2px;
   }
 
-  .scroll-indicator {
+  .hero-discover {
     left: 28px;
     width: calc(100% - 56px);
   }
@@ -3436,10 +3492,6 @@ a.project-preview {
 
   .hero-image {
     transition: none;
-  }
-
-  .cross-top {
-    display: none;
   }
 
   .service-visual,

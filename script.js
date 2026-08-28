@@ -104,34 +104,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /*
   |--------------------------------------------------------------------------
-  | CROSS CURSOR FOLLOWER (solo dentro la hero)
+  | CUSTOM CURSOR (solo dentro la hero)
   |--------------------------------------------------------------------------
   */
 
-  const crossFollower =
-    document.querySelector(".cross-top");
+  const heroCursor =
+    document.querySelector(".hero-cursor");
+
+  const interactiveHeroEls =
+    document.querySelectorAll(
+      ".hero a, .hero button, .hero .palette-card"
+    );
 
   if (
     hero &&
-    crossFollower &&
-    finePointer.matches &&
-    !reducedMotion.matches
+    heroCursor &&
+    finePointer.matches
   ) {
     let targetX = 0;
     let targetY = 0;
     let currentX = 0;
     let currentY = 0;
-    let crossRafId = null;
+    let cursorRafId = null;
 
-    function renderCrossFollower() {
-      currentX += (targetX - currentX) * 0.13;
-      currentY += (targetY - currentY) * 0.13;
+    function setCursorPosition(x, y) {
+      heroCursor.style.transform =
+        `translate3d(${x}px, ${y}px, 0)`;
+    }
 
-      crossFollower.style.left = `${currentX}px`;
-      crossFollower.style.top = `${currentY}px`;
+    function renderCursor() {
+      currentX += (targetX - currentX) * 0.18;
+      currentY += (targetY - currentY) * 0.18;
 
-      crossRafId =
-        requestAnimationFrame(renderCrossFollower);
+      setCursorPosition(currentX, currentY);
+
+      cursorRafId =
+        requestAnimationFrame(renderCursor);
     }
 
     hero.addEventListener("pointerenter", event => {
@@ -143,14 +151,15 @@ document.addEventListener("DOMContentLoaded", () => {
       currentX = targetX;
       currentY = targetY;
 
-      crossFollower.style.left = `${currentX}px`;
-      crossFollower.style.top = `${currentY}px`;
+      setCursorPosition(currentX, currentY);
+      heroCursor.classList.add("is-visible");
 
-      crossFollower.classList.add("is-visible");
-
-      if (crossRafId === null) {
-        crossRafId =
-          requestAnimationFrame(renderCrossFollower);
+      if (
+        !reducedMotion.matches &&
+        cursorRafId === null
+      ) {
+        cursorRafId =
+          requestAnimationFrame(renderCursor);
       }
     });
 
@@ -160,24 +169,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
       targetX = event.clientX - rect.left;
       targetY = event.clientY - rect.top;
-    });
 
-    hero.addEventListener("pointerleave", () => {
-      crossFollower.classList.remove("is-visible");
-
-      if (crossRafId !== null) {
-        cancelAnimationFrame(crossRafId);
-        crossRafId = null;
+      if (reducedMotion.matches) {
+        currentX = targetX;
+        currentY = targetY;
+        setCursorPosition(currentX, currentY);
       }
     });
 
-    paletteCards.forEach(card => {
-      card.addEventListener("mouseenter", () => {
-        crossFollower.classList.add("is-small");
+    hero.addEventListener("pointerleave", () => {
+      heroCursor.classList.remove("is-visible");
+
+      if (cursorRafId !== null) {
+        cancelAnimationFrame(cursorRafId);
+        cursorRafId = null;
+      }
+    });
+
+    interactiveHeroEls.forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        heroCursor.classList.add("is-interactive");
       });
 
-      card.addEventListener("mouseleave", () => {
-        crossFollower.classList.remove("is-small");
+      el.addEventListener("mouseleave", () => {
+        heroCursor.classList.remove("is-interactive");
       });
     });
   }
