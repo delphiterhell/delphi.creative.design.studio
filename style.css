@@ -137,22 +137,22 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 22px;
   width: fit-content;
 }
 
 .brand-name {
-  font-size: 27px;
+  font-size: 30px;
   font-weight: 400;
-  letter-spacing: .24em;
+  letter-spacing: .22em;
 }
 
 .brand-sub {
   font-family: "IBM Plex Mono", monospace;
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: .18em;
-  opacity: .8;
+  letter-spacing: .15em;
+  opacity: .72;
 }
 
 .nav-links {
