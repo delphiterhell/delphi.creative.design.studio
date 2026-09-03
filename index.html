@@ -1,77 +1,194 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Delphi — Digital Creative Studio</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>
+    Delphi — Digital Creative Studio
+  </title>
+
+
+  <!-- GOOGLE FONTS -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@300;400;500&family=Mozilla+Text:wght@400;700&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 
 <body>
 
-  <!-- HERO ORIGINALE -->
-  <header class="hero" id="top">
 
-    <div class="hero-art" aria-hidden="true">
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+
+  <header
+    class="hero"
+    id="top"
+  >
+
+
+    <!-- HERO ART -->
+
+    <div
+      class="hero-art"
+      aria-hidden="true"
+    >
+
       <img
         class="hero-image"
         src="herodesign.png"
         alt=""
       >
+
       <div class="hero-art-fade"></div>
+
     </div>
 
-    <div class="hero-cursor" aria-hidden="true">
+
+    <!-- CUSTOM CURSOR -->
+
+    <div
+      class="hero-cursor"
+      aria-hidden="true"
+    >
       <span class="hero-cursor__dot"></span>
     </div>
 
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
     <nav class="nav">
-      <a href="#top" class="brand">
-        <span class="brand-name">DELPHI</span>
-        <span class="brand-sub">Digital Creative Studio</span>
+
+
+      <!-- BRAND -->
+
+      <a
+        href="#top"
+        class="brand"
+      >
+
+        <span class="brand-name">
+          DELPHI
+        </span>
+
+        <span class="brand-sub">
+          Digital Creative Studio
+        </span>
+
       </a>
 
+
+
+      <!-- NAV LINKS -->
+
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#works">Works</a>
-        <a href="#contact">Contact</a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#services">
+          Services
+        </a>
+
+        <a href="#works">
+          Works
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
       </div>
+
+
+
+      <!-- LANGUAGE -->
 
       <div class="language">
         IT / EN
       </div>
+
     </nav>
 
+
+
+    <!-- =====================================================
+         HERO COPY
+         ===================================================== -->
+
     <div class="hero-copy">
+
       <h1>
-        <span>Web Design.</span>
-        <span>Creative Direction.</span>
-        <span>Digital Content.</span>
+
+        <span>
+          Web Design.
+        </span>
+
+        <span>
+          Creative Direction.
+        </span>
+
+        <span>
+          Digital Content.
+        </span>
+
       </h1>
 
+
       <div class="copy-line"></div>
+
 
       <p class="hero-description">
         Costruisco presenze digitali autentiche
         per brand e professionisti indipendenti.
       </p>
+
     </div>
+
+
+
+    <!-- =====================================================
+         STRUCTURAL GRID
+         ===================================================== -->
 
     <div
       class="layout-grid"
       aria-hidden="true"
     >
+
       <span class="grid-v grid-v-1"></span>
       <span class="grid-v grid-v-2"></span>
       <span class="grid-v grid-v-3"></span>
@@ -79,48 +196,102 @@
       <span class="grid-h grid-h-1"></span>
       <span class="grid-h grid-h-2"></span>
       <span class="grid-h grid-h-3"></span>
+
     </div>
+
+
+
+    <!-- =====================================================
+         PALETTE
+         ===================================================== -->
 
     <div
       class="palette-card palette-card-01"
       data-color="#EEEAE2"
       style="--swatch:#EEEAE2"
     >
-      <span class="palette-number">01</span>
+
+      <span class="palette-number">
+        01
+      </span>
 
       <div class="palette-info">
-        <span class="palette-name">Warm Paper</span>
-        <span class="palette-hex">#EEEAE2</span>
+
+        <span class="palette-name">
+          Warm Paper
+        </span>
+
+        <span class="palette-hex">
+          #EEEAE2
+        </span>
+
       </div>
+
     </div>
+
+
 
     <div
       class="palette-card palette-card-02"
       data-color="#96A08D"
       style="--swatch:#96A08D"
     >
-      <span class="palette-number">02</span>
+
+      <span class="palette-number">
+        02
+      </span>
 
       <div class="palette-info">
-        <span class="palette-name">Dusty Sage</span>
-        <span class="palette-hex">#96A08D</span>
+
+        <span class="palette-name">
+          Dusty Sage
+        </span>
+
+        <span class="palette-hex">
+          #96A08D
+        </span>
+
       </div>
+
     </div>
+
+
 
     <div
       class="palette-card palette-card-03"
       data-color="#C3A471"
       style="--swatch:#C3A471"
     >
-      <span class="palette-number">03</span>
+
+      <span class="palette-number">
+        03
+      </span>
 
       <div class="palette-info">
-        <span class="palette-name">Champagne Gold</span>
-        <span class="palette-hex">#C3A471</span>
+
+        <span class="palette-name">
+          Champagne Gold
+        </span>
+
+        <span class="palette-hex">
+          #C3A471
+        </span>
+
       </div>
+
     </div>
 
-    <a href="#works" class="hero-discover">
+
+
+    <!-- =====================================================
+         DISCOVER CTA
+         ===================================================== -->
+
+    <a
+      href="#works"
+      class="hero-discover"
+    >
+
       <span class="hero-discover__label">
         Scopri i progetti
       </span>
@@ -136,431 +307,838 @@
       >
         ↓
       </span>
+
     </a>
 
   </header>
 
+
+
+  <!-- =========================================================
+       MAIN
+       ========================================================= -->
+
   <main>
 
-    <!-- SERVICES -->
+
+
+    <!-- =======================================================
+         SERVICES
+         ======================================================= -->
+
     <section
       class="services-section"
       id="services"
       aria-labelledby="services-title"
     >
-      <div class="section-intro" data-reveal>
-        <span class="section-label">Services</span>
-        <span class="section-count">03 Areas</span>
 
-        <h2 id="services-title">
-          Cosa posso costruire<br>
-          per il tuo progetto.
-        </h2>
-      </div>
 
-<div class="services-fan" data-reveal>
+      <!-- =====================================================
+           GOLD THRESHOLD
+           HERO → SERVICES TRANSITION
+           ===================================================== -->
 
-  <!-- WEB -->
-  <article
-    class="service-panel service-panel--web is-active"
-    tabindex="0"
-    aria-expanded="true"
-  >
-    <header class="service-heading">
-      <span class="service-number">01</span>
-
-      <h3>Web</h3>
-
-      <span class="service-type">
-        Digital Product
-      </span>
-
-      <span
-        class="service-toggle"
+      <div
+        class="services-threshold"
         aria-hidden="true"
-      ></span>
-    </header>
+      >
 
+        <div class="services-threshold__inner">
 
-    <div
-      class="service-visual service-visual--web"
-      aria-hidden="true"
-    >
+          <span class="services-threshold__chapter">
+            02 / Services
+          </span>
 
-      <div class="web-specimen">
+          <span class="services-threshold__studio">
+            Delphi — Digital Creative Studio
+          </span>
 
-        <div class="web-specimen__meta">
-          <span>Desktop / 1440</span>
-          <span>12 Column Grid</span>
+          <span class="services-threshold__arrow">
+            ↓
+          </span>
+
         </div>
 
-        <div class="web-browser">
+      </div>
 
-          <div class="web-browser__top">
-            <span></span>
 
-            <div>
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-          </div>
 
-          <div class="web-browser__grid">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+      <!-- =====================================================
+           SERVICES CONTENT
+           ===================================================== -->
 
-          <div class="web-browser__content">
+      <div class="services-section__inner">
 
-            <div class="web-browser__image">
-              <span>IMG</span>
-            </div>
 
-            <div class="web-browser__copy">
-              <strong>
-                Digital experiences<br>
-                made to fit.
-              </strong>
+        <!-- INTRO -->
 
-              <span class="web-line web-line--1"></span>
-              <span class="web-line web-line--2"></span>
+        <div class="section-intro">
 
-              <span class="web-browser__cta">
-                Explore →
+<!--           <span class="section-label">
+            Services
+          </span>
+
+          <span class="section-count">
+            03 Areas
+          </span>
+ -->
+
+          <h2 id="services-title">
+            Cosa posso costruire
+            per il tuo progetto.
+          </h2>
+
+        </div>
+
+
+
+        <!-- ===================================================
+             EDITORIAL SERVICES
+             =================================================== -->
+
+        <div class="services-editorial">
+
+
+
+          <!-- =================================================
+               LEFT — SERVICE INDEX
+               ================================================= -->
+
+          <div
+            class="services-index"
+            role="tablist"
+            aria-label="Aree di servizio"
+          >
+
+
+            <!-- WEB -->
+
+            <button
+              class="service-tab is-active"
+              type="button"
+              role="tab"
+              id="service-tab-web"
+              aria-selected="true"
+              aria-controls="service-scene-web"
+              data-service-tab="web"
+            >
+
+              <span class="service-tab__number">
+                01
               </span>
-            </div>
+
+
+              <span class="service-tab__content">
+
+                <span class="service-tab__title">
+                  Web
+                </span>
+
+                <span class="service-tab__summary">
+                  Siti web e landing page progettati su misura,
+                  dalla struttura alla pubblicazione.
+                </span>
+
+              </span>
+
+
+              <span
+                class="service-tab__mark"
+                aria-hidden="true"
+              ></span>
+
+            </button>
+
+
+
+            <!-- IDENTITY -->
+
+            <button
+              class="service-tab"
+              type="button"
+              role="tab"
+              id="service-tab-identity"
+              aria-selected="false"
+              aria-controls="service-scene-identity"
+              data-service-tab="identity"
+              tabindex="-1"
+            >
+
+              <span class="service-tab__number">
+                02
+              </span>
+
+
+              <span class="service-tab__content">
+
+                <span class="service-tab__title">
+                  Identity
+                </span>
+
+                <span class="service-tab__summary">
+                  Direzione visiva e sistemi grafici per costruire
+                  una presenza coerente e riconoscibile.
+                </span>
+
+              </span>
+
+
+              <span
+                class="service-tab__mark"
+                aria-hidden="true"
+              ></span>
+
+            </button>
+
+
+
+            <!-- DIGITAL PRESENCE -->
+
+            <button
+              class="service-tab"
+              type="button"
+              role="tab"
+              id="service-tab-presence"
+              aria-selected="false"
+              aria-controls="service-scene-presence"
+              data-service-tab="presence"
+              tabindex="-1"
+            >
+
+              <span class="service-tab__number">
+                03
+              </span>
+
+
+              <span class="service-tab__content">
+
+                <span class="service-tab__title">
+                  Digital Presence
+                </span>
+
+                <span class="service-tab__summary">
+                  Contenuti e strumenti digitali per costruire
+                  e mantenere una presenza online coerente.
+                </span>
+
+              </span>
+
+
+              <span
+                class="service-tab__mark"
+                aria-hidden="true"
+              ></span>
+
+            </button>
 
           </div>
-        </div>
 
 
-        <div class="web-mobile">
-          <span class="web-mobile__label">390</span>
 
-          <div class="web-mobile__screen">
-            <span></span>
-            <span></span>
-            <span></span>
+          <!-- =================================================
+               RIGHT — VISUAL STAGE
+               ================================================= -->
+
+          <div class="services-stage">
+
+
+
+            <!-- =================================================
+                 WEB
+                 ================================================= -->
+
+            <article
+              class="service-scene service-scene--web is-active"
+              id="service-scene-web"
+              role="tabpanel"
+              aria-labelledby="service-tab-web"
+              data-service-scene="web"
+              aria-hidden="false"
+            >
+
+
+              <!-- META -->
+
+              <header class="service-scene__meta">
+
+                <span>
+                  Digital Product
+                </span>
+
+                <span>
+                  01 / 03
+                </span>
+
+              </header>
+
+
+
+              <!-- WEB VISUAL -->
+
+              <div
+                class="service-scene__canvas service-web"
+                aria-hidden="true"
+              >
+
+
+                <!-- ===========================================
+                     DESKTOP WEBSITE
+                     =========================================== -->
+
+                <div class="service-web__desktop">
+
+
+                  <!-- WEBSITE NAV -->
+
+                  <div class="service-web__nav">
+
+                    <span class="service-web__brand">
+                      Your Brand
+                    </span>
+
+
+                    <div class="service-web__nav-links">
+
+                      <span>
+                        About
+                      </span>
+
+                      <span>
+                        Work
+                      </span>
+
+                      <span>
+                        Contact
+                      </span>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <!-- WEBSITE HERO -->
+
+                  <div class="service-web__hero">
+
+
+                    <!-- COPY -->
+
+                    <div class="service-web__hero-copy">
+
+                      <span class="service-web__eyebrow">
+                        Web Design / Development
+                      </span>
+
+
+                      <strong class="service-web__headline">
+                        A digital space<br>
+                        built around<br>
+                        your identity.
+                      </strong>
+
+
+                      <span
+                        class="
+                          service-web__text-line
+                          service-web__text-line--1
+                        "
+                      ></span>
+
+
+                      <span
+                        class="
+                          service-web__text-line
+                          service-web__text-line--2
+                        "
+                      ></span>
+
+
+                      <span class="service-web__fake-link">
+                        Explore →
+                      </span>
+
+                    </div>
+
+
+
+                    <!-- MEDIA -->
+
+                    <div class="service-web__media">
+
+                      <span class="service-web__media-label">
+                        Image / Video
+                      </span>
+
+                      <span class="service-web__media-line"></span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- ===========================================
+                     MOBILE WEBSITE
+                     =========================================== -->
+
+                <div class="service-web__mobile">
+
+
+                  <div class="service-web__mobile-nav">
+
+                    <span>
+                      Your Brand
+                    </span>
+
+                    <i></i>
+
+                  </div>
+
+
+
+                  <div class="service-web__mobile-copy">
+
+                    <small>
+                      Web Design
+                    </small>
+
+
+                    <strong>
+                      Built for<br>
+                      every screen.
+                    </strong>
+
+
+                    <span></span>
+                    <span></span>
+
+                  </div>
+
+
+
+                  <div class="service-web__mobile-media"></div>
+
+                </div>
+
+
+
+                <!-- DEVICE LABELS -->
+
+                <span
+                  class="
+                    service-web__device-label
+                    service-web__device-label--desktop
+                  "
+                >
+                  Desktop
+                </span>
+
+
+                <span
+                  class="
+                    service-web__device-label
+                    service-web__device-label--mobile
+                  "
+                >
+                  Mobile
+                </span>
+
+              </div>
+
+
+
+              <!-- SERVICES FOOTER -->
+
+              <footer class="service-scene__footer">
+
+                <span>
+                  Web Design
+                </span>
+
+                <span>
+                  Development
+                </span>
+
+                <span>
+                  Responsive Design
+                </span>
+
+                <span>
+                  Gestione &amp; aggiornamenti
+                </span>
+
+              </footer>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 IDENTITY
+                 ================================================= -->
+
+            <article
+              class="service-scene service-scene--identity"
+              id="service-scene-identity"
+              role="tabpanel"
+              aria-labelledby="service-tab-identity"
+              data-service-scene="identity"
+              aria-hidden="true"
+            >
+
+
+              <header class="service-scene__meta">
+
+                <span>
+                  Visual System
+                </span>
+
+                <span>
+                  02 / 03
+                </span>
+
+              </header>
+
+
+
+              <div
+                class="service-scene__canvas service-identity"
+                aria-hidden="true"
+              >
+
+
+                <span class="service-identity__aa">
+                  Aa
+                </span>
+
+
+
+                <div class="service-identity__type">
+
+                  <span>
+                    Manrope
+                  </span>
+
+                  <span>
+                    Light / 300
+                  </span>
+
+                </div>
+
+
+
+                <span class="service-identity__baseline"></span>
+
+
+
+                <div class="service-identity__swatches">
+
+
+                  <span style="--tone:#EEEAE2">
+
+                    <small>
+                      Paper
+                    </small>
+
+                  </span>
+
+
+                  <span style="--tone:#96A08D">
+
+                    <small>
+                      Sage
+                    </small>
+
+                  </span>
+
+
+                  <span style="--tone:#76816F">
+
+                    <small>
+                      Deep
+                    </small>
+
+                  </span>
+
+
+                  <span style="--tone:#C3A471">
+
+                    <small>
+                      Gold
+                    </small>
+
+                  </span>
+
+                </div>
+
+
+
+                <span class="service-identity__caption">
+                  Direction / System / Application
+                </span>
+
+              </div>
+
+
+
+              <footer class="service-scene__footer">
+
+                <span>
+                  Creative Direction
+                </span>
+
+                <span>
+                  Visual Identity
+                </span>
+
+                <span>
+                  Digital Graphics
+                </span>
+
+                <span>
+                  Brand Applications
+                </span>
+
+              </footer>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 DIGITAL PRESENCE
+                 ================================================= -->
+
+            <article
+              class="service-scene service-scene--presence"
+              id="service-scene-presence"
+              role="tabpanel"
+              aria-labelledby="service-tab-presence"
+              data-service-scene="presence"
+              aria-hidden="true"
+            >
+
+
+              <header class="service-scene__meta">
+
+                <span>
+                  Ecosystem
+                </span>
+
+                <span>
+                  03 / 03
+                </span>
+
+              </header>
+
+
+
+              <div
+                class="service-scene__canvas service-presence"
+                aria-hidden="true"
+              >
+
+
+                <span
+                  class="
+                    service-presence__line
+                    service-presence__line--h
+                  "
+                ></span>
+
+
+                <span
+                  class="
+                    service-presence__line
+                    service-presence__line--v
+                  "
+                ></span>
+
+
+
+                <span
+                  class="
+                    service-presence__node
+                    service-presence__node--social
+                  "
+                >
+                  Social
+                </span>
+
+
+                <span
+                  class="
+                    service-presence__node
+                    service-presence__node--search
+                  "
+                >
+                  Search
+                </span>
+
+
+                <span
+                  class="
+                    service-presence__node
+                    service-presence__node--email
+                  "
+                >
+                  Email
+                </span>
+
+
+                <span
+                  class="
+                    service-presence__node
+                    service-presence__node--google
+                  "
+                >
+                  Google
+                </span>
+
+
+
+                <span class="service-presence__hub">
+
+                  <i></i>
+
+                  Content
+
+                </span>
+
+
+
+                <div class="service-presence__schedule">
+
+                  <span>
+                    MON 01
+                  </span>
+
+                  <span>
+                    WED 02
+                  </span>
+
+                  <span>
+                    FRI 03
+                  </span>
+
+                </div>
+
+              </div>
+
+
+
+              <footer class="service-scene__footer">
+
+                <span>
+                  Social Content
+                </span>
+
+                <span>
+                  Email Marketing
+                </span>
+
+                <span>
+                  Google Presence
+                </span>
+
+                <span>
+                  Digital Strategy
+                </span>
+
+              </footer>
+
+            </article>
+
           </div>
-        </div>
 
-
-        <div class="web-specimen__footer">
-          <span>Responsive</span>
-          <span>HTML / CSS / JS</span>
-          <span>01 — Build</span>
         </div>
 
       </div>
 
-    </div>
-
-
-    <div class="service-content">
-
-      <p>
-        Siti web e landing page progettati su misura,
-        dalla struttura alla pubblicazione.
-      </p>
-
-      <div class="service-list">
-        <span>01 / Web Design</span>
-        <span>02 / Development</span>
-        <span>03 / Responsive Design</span>
-        <span>04 / Gestione &amp; aggiornamenti</span>
-      </div>
-
-    </div>
-
-  </article>
-
-
-  <!-- IDENTITY -->
-  <article
-    class="service-panel service-panel--identity"
-    tabindex="0"
-    aria-expanded="false"
-  >
-    <header class="service-heading">
-      <span class="service-number">02</span>
-
-      <h3>Identity</h3>
-
-      <span class="service-type">
-        Visual System
-      </span>
-
-      <span
-        class="service-toggle"
-        aria-hidden="true"
-      ></span>
-    </header>
-
-
-    <div
-      class="service-visual service-visual--identity"
-      aria-hidden="true"
-    >
-
-      <div class="identity-specimen">
-
-        <div class="identity-specimen__top">
-
-          <div class="identity-main-type">
-
-            <span class="identity-aa">
-              Aa
-            </span>
-
-            <div class="identity-font-meta">
-              <span>Manrope</span>
-              <span>Light / 300</span>
-              <span>Latin / Display</span>
-            </div>
-
-          </div>
-
-
-          <div class="identity-scale">
-
-            <div>
-              <span>Display</span>
-              <strong>72</strong>
-            </div>
-
-            <div>
-              <span>Heading</span>
-              <strong>40</strong>
-            </div>
-
-            <div>
-              <span>Body</span>
-              <strong>16</strong>
-            </div>
-
-            <div>
-              <span>Label</span>
-              <strong>10</strong>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="identity-baseline">
-          <span>Identity</span>
-          <span>Direction / System / Application</span>
-        </div>
-
-
-        <div class="identity-palette">
-
-          <div class="identity-color identity-color--paper">
-            <span>01</span>
-            <small>#EEEAE2</small>
-          </div>
-
-          <div class="identity-color identity-color--sage">
-            <span>02</span>
-            <small>#96A08D</small>
-          </div>
-
-          <div class="identity-color identity-color--deep">
-            <span>03</span>
-            <small>#76816F</small>
-          </div>
-
-          <div class="identity-color identity-color--gold">
-            <span>04</span>
-            <small>#C3A471</small>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="service-content">
-
-      <p>
-        Direzione visiva e sistemi grafici per costruire
-        una presenza digitale coerente e riconoscibile.
-      </p>
-
-      <div class="service-list">
-        <span>01 / Creative Direction</span>
-        <span>02 / Visual Identity</span>
-        <span>03 / Digital Graphics</span>
-        <span>04 / Brand Applications</span>
-      </div>
-
-    </div>
-
-  </article>
-
-
-  <!-- DIGITAL PRESENCE -->
-  <article
-    class="service-panel service-panel--presence"
-    tabindex="0"
-    aria-expanded="false"
-  >
-    <header class="service-heading">
-      <span class="service-number">03</span>
-
-      <h3>Digital Presence</h3>
-
-      <span class="service-type">
-        Ecosystem
-      </span>
-
-      <span
-        class="service-toggle"
-        aria-hidden="true"
-      ></span>
-    </header>
-
-
-    <div
-      class="service-visual service-visual--presence"
-      aria-hidden="true"
-    >
-
-      <div class="presence-specimen">
-
-        <div class="presence-map">
-
-          <span class="presence-node presence-node--social">
-            Social
-          </span>
-
-          <span class="presence-node presence-node--search">
-            Search
-          </span>
-
-          <span class="presence-hub">
-            Content
-          </span>
-
-          <span class="presence-node presence-node--email">
-            Email
-          </span>
-
-          <span class="presence-node presence-node--google">
-            Google
-          </span>
-
-          <span
-            class="presence-connector presence-connector--h"
-          ></span>
-
-          <span
-            class="presence-connector presence-connector--v"
-          ></span>
-
-        </div>
-
-
-        <div class="presence-formats">
-
-          <div class="presence-format presence-format--post">
-            <span>01</span>
-          </div>
-
-          <div class="presence-format presence-format--content">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="presence-format presence-format--result">
-            <span></span>
-            <span></span>
-          </div>
-
-        </div>
-
-
-        <div class="presence-schedule">
-
-          <span>
-            MON
-            <strong>01</strong>
-          </span>
-
-          <span>
-            WED
-            <strong>02</strong>
-          </span>
-
-          <span>
-            FRI
-            <strong>03</strong>
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="service-content">
-
-      <p>
-        Contenuti e strumenti digitali per costruire
-        e mantenere una presenza online coerente.
-      </p>
-
-      <div class="service-list">
-        <span>01 / Social Content</span>
-        <span>02 / Email Marketing</span>
-        <span>03 / Google Presence</span>
-        <span>04 / Digital Strategy</span>
-      </div>
-
-    </div>
-
-  </article>
-
-</div>
     </section>
 
-    <!-- SELECTED WORK -->
+
+
+    <!-- =======================================================
+         SELECTED WORK
+         ======================================================= -->
+
     <section
       class="work-section"
       id="works"
       aria-labelledby="works-title"
     >
-      <div class="section-intro" data-reveal>
-        <span class="section-label">Selected Work</span>
-        <span class="section-count">03 Projects</span>
+
+
+      <!-- INTRO -->
+
+      <div
+        class="section-intro"
+        data-reveal
+      >
+
+        <span class="section-label">
+          Selected Work
+        </span>
+
+        <span class="section-count">
+          03 Projects
+        </span>
+
 
         <h2 id="works-title">
           Progetti digitali costruiti<br>
           intorno a identità diverse.
         </h2>
+
       </div>
+
+
+
+      <!-- PROJECTS -->
 
       <div class="projects">
 
-        <article class="project project--lorenzo" data-reveal>
+
+
+        <!-- ===================================================
+             LORENZO MAGNANINI
+             =================================================== -->
+
+        <article
+          class="project project--lorenzo"
+          data-reveal
+        >
+
+
           <div class="project-meta">
-            <span class="project-number">01</span>
+
+
+            <span class="project-number">
+              01
+            </span>
+
+
 
             <div class="project-copy">
+
+
               <div class="project-title-group">
-                <h3>Lorenzo Magnanini</h3>
-                <p>Drone &amp; FPV Filmmaker</p>
+
+                <h3>
+                  Lorenzo Magnanini
+                </h3>
+
+                <p>
+                  Drone &amp; FPV Filmmaker
+                </p>
+
               </div>
+
+
 
               <p class="project-description">
                 Portfolio digitale sviluppato per valorizzare un lavoro
@@ -568,14 +1146,32 @@
                 riprese, costruendo un'esperienza essenziale e
                 cinematografica attorno ai contenuti.
               </p>
+
             </div>
 
+
+
             <div class="project-services">
-              <span>Web Design</span>
-              <span>Creative Direction</span>
-              <span>Development</span>
+
+              <span>
+                Web Design
+              </span>
+
+              <span>
+                Creative Direction
+              </span>
+
+              <span>
+                Development
+              </span>
+
             </div>
+
           </div>
+
+
+
+          <!-- PREVIEW -->
 
           <a
             class="project-preview project-preview--lorenzo"
@@ -584,37 +1180,81 @@
             rel="noopener noreferrer"
             aria-label="Visita il sito Lorenzo Magnanini — Drone & FPV"
           >
-            <div class="lorenzo-preview" aria-hidden="true">
+
+
+            <div
+              class="lorenzo-preview"
+              aria-hidden="true"
+            >
+
+
+              <!-- HEADER -->
 
               <header class="lorenzo-preview__header">
+
                 <div class="lorenzo-preview__header-inner">
+
+
                   <span class="lorenzo-preview__brand">
-                    <!-- NOTA: il sito reale referenzia images/logodefinitivo.jpeg, non presente nel checkout locale del progetto Lorenzo. logo.jpeg è l'asset reale più vicino disponibile. -->
+
                     <img
                       class="lorenzo-preview__logo"
                       src="assets/projects/lorenzo/logo.jpeg"
                       alt=""
                     >
-                    <span class="lorenzo-preview__brand-name">Lorenzo Magnanini</span>
+
+                    <span class="lorenzo-preview__brand-name">
+                      Lorenzo Magnanini
+                    </span>
+
                   </span>
+
+
 
                   <nav class="lorenzo-preview__nav">
-                    <span>Home</span>
-                    <span>Drone</span>
-                    <span>Progetti</span>
-                    <span>Chi sono</span>
-                    <span>Contatti</span>
+
+                    <span>
+                      Home
+                    </span>
+
+                    <span>
+                      Drone
+                    </span>
+
+                    <span>
+                      Progetti
+                    </span>
+
+                    <span>
+                      Chi sono
+                    </span>
+
+                    <span>
+                      Contatti
+                    </span>
+
                   </nav>
 
+
+
                   <span class="lorenzo-preview__menu-toggle">
+
                     <span></span>
                     <span></span>
                     <span></span>
+
                   </span>
+
                 </div>
+
               </header>
 
+
+
+              <!-- MEDIA -->
+
               <div class="lorenzo-preview__media">
+
                 <video
                   class="lorenzo-preview__video"
                   data-project-video
@@ -625,36 +1265,98 @@
                   preload="none"
                 ></video>
 
+
                 <div class="lorenzo-preview__overlay"></div>
 
+
+
                 <div class="lorenzo-preview__content">
-                  <p class="lorenzo-preview__title">DRONE &amp; FPV</p>
-                  <p class="lorenzo-preview__tagline">Riprese che prendono il volo.</p>
+
+                  <p class="lorenzo-preview__title">
+                    DRONE &amp; FPV
+                  </p>
+
+                  <p class="lorenzo-preview__tagline">
+                    Riprese che prendono il volo.
+                  </p>
+
 
                   <div class="lorenzo-preview__actions">
-                    <span class="lorenzo-preview__button lorenzo-preview__button--primary">Guarda cosa faccio</span>
-                    <span class="lorenzo-preview__button lorenzo-preview__button--secondary">Parliamo del tuo progetto</span>
+
+                    <span
+                      class="
+                        lorenzo-preview__button
+                        lorenzo-preview__button--primary
+                      "
+                    >
+                      Guarda cosa faccio
+                    </span>
+
+
+                    <span
+                      class="
+                        lorenzo-preview__button
+                        lorenzo-preview__button--secondary
+                      "
+                    >
+                      Parliamo del tuo progetto
+                    </span>
+
                   </div>
+
                 </div>
+
               </div>
 
             </div>
 
+
+
             <span class="project-view">
               Visita il sito ↗
             </span>
+
           </a>
+
         </article>
 
-        <article class="project project--pomeranze" data-reveal>
+
+
+        <!-- ===================================================
+             POMERANZE
+             =================================================== -->
+
+        <article
+          class="project project--pomeranze"
+          data-reveal
+        >
+
+
           <div class="project-meta">
-            <span class="project-number">02</span>
+
+
+            <span class="project-number">
+              02
+            </span>
+
+
 
             <div class="project-copy">
+
+
               <div class="project-title-group">
-                <h3>Pomeranze</h3>
-                <p>Coltivazione e vendita di fiori</p>
+
+                <h3>
+                  Pomeranze
+                </h3>
+
+                <p>
+                  Coltivazione e vendita di fiori
+                </p>
+
               </div>
+
+
 
               <p class="project-description">
                 Un sito caldo e naturale costruito attorno al mondo dei
@@ -662,26 +1364,40 @@
                 traduce il carattere artigianale del progetto in una
                 presenza digitale semplice e riconoscibile.
               </p>
+
             </div>
+
+
 
             <div class="project-services">
-              <span>Web Design</span>
-              <span>Creative Direction</span>
-              <span>Development</span>
+
+              <span>
+                Web Design
+              </span>
+
+              <span>
+                Creative Direction
+              </span>
+
+              <span>
+                Development
+              </span>
+
             </div>
+
           </div>
 
-          <!--
-            TEMPORARY IFRAME PREVIEW.
-            Used only to evaluate the live Pomeranze / La Maga Alchemy heroes.
-            Will later be replaced with native isolated HTML/CSS replicas.
-          -->
+
+
           <div class="project-preview project-preview--pomeranze">
+
+
             <div
               class="project-live-frame"
               data-live-preview
               data-src="https://pomeranz-e.netlify.app/"
             >
+
               <iframe
                 class="project-live-frame__iframe"
                 title="Anteprima del sito Pomeranze"
@@ -689,7 +1405,10 @@
                 tabindex="-1"
                 aria-hidden="true"
               ></iframe>
+
             </div>
+
+
 
             <a
               class="project-view"
@@ -700,18 +1419,48 @@
             >
               Visita il sito ↗
             </a>
+
           </div>
+
         </article>
 
-        <article class="project project--maga" data-reveal>
+
+
+        <!-- ===================================================
+             LA MAGA ALCHEMY
+             =================================================== -->
+
+        <article
+          class="project project--maga"
+          data-reveal
+        >
+
+
           <div class="project-meta">
-            <span class="project-number">03</span>
+
+
+            <span class="project-number">
+              03
+            </span>
+
+
 
             <div class="project-copy">
+
+
               <div class="project-title-group">
-                <h3>La Maga Alchemy</h3>
-                <p>Gioielli artigianali</p>
+
+                <h3>
+                  La Maga Alchemy
+                </h3>
+
+                <p>
+                  Gioielli artigianali
+                </p>
+
               </div>
+
+
 
               <p class="project-description">
                 Identità digitale e sito per un progetto di gioielli
@@ -719,26 +1468,40 @@
                 e unicità dei pezzi attraverso un linguaggio visivo
                 evocativo e contemporaneo.
               </p>
+
             </div>
+
+
 
             <div class="project-services">
-              <span>Web Design</span>
-              <span>Art Direction</span>
-              <span>Development</span>
+
+              <span>
+                Web Design
+              </span>
+
+              <span>
+                Art Direction
+              </span>
+
+              <span>
+                Development
+              </span>
+
             </div>
+
           </div>
 
-          <!--
-            TEMPORARY IFRAME PREVIEW.
-            Used only to evaluate the live Pomeranze / La Maga Alchemy heroes.
-            Will later be replaced with native isolated HTML/CSS replicas.
-          -->
+
+
           <div class="project-preview project-preview--maga">
+
+
             <div
               class="project-live-frame"
               data-live-preview
               data-src="https://la-maga-alchemy.netlify.app/"
             >
+
               <iframe
                 class="project-live-frame__iframe"
                 title="Anteprima del sito La Maga Alchemy"
@@ -746,7 +1509,10 @@
                 tabindex="-1"
                 aria-hidden="true"
               ></iframe>
+
             </div>
+
+
 
             <a
               class="project-view"
@@ -757,28 +1523,69 @@
             >
               Visita il sito ↗
             </a>
+
           </div>
+
         </article>
 
       </div>
+
     </section>
 
-    <!-- ABOUT -->
-    <section class="about-section" id="about">
 
-      <div class="about-intro" data-reveal>
-        <span class="section-label">About</span>
-        <span class="section-count">01 / Profile</span>
+
+    <!-- =======================================================
+         ABOUT
+         ======================================================= -->
+
+    <section
+      class="about-section"
+      id="about"
+    >
+
+
+      <!-- ABOUT INTRO -->
+
+      <div
+        class="about-intro"
+        data-reveal
+      >
+
+        <span class="section-label">
+          About
+        </span>
+
+        <span class="section-count">
+          01 / Profile
+        </span>
+
       </div>
+
+
 
       <div class="about-layout">
 
-        <div class="about-media" data-reveal>
-          <span class="about-index">01</span>
+
+        <!-- ===================================================
+             ABOUT MEDIA
+             =================================================== -->
+
+        <div
+          class="about-media"
+          data-reveal
+        >
+
+          <span class="about-index">
+            01
+          </span>
+
+
 
           <div class="about-photo-box">
+
+
             <div class="about-frame">
-              <!-- TODO: aggiungere il file images/delphi-about.webp (ritratto Delphi, verticale, ottimizzato) -->
+
               <img
                 class="about-photo"
                 src="chisono.jpg"
@@ -787,68 +1594,169 @@
                 height="1200"
                 loading="lazy"
               >
+
             </div>
 
-            <span class="about-line" aria-hidden="true"></span>
-            <span class="about-cross" aria-hidden="true"></span>
 
-            <span class="about-vertical-label" aria-hidden="true">
+
+            <span
+              class="about-line"
+              aria-hidden="true"
+            ></span>
+
+
+            <span
+              class="about-cross"
+              aria-hidden="true"
+            ></span>
+
+
+            <span
+              class="about-vertical-label"
+              aria-hidden="true"
+            >
               Independent Digital Creative Studio
             </span>
+
           </div>
 
-          <span class="about-caption">Ritratto — Delphi</span>
+
+
+          <span class="about-caption">
+            Ritratto — Delphi
+          </span>
+
         </div>
 
+
+
+        <!-- ===================================================
+             ABOUT CONTENT
+             =================================================== -->
+
         <div class="about-content">
-          <h2 class="about-headline" data-reveal>
+
+
+          <h2
+            class="about-headline"
+            data-reveal
+          >
             Uno studio indipendente,<br>
             seguito direttamente da me.
           </h2>
 
-          <div class="about-copy" data-reveal>
-            <p>
-              Progetto identità e presenze digitali per brand, professionisti
-              e realtà indipendenti. Unisco design, sviluppo e contenuti per
-              costruire sistemi coerenti, riconoscibili e pensati intorno
-              alla persona o al progetto che rappresentano.
-            </p>
+
+
+          <div
+            class="about-copy"
+            data-reveal
+          >
 
             <p>
-              Seguo ogni progetto direttamente, dalla prima idea alla messa
-              online, cercando ogni volta una direzione diversa invece di
-              applicare la stessa formula.
+              Progetto identità e presenze digitali per brand,
+              professionisti e realtà indipendenti. Unisco design,
+              sviluppo e contenuti per costruire sistemi coerenti,
+              riconoscibili e pensati intorno alla persona o al
+              progetto che rappresentano.
             </p>
+
+
+            <p>
+              Seguo ogni progetto direttamente, dalla prima idea alla
+              messa online, cercando ogni volta una direzione diversa
+              invece di applicare la stessa formula.
+            </p>
+
           </div>
 
-          <div class="about-meta" data-reveal>
-            <div class="about-meta-item">
-              <span class="about-meta-label">Base</span>
-              <span class="about-meta-value">Modena / Italy</span>
-            </div>
+
+
+          <!-- META -->
+
+          <div
+            class="about-meta"
+            data-reveal
+          >
+
 
             <div class="about-meta-item">
-              <span class="about-meta-label">Focus</span>
-              <span class="about-meta-value">Web · Identity · Digital Content</span>
+
+              <span class="about-meta-label">
+                Base
+              </span>
+
+              <span class="about-meta-value">
+                Modena / Italy
+              </span>
+
             </div>
 
+
+
             <div class="about-meta-item">
-              <span class="about-meta-label">Approach</span>
-              <span class="about-meta-value">Independent · Direct · Tailored</span>
+
+              <span class="about-meta-label">
+                Focus
+              </span>
+
+              <span class="about-meta-value">
+                Web · Identity · Digital Content
+              </span>
+
             </div>
+
+
+
+            <div class="about-meta-item">
+
+              <span class="about-meta-label">
+                Approach
+              </span>
+
+              <span class="about-meta-value">
+                Independent · Direct · Tailored
+              </span>
+
+            </div>
+
           </div>
 
-          <a class="about-cta" href="#contact" data-reveal>
-            <span class="about-cta-label">Conosciamoci</span>
-            <span class="about-cta-arrow">→</span>
+
+
+          <!-- CTA -->
+
+          <a
+            class="about-cta"
+            href="#contact"
+            data-reveal
+          >
+
+            <span class="about-cta-label">
+              Conosciamoci
+            </span>
+
+            <span class="about-cta-arrow">
+              →
+            </span>
+
           </a>
+
         </div>
 
       </div>
+
     </section>
 
   </main>
 
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
   <script src="script.js"></script>
+
 </body>
+
 </html>
