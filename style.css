@@ -4313,3 +4313,984 @@ span:nth-child(4) {
   line-height: 1;
   letter-spacing: -.045em;
 }
+
+/* ============================================================
+   DELPHI — SERVICES
+   CHARCOAL + RESTRAINED PALETTE
+   ============================================================ */
+
+
+/* ============================================================
+   01. SERVICES BACKGROUND
+   ============================================================ */
+
+.services-section {
+  position: relative;
+  isolation: isolate;
+
+  margin-top: 0;
+
+  padding:
+    clamp(68px, 5vw, 88px)
+    6.7vw
+    clamp(110px, 10vw, 165px);
+
+  color: var(--paper);
+
+  /*
+    BASE = CHARCOAL ORIGINALE DELLA PALETTE
+
+    Il Dusty Sage entra solo come leggerissima atmosfera
+    sul lato destro, dove arriva visivamente il marbling.
+  */
+
+  background:
+    radial-gradient(
+      ellipse at 88% 10%,
+      rgba(150, 160, 141, .11) 0%,
+      rgba(150, 160, 141, .045) 28%,
+      transparent 55%
+    ),
+    #2f2e2b;
+}
+
+
+/* ============================================================
+   02. REMOVE PREVIOUS MINERAL SHEEN
+   ============================================================ */
+
+.services-section::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  /*
+    Quasi impercettibile:
+    serve solo a evitare una superficie completamente piatta.
+  */
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 52%,
+      rgba(238, 234, 226, .012) 57%,
+      transparent 64%
+    );
+}
+
+
+/* niente numeri / ghost element */
+
+.services-section::before {
+  display: none;
+}
+
+
+/* ============================================================
+   03. GOLD SEAM
+   ============================================================ */
+
+.services-threshold {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 20;
+
+  width: 100%;
+  height: 3px;
+
+  overflow: hidden;
+
+  background: transparent;
+
+  pointer-events: none;
+}
+
+
+.services-threshold::before {
+  content: "";
+
+  display: block;
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: var(--gold);
+
+  transform:
+    scaleX(
+      var(
+        --services-threshold-scale,
+        1
+      )
+    );
+
+  transform-origin: left center;
+
+  will-change: transform;
+}
+
+
+.services-threshold__inner {
+  display: none;
+}
+
+
+/* ============================================================
+   04. CONTENT ABOVE BACKGROUND
+   ============================================================ */
+
+.services-section__inner {
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* ============================================================
+   05. SERVICES META
+   ============================================================ */
+
+/*
+  Niente gold qui.
+
+  Dusty Sage molto attenuato:
+  il gold rimane solo come accento prezioso.
+*/
+
+.services-section .section-label,
+.services-section .section-count {
+  color:
+    rgba(150, 160, 141, .72);
+
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 9px;
+  font-weight: 400;
+
+  text-transform: uppercase;
+
+  letter-spacing: .18em;
+}
+
+
+/* ============================================================
+   06. SERVICES TITLE
+   ============================================================ */
+
+.services-section .section-intro h2 {
+  margin-top: 20px;
+
+  max-width: none;
+
+  /*
+    Warm Paper.
+    Non bianco puro e non Sand giallastro.
+  */
+
+  color: var(--paper);
+
+  font-size:
+    clamp(
+      46px,
+      3.55vw,
+      64px
+    );
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  letter-spacing: -.045em;
+}
+
+
+/*
+  Desktop:
+  una sola riga.
+
+  "Cosa posso costruire per il tuo progetto."
+*/
+
+@media (min-width: 1100px) {
+
+  .services-section .section-intro h2 br {
+    display: none;
+  }
+
+}
+
+
+/* ============================================================
+   07. REDUCE EMPTY SPACE
+   ============================================================ */
+
+.services-editorial {
+  margin-top:
+    clamp(
+      42px,
+      4vw,
+      58px
+    );
+
+  border-top:
+    1px solid
+    rgba(238, 234, 226, .15);
+
+  border-bottom:
+    1px solid
+    rgba(238, 234, 226, .15);
+}
+
+
+/* ============================================================
+   08. SERVICES INDEX
+   ============================================================ */
+
+.services-index {
+  background: transparent;
+}
+
+
+.service-tab {
+  border-bottom:
+    1px solid
+    rgba(238, 234, 226, .10);
+}
+
+
+/* niente fondi colorati / gradienti nei tab */
+
+.service-tab::before {
+  display: none;
+}
+
+
+/* ============================================================
+   09. SERVICE NUMBERS
+   ============================================================ */
+
+.service-tab__number {
+  color:
+    rgba(238, 234, 226, .28);
+}
+
+
+.service-tab.is-active
+.service-tab__number {
+  /*
+    Qui il gold ha senso:
+    indica lo stato attivo.
+  */
+
+  color: var(--gold);
+}
+
+
+/* ============================================================
+   10. SERVICE TITLES
+   ============================================================ */
+
+.service-tab__title {
+  color:
+    rgba(238, 234, 226, .34);
+
+  transition:
+    color .4s ease,
+    transform .5s var(--ease);
+}
+
+
+.service-tab:hover
+.service-tab__title {
+  color:
+    rgba(238, 234, 226, .62);
+}
+
+
+.service-tab.is-active
+.service-tab__title {
+  color: var(--paper);
+}
+
+
+/* ============================================================
+   11. SERVICE DESCRIPTIONS
+   ============================================================ */
+
+.service-tab__summary {
+  color:
+    rgba(238, 234, 226, .32);
+}
+
+
+.service-tab:hover
+.service-tab__summary {
+  color:
+    rgba(238, 234, 226, .5);
+}
+
+
+.service-tab.is-active
+.service-tab__summary {
+  color:
+    rgba(238, 234, 226, .66);
+}
+
+
+/* ============================================================
+   12. ACTIVE MARK
+   ============================================================ */
+
+.service-tab__mark {
+  width: 16px;
+
+  background:
+    rgba(238, 234, 226, .16);
+}
+
+
+.service-tab.is-active
+.service-tab__mark {
+  width: 48px;
+
+  background: var(--gold);
+}
+
+
+/* ============================================================
+   13. STAGE
+   ============================================================ */
+
+/*
+  Lo stage rimane Warm Paper.
+
+  Questo fa sì che Services utilizzi essenzialmente:
+  Charcoal + Paper + Sage + micro Gold.
+*/
+
+.services-stage {
+  background:
+    linear-gradient(
+      145deg,
+      #f1ede6 0%,
+      #eeeae2 68%,
+      #ebe6dd 100%
+    );
+
+  color: var(--ink);
+
+  border-left:
+    1px solid
+    rgba(195, 164, 113, .38);
+
+  /*
+    Manteniamo la cornice molto discreta.
+  */
+
+  outline:
+    1px solid
+    rgba(195, 164, 113, .10);
+
+  outline-offset: 8px;
+}
+
+
+/* piccolo dettaglio gold */
+
+.services-stage::before {
+  width: 56px;
+  height: 2px;
+
+  background: var(--gold);
+}
+
+
+/* luce interna molto più tenue */
+
+.services-stage::after {
+  opacity: .35;
+}
+
+
+/* ============================================================
+   14. WEB VISUAL
+   ============================================================ */
+
+.service-web__desktop,
+.service-web__mobile {
+  background:
+    #f1ede6;
+}
+
+
+/*
+  Dusty Sage reale della palette,
+  senza inventare altri verdi.
+*/
+
+.service-web__media {
+  background:
+    linear-gradient(
+      145deg,
+      #a1aa99 0%,
+      #96a08d 55%,
+      #8d9785 100%
+    );
+}
+
+
+.service-web__mobile-media {
+  background:
+    #96a08d;
+}
+
+
+/* ============================================================
+   15. MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .services-section {
+    padding:
+      62px
+      28px
+      90px;
+
+    background:
+      radial-gradient(
+        ellipse at 92% 5%,
+        rgba(150, 160, 141, .09),
+        transparent 38%
+      ),
+      #2f2e2b;
+  }
+
+
+  .services-section .section-intro h2 {
+    margin-top: 22px;
+
+    max-width: 100%;
+
+    font-size:
+      clamp(
+        38px,
+        10.5vw,
+        52px
+      );
+
+    line-height: .98;
+  }
+
+
+  /*
+    Su mobile il <br> torna a funzionare normalmente.
+  */
+
+  .services-section .section-intro h2 br {
+    display: initial;
+  }
+
+
+  .services-editorial {
+    margin-top: 44px;
+  }
+
+
+  .services-stage {
+    outline: none;
+  }
+
+}
+
+/* ============================================================
+   SERVICES — PALETTE REFINED / VISIBLE VERSION
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   SECTION BACKGROUND
+   ------------------------------------------------------------ */
+
+.services-section {
+  position: relative;
+  isolation: isolate;
+
+  margin-top: 0;
+
+  padding:
+    clamp(66px, 5vw, 86px)
+    6.7vw
+    clamp(110px, 10vw, 165px);
+
+  color: var(--paper);
+
+  /*
+   * Base vera = CHARCOAL originale.
+   *
+   * A destra entra Dusty Sage in maniera visibile,
+   * ma senza trasformare tutta la sezione in verde.
+   */
+
+  background:
+    linear-gradient(
+      108deg,
+      #2f2e2b 0%,
+      #2f2e2b 48%,
+      rgba(150, 160, 141, .12) 72%,
+      rgba(150, 160, 141, .23) 100%
+    ),
+    #2f2e2b;
+}
+
+
+/* ------------------------------------------------------------
+   SOFT SAGE LIGHT
+   ------------------------------------------------------------ */
+
+.services-section::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: 0;
+
+  top: -15%;
+  right: -12%;
+
+  width: 58%;
+  height: 72%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(150, 160, 141, .22) 0%,
+      rgba(150, 160, 141, .10) 34%,
+      transparent 70%
+    );
+
+  filter: blur(18px);
+}
+
+
+/* niente 02 o altri elementi */
+
+.services-section::before {
+  display: none;
+}
+
+
+/* ------------------------------------------------------------
+   CONTENT
+   ------------------------------------------------------------ */
+
+.services-section__inner {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ------------------------------------------------------------
+   SECTION META
+   ------------------------------------------------------------ */
+
+.services-section .section-label,
+.services-section .section-count {
+  /*
+   * Niente gold.
+   * Devono essere informazioni, non decorazione.
+   */
+
+  color:
+    rgba(238, 234, 226, .46);
+
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .18em;
+}
+
+
+/* ------------------------------------------------------------
+   TITLE
+   ------------------------------------------------------------ */
+
+.services-section .section-intro h2 {
+  margin-top: 18px;
+
+  max-width: none;
+
+  /*
+   * SAND invece del bianco:
+   * più caldo, più vicino alla Hero.
+   */
+
+  color: #ece1d1;
+
+  font-size:
+    clamp(
+      44px,
+      3.45vw,
+      62px
+    );
+
+  font-weight: 300;
+
+  line-height: .98;
+
+  letter-spacing: -.045em;
+}
+
+
+/* desktop: niente a capo */
+
+@media (min-width: 1100px) {
+
+  .services-section .section-intro h2 br {
+    display: none;
+  }
+
+}
+
+
+/* ------------------------------------------------------------
+   GOLD SEAM
+   ------------------------------------------------------------ */
+
+.services-threshold {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 20;
+
+  width: 100%;
+  height: 3px;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+
+.services-threshold::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  height: 3px;
+
+  /*
+   * Champagne Gold vero.
+   */
+
+  background: #c3a471;
+
+  transform:
+    scaleX(
+      var(
+        --services-threshold-scale,
+        1
+      )
+    );
+
+  transform-origin: left center;
+}
+
+
+.services-threshold__inner {
+  display: none;
+}
+
+
+/* ------------------------------------------------------------
+   MOVE SERVICES UP / REDUCE EMPTY SPACE
+   ------------------------------------------------------------ */
+
+.services-editorial {
+  margin-top:
+    clamp(
+      38px,
+      3.5vw,
+      52px
+    );
+
+  border-top:
+    1px solid
+    rgba(238, 234, 226, .15);
+
+  border-bottom:
+    1px solid
+    rgba(238, 234, 226, .15);
+}
+
+
+/* ------------------------------------------------------------
+   INDEX
+   ------------------------------------------------------------ */
+
+.services-index {
+  position: relative;
+
+  background:
+    rgba(20, 21, 19, .16);
+
+  /*
+   * Una differenza molto leggera rispetto al fondo,
+   * senza diventare una card.
+   */
+}
+
+
+/* ------------------------------------------------------------
+   SERVICE TAB
+   ------------------------------------------------------------ */
+
+.service-tab {
+  border-bottom:
+    1px solid
+    rgba(238, 234, 226, .10);
+}
+
+
+.service-tab::before {
+  display: none;
+}
+
+
+/* ------------------------------------------------------------
+   NUMBERS
+   ------------------------------------------------------------ */
+
+.service-tab__number {
+  color:
+    rgba(238, 234, 226, .27);
+}
+
+
+.service-tab.is-active
+.service-tab__number {
+  color: #c3a471;
+}
+
+
+/* ------------------------------------------------------------
+   TITLES
+   ------------------------------------------------------------ */
+
+.service-tab__title {
+  color:
+    rgba(238, 234, 226, .31);
+}
+
+
+.service-tab:hover
+.service-tab__title {
+  color:
+    rgba(238, 234, 226, .62);
+}
+
+
+.service-tab.is-active
+.service-tab__title {
+  color:
+    #eeeae2;
+}
+
+
+/* ------------------------------------------------------------
+   DESCRIPTIONS
+   ------------------------------------------------------------ */
+
+.service-tab__summary {
+  color:
+    rgba(238, 234, 226, .30);
+}
+
+
+.service-tab:hover
+.service-tab__summary {
+  color:
+    rgba(238, 234, 226, .47);
+}
+
+
+.service-tab.is-active
+.service-tab__summary {
+  color:
+    rgba(238, 234, 226, .65);
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVE MARK
+   ------------------------------------------------------------ */
+
+.service-tab__mark {
+  width: 15px;
+
+  background:
+    rgba(238, 234, 226, .16);
+}
+
+
+.service-tab.is-active
+.service-tab__mark {
+  width: 48px;
+
+  background:
+    #c3a471;
+}
+
+
+/* ------------------------------------------------------------
+   STAGE
+   ------------------------------------------------------------ */
+
+.services-stage {
+  background:
+    #eeeae2;
+
+  color:
+    #20211f;
+
+  border-left:
+    1px solid
+    rgba(195, 164, 113, .38);
+
+  /*
+   * Tolgo quasi completamente l'effetto "cornice card".
+   */
+
+  outline:
+    1px solid
+    rgba(195, 164, 113, .08);
+
+  outline-offset: 7px;
+}
+
+
+/* ------------------------------------------------------------
+   STAGE GOLD DETAIL
+   ------------------------------------------------------------ */
+
+.services-stage::before {
+  width: 54px;
+  height: 2px;
+
+  background:
+    #c3a471;
+}
+
+
+/* ------------------------------------------------------------
+   REMOVE EXCESSIVE STAGE GLOW
+   ------------------------------------------------------------ */
+
+.services-stage::after {
+  opacity: .18;
+}
+
+
+/* ------------------------------------------------------------
+   WEB MOCKUP
+   ------------------------------------------------------------ */
+
+.service-web__desktop,
+.service-web__mobile {
+  background:
+    #f1ede6;
+}
+
+
+/* Dusty Sage reale */
+
+.service-web__media {
+  background:
+    #96a08d;
+}
+
+
+.service-web__mobile-media {
+  background:
+    #96a08d;
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 700px) {
+
+  .services-section {
+    padding:
+      60px
+      28px
+      90px;
+
+    background:
+      linear-gradient(
+        120deg,
+        #2f2e2b 0%,
+        #2f2e2b 60%,
+        rgba(150, 160, 141, .15) 100%
+      ),
+      #2f2e2b;
+  }
+
+
+  .services-section::after {
+    opacity: .5;
+  }
+
+
+  .services-section .section-intro h2 {
+    margin-top: 20px;
+
+    color:
+      #ece1d1;
+
+    font-size:
+      clamp(
+        38px,
+        10.5vw,
+        52px
+      );
+  }
+
+
+  .services-section .section-intro h2 br {
+    display: initial;
+  }
+
+
+  .services-editorial {
+    margin-top: 40px;
+  }
+
+}
