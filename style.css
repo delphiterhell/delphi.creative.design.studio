@@ -1,28 +1,25 @@
 /* ============================================================
    DELPHI — DIGITAL CREATIVE STUDIO
-   COMPLETE STYLE.CSS
+   MASTER STYLE.CSS
    ============================================================ */
 
 
 /* ============================================================
-   01. BRAND SYSTEM
+   01. VARIABLES
    ============================================================ */
 
 :root {
   --paper: #eeeae2;
   --soft-paper: #f1ede6;
-  --sand: #ece1d1;
 
   --sage: #96a08d;
+  --sage-paper: #e0ded4;
   --deep-sage: #76816f;
 
   --gold: #c3a471;
 
+  --charcoal: #2f2e2b;
   --ink: #20211f;
-  --mineral: #262824;
-
-  --line: rgba(32, 33, 31, .16);
-  --line-soft: rgba(32, 33, 31, .09);
 
   --ease: cubic-bezier(.16, 1, .3, 1);
 }
@@ -32,7 +29,9 @@
    02. RESET
    ============================================================ */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -60,6 +59,7 @@ a {
 }
 
 button {
+  border: 0;
   color: inherit;
   font: inherit;
 }
@@ -67,6 +67,7 @@ button {
 img,
 video {
   display: block;
+  max-width: 100%;
 }
 
 ::selection {
@@ -74,9 +75,18 @@ video {
   color: var(--ink);
 }
 
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+
 main {
   position: relative;
-  z-index: 1;
+  z-index: 10;
+
+  width: 100%;
+
+  background: var(--paper);
 }
 
 
@@ -87,34 +97,30 @@ main {
 .hero {
   position: sticky;
   top: 0;
-  z-index: 0;
+
+  z-index: 1;
 
   width: 100%;
   height: 100svh;
+
   min-height: 720px;
 
   overflow: hidden;
 
-  background:
-    linear-gradient(
-      90deg,
-      #f1ede6 0%,
-      #f1ede6 38%,
-      #ece8e0 100%
-    );
+  background: var(--soft-paper);
 }
 
 
 /* ============================================================
-   04. HERO ART
+   HERO ART
    ============================================================ */
 
 .hero-art {
   position: absolute;
 
-  inset: 0 0 0 31%;
-
   z-index: 0;
+
+  inset: 0 0 0 31%;
 
   overflow: hidden;
 
@@ -148,9 +154,6 @@ main {
 
   transform: scale(1.02);
 
-  transition:
-    transform .3s ease-out;
-
   will-change: transform;
 }
 
@@ -158,28 +161,28 @@ main {
   position: absolute;
   inset: 0;
 
+  pointer-events: none;
+
   background:
     linear-gradient(
       90deg,
       rgba(241, 237, 230, .42),
       transparent 40%
     );
-
-  pointer-events: none;
 }
 
 
 /* ============================================================
-   05. NAVIGATION
+   NAVIGATION
    ============================================================ */
 
 .nav {
   position: absolute;
 
+  z-index: 20;
+
   top: 0;
   left: 0;
-
-  z-index: 20;
 
   width: 100%;
 
@@ -193,7 +196,7 @@ main {
   align-items: center;
 
   padding:
-    42px
+    38px
     4.5vw;
 }
 
@@ -210,40 +213,38 @@ main {
   font-size: 30px;
   font-weight: 400;
 
+  line-height: 1;
+
   letter-spacing: .22em;
 }
 
 .brand-sub {
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-size: 10px;
+  font-size: 9px;
 
   text-transform: uppercase;
 
-  letter-spacing: .15em;
+  letter-spacing: .16em;
 
-  opacity: .72;
+  opacity: .68;
 }
 
 .nav-links {
   display: flex;
 
-  gap: 42px;
+  gap: 38px;
 }
 
 .nav-links a,
 .language {
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-size: 11px;
+  font-size: 9px;
 
   text-transform: uppercase;
 
-  letter-spacing: .14em;
+  letter-spacing: .16em;
 }
 
 .nav-links a {
@@ -267,9 +268,7 @@ main {
   transform-origin: right;
 
   transition:
-    transform
-    .45s
-    cubic-bezier(.2, .7, .2, 1);
+    transform .4s var(--ease);
 }
 
 .nav-links a:hover::after,
@@ -284,7 +283,7 @@ main {
 
 
 /* ============================================================
-   06. HERO COPY
+   HERO COPY
    ============================================================ */
 
 .hero-copy {
@@ -293,33 +292,33 @@ main {
   z-index: 10;
 
   left: 6.7vw;
-  top: 51%;
+  top: 50%;
 
-  width: min(690px, 49vw);
+  width: min(720px, 49vw);
 
   transform:
-    translateY(-40%);
+    translateY(-39%);
 }
 
-.hero h1 {
+.hero-copy h1 {
   display: flex;
   flex-direction: column;
 
   font-size:
     clamp(
       58px,
-      5.1vw,
+      5.15vw,
       98px
     );
 
   font-weight: 300;
 
-  line-height: 1.02;
+  line-height: 1.01;
 
-  letter-spacing: -.045em;
+  letter-spacing: -.05em;
 }
 
-.hero h1 span {
+.hero-copy h1 span {
   display: block;
 }
 
@@ -328,9 +327,9 @@ main {
   height: 1px;
 
   margin:
-    44px
+    42px
     0
-    27px;
+    26px;
 
   background: var(--deep-sage);
 }
@@ -338,7 +337,7 @@ main {
 .hero-description {
   max-width: 420px;
 
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 300;
 
   line-height: 1.55;
@@ -348,7 +347,7 @@ main {
 
 
 /* ============================================================
-   07. HERO GRID
+   HERO GRID
    ============================================================ */
 
 .layout-grid {
@@ -366,7 +365,7 @@ main {
   display: block;
 
   background:
-    rgba(255, 255, 255, .53);
+    rgba(255, 255, 255, .55);
 }
 
 .grid-v {
@@ -409,122 +408,7 @@ main {
 
 
 /* ============================================================
-   08. CUSTOM HERO CURSOR
-   ============================================================ */
-
-@media (pointer: fine) {
-
-  .hero,
-  .hero a,
-  .hero button,
-  .hero .palette-card {
-    cursor: none;
-  }
-
-}
-
-.hero-cursor {
-  position: fixed;
-
-  top: 0;
-  left: 0;
-
-  z-index: 9999;
-
-  pointer-events: none;
-
-  opacity: 0;
-
-  transform:
-    translate3d(-100px, -100px, 0);
-
-  transition:
-    opacity .2s ease;
-}
-
-.hero-cursor.is-visible {
-  opacity: 1;
-}
-
-.hero-cursor__dot {
-  position: absolute;
-
-  top: -4.5px;
-  left: -4.5px;
-
-  width: 9px;
-  height: 9px;
-
-  border:
-    1px solid transparent;
-
-  border-radius: 50%;
-
-  background: var(--gold);
-
-  transition:
-    width .3s var(--ease),
-    height .3s var(--ease),
-    top .3s var(--ease),
-    left .3s var(--ease),
-    background-color .3s var(--ease),
-    border-color .3s var(--ease);
-}
-
-.hero-cursor__dot::after {
-  content: "";
-
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: 4px;
-  height: 4px;
-
-  border-radius: 50%;
-
-  background: var(--gold);
-
-  transform:
-    translate(-50%, -50%)
-    scale(0);
-
-  transition:
-    transform .3s var(--ease);
-}
-
-.hero-cursor.is-interactive
-.hero-cursor__dot {
-  top: -17px;
-  left: -17px;
-
-  width: 34px;
-  height: 34px;
-
-  background: transparent;
-
-  border-color: var(--gold);
-}
-
-.hero-cursor.is-interactive
-.hero-cursor__dot::after {
-  transform:
-    translate(-50%, -50%)
-    scale(1);
-}
-
-@media (pointer: coarse) {
-
-  .hero-cursor {
-    display: none;
-  }
-
-}
-
-
-/* ============================================================
-   09. HERO PALETTE
+   HERO PALETTE
    ============================================================ */
 
 .palette-card {
@@ -538,17 +422,16 @@ main {
 
   border:
     1px solid
-    rgba(255, 255, 255, .75);
+    rgba(255, 255, 255, .72);
 
   background:
-    rgba(255, 255, 255, .03);
+    rgba(255, 255, 255, .025);
 
   transition:
     width .6s var(--ease),
     height .6s var(--ease),
     transform .6s var(--ease),
-    backdrop-filter .45s ease,
-    border-color .45s ease;
+    border-color .4s ease;
 }
 
 .palette-card::before {
@@ -557,53 +440,36 @@ main {
   position: absolute;
   inset: 0;
 
-  background:
-    var(--swatch);
+  background: var(--swatch);
 
   opacity: 0;
 
-  transform:
-    scale(.96);
+  transform: scale(.97);
 
   transition:
-    opacity .45s ease,
-    transform .6s var(--ease);
+    opacity .4s ease,
+    transform .55s var(--ease);
 }
 
 .palette-card:hover::before,
 .palette-card.is-active::before {
-  opacity: .88;
-
+  opacity: .9;
   transform: scale(1);
-}
-
-.palette-card:hover,
-.palette-card.is-active {
-  border-color:
-    rgba(255, 255, 255, .95);
-
-  backdrop-filter:
-    blur(8px);
-
-  -webkit-backdrop-filter:
-    blur(8px);
 }
 
 .palette-number {
   position: absolute;
 
-  top: 18px;
-  left: 18px;
-
   z-index: 2;
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  top: 17px;
+  left: 17px;
 
-  font-size: 11px;
+  font-family: "IBM Plex Mono", monospace;
 
-  letter-spacing: .1em;
+  font-size: 9px;
+
+  letter-spacing: .14em;
 }
 
 .palette-info {
@@ -611,58 +477,44 @@ main {
 
   z-index: 2;
 
-  left: 19px;
-  bottom: 18px;
+  left: 18px;
+  bottom: 17px;
 
   display: flex;
   flex-direction: column;
 
-  gap: 5px;
+  gap: 4px;
 
   opacity: 0;
 
   transform:
-    translateY(10px);
+    translateY(7px);
 
   transition:
-    opacity .35s ease .08s,
-    transform .45s var(--ease);
+    opacity .3s ease,
+    transform .4s var(--ease);
 }
 
-.palette-card:hover
-.palette-info,
-
-.palette-card.is-active
-.palette-info {
+.palette-card:hover .palette-info,
+.palette-card.is-active .palette-info {
   opacity: 1;
-
-  transform:
-    translateY(0);
+  transform: none;
 }
 
 .palette-name {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
 }
 
 .palette-hex {
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-size: 10px;
-
-  text-transform: uppercase;
+  font-size: 8px;
 
   letter-spacing: .12em;
-
-  opacity: .8;
 }
 
 
-/* ============================================================
-   10. PALETTE POSITIONS
-   ============================================================ */
+/* POSITIONS */
 
 .palette-card-01 {
   top: 19%;
@@ -712,41 +564,14 @@ main {
     translate(-1vw, -2vh);
 }
 
-
-/* ============================================================
-   11. CHAMPAGNE GOLD CARD CONTRAST
-   ============================================================ */
-
 .palette-card-03:hover,
 .palette-card-03.is-active {
   color: var(--ink);
-
-  border-color:
-    rgba(32, 33, 31, .32);
-}
-
-.palette-card-03:hover::before,
-.palette-card-03.is-active::before {
-  opacity: .96;
-}
-
-.palette-card-03:hover .palette-number,
-.palette-card-03.is-active .palette-number,
-.palette-card-03:hover .palette-name,
-.palette-card-03.is-active .palette-name,
-.palette-card-03:hover .palette-hex,
-.palette-card-03.is-active .palette-hex {
-  color: var(--ink);
-}
-
-.palette-card-03:hover .palette-hex,
-.palette-card-03.is-active .palette-hex {
-  opacity: .68;
 }
 
 
 /* ============================================================
-   12. HERO CTA
+   HERO CTA
    ============================================================ */
 
 .hero-discover {
@@ -754,25 +579,22 @@ main {
 
   z-index: 10;
 
-  bottom: 7%;
   left: 6.7vw;
-
-  display: flex;
-  align-items: center;
-
-  gap: 22px;
+  bottom: 7%;
 
   width: 56%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
 }
 
 .hero-discover__label {
-  flex: 0 0 auto;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 12px;
+  font-size: 10px;
 
   text-transform: uppercase;
 
@@ -780,26 +602,22 @@ main {
 }
 
 .hero-discover__line {
-  flex: 1 1 auto;
+  flex: 1;
 
   height: 1px;
 
   background:
-    rgba(95, 106, 94, .38);
-
-  transition:
-    background-color .35s ease;
+    rgba(95, 106, 94, .4);
 }
 
 .hero-discover__circle {
   display: grid;
-
   place-items: center;
 
-  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
 
-  width: 50px;
-  height: 50px;
+  flex: none;
 
   border:
     1px solid
@@ -807,22 +625,13 @@ main {
 
   border-radius: 50%;
 
-  color: #687265;
-
-  font-size: 17px;
-  font-weight: 300;
+  color: var(--deep-sage);
 
   transition:
-    transform .35s ease,
     background-color .35s ease,
+    border-color .35s ease,
     color .35s ease,
-    border-color .35s ease;
-}
-
-.hero-discover:hover
-.hero-discover__line {
-  background:
-    rgba(95, 106, 94, .6);
+    transform .35s var(--ease);
 }
 
 .hero-discover:hover
@@ -838,208 +647,516 @@ main {
 
 
 /* ============================================================
-   13. HERO LOAD ANIMATIONS
+   HERO CUSTOM CURSOR
    ============================================================ */
 
-.hero-copy > *,
-.nav,
-.palette-card {
+@media (pointer: fine) {
+
+  .hero,
+  .hero a,
+  .hero .palette-card {
+    cursor: none;
+  }
+
+}
+
+.hero-cursor {
+  position: fixed;
+
+  z-index: 9999;
+
+  top: 0;
+  left: 0;
+
   opacity: 0;
+
+  pointer-events: none;
 }
 
-body.loaded
-.nav {
-  animation:
-    fadeDown .9s .15s forwards;
+.hero-cursor.is-visible {
+  opacity: 1;
 }
 
-body.loaded
-.hero h1 {
-  animation:
-    fadeUp 1s .4s forwards;
+.hero-cursor__dot {
+  position: absolute;
+
+  top: -4.5px;
+  left: -4.5px;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  transition:
+    width .3s var(--ease),
+    height .3s var(--ease),
+    top .3s var(--ease),
+    left .3s var(--ease),
+    background-color .3s ease,
+    border-color .3s ease;
 }
 
-body.loaded
-.copy-line {
-  animation:
-    revealLine .9s .7s forwards;
-}
+.hero-cursor.is-interactive
+.hero-cursor__dot {
+  top: -17px;
+  left: -17px;
 
-body.loaded
-.hero-description {
-  animation:
-    fadeUp .9s .75s forwards;
-}
+  width: 34px;
+  height: 34px;
 
-body.loaded
-.palette-card {
-  animation:
-    fadeUp 1.1s 1s forwards;
-}
+  border:
+    1px solid
+    var(--gold);
 
-@keyframes fadeUp {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-@keyframes fadeDown {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(-12px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-@keyframes revealLine {
-
-  from {
-    opacity: 0;
-
-    transform:
-      scaleX(0);
-
-    transform-origin: left;
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      scaleX(1);
-
-    transform-origin: left;
-  }
-
+  background: transparent;
 }
 
 
 /* ============================================================
-   14. SHARED SECTIONS
+   04. MI PRESENTO
    ============================================================ */
 
-.section-intro {
+.intro-section {
+  position: relative;
+
+  z-index: 20;
+
+  width: 100%;
+  min-height: 690px;
+
   display: grid;
 
   grid-template-columns:
-    1fr
-    1fr;
+    minmax(0, 59%)
+    minmax(0, 41%);
+
+  overflow: hidden;
+
+  background: var(--paper);
+
+  border-top:
+    1px solid
+    rgba(32, 33, 31, .09);
+
+  border-bottom:
+    1px solid
+    rgba(195, 164, 113, .42);
+
+  opacity: 1;
 }
 
-.section-label,
-.section-count {
-  font-family:
-    "IBM Plex Mono",
-    monospace;
 
-  font-size: 10px;
+/* ============================================================
+   INTRO LEFT
+   ============================================================ */
+
+.intro-content {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    82px
+    clamp(60px, 6vw, 110px)
+    82px
+    4.7vw;
+
+  background: var(--paper);
+
+  opacity: 1;
+  transform: none;
+}
+
+.intro-content h2 {
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size:
+    clamp(
+      40px,
+      3vw,
+      54px
+    );
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  letter-spacing: -.045em;
+}
+
+
+/* ============================================================
+   INTRO COPY
+   ============================================================ */
+
+.intro-copy {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(220px, .95fr);
+
+  gap:
+    clamp(
+      40px,
+      4.5vw,
+      72px
+    );
+
+  width: 100%;
+  max-width: 800px;
+
+  margin-top:
+    clamp(
+      38px,
+      3.5vw,
+      50px
+    );
+
+  padding-top: 26px;
+
+  border-top:
+    1px solid
+    rgba(118, 129, 111, .24);
+}
+
+.intro-copy__primary {
+  max-width: 390px;
+
+  color:
+    rgba(32, 33, 31, .92);
+
+  font-size:
+    clamp(
+      18px,
+      1.2vw,
+      21px
+    );
+
+  font-weight: 300;
+
+  line-height: 1.5;
+
+  letter-spacing: -.025em;
+}
+
+.intro-copy__primary strong {
+  color: var(--ink);
+
+  font-weight: 500;
+}
+
+.intro-copy__secondary {
+  max-width: 315px;
+
+  color:
+    rgba(32, 33, 31, .72);
+
+  font-size:
+    clamp(
+      15px,
+      .95vw,
+      17px
+    );
+
+  font-weight: 300;
+
+  line-height: 1.6;
+
+  letter-spacing: -.012em;
+}
+
+
+/* ============================================================
+   INTRO CTA
+   ============================================================ */
+
+.intro-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  width: fit-content;
+
+  margin-top:
+    clamp(
+      34px,
+      3.5vw,
+      48px
+    );
+
+  color:
+    rgba(32, 33, 31, .8);
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 9px;
 
   text-transform: uppercase;
 
   letter-spacing: .16em;
 }
 
-.section-count {
-  text-align: right;
+.intro-link__line {
+  width: 32px;
+  height: 1px;
+
+  background: var(--gold);
+
+  transition:
+    width .4s var(--ease);
 }
 
-.section-intro h2 {
-  grid-column:
-    1
-    /
-    -1;
+.intro-link__arrow {
+  color: var(--deep-sage);
 
-  margin-top:
-    clamp(
-      60px,
-      7vw,
-      110px
-    );
+  transition:
+    transform .4s var(--ease);
+}
 
-  font-size:
-    clamp(
-      50px,
-      6.3vw,
-      105px
-    );
+.intro-link:hover
+.intro-link__line {
+  width: 48px;
+}
 
-  font-weight: 300;
-
-  line-height: .98;
-
-  letter-spacing: -.055em;
+.intro-link:hover
+.intro-link__arrow {
+  transform:
+    translate(3px, 3px);
 }
 
 
 /* ============================================================
-   15. SERVICES — MINERAL CHAPTER
+   INTRO META
+   ============================================================ */
+
+.intro-meta {
+  position: absolute;
+
+  left: 4.7vw;
+  bottom: 28px;
+
+  display: flex;
+
+  gap: 28px;
+
+  color:
+    rgba(62, 81, 72, .42);
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 7px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .15em;
+}
+
+.intro-meta span {
+  position: relative;
+}
+
+.intro-meta
+span:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: -16px;
+
+  width: 5px;
+  height: 1px;
+
+  background: var(--gold);
+}
+
+
+/* ============================================================
+   INTRO RIGHT / PHOTO AREA
+   ============================================================ */
+
+.intro-portrait {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    clamp(48px, 5vw, 76px)
+    clamp(32px, 4vw, 64px);
+
+  background: var(--sage-paper);
+
+  border-left:
+    1px solid
+    rgba(118, 129, 111, .20);
+
+  opacity: 1;
+  transform: none;
+}
+
+.intro-portrait::before {
+  display: none;
+}
+
+
+/* ============================================================
+   INTRO PHOTO
+   ============================================================ */
+
+.intro-portrait__image {
+  position: relative;
+
+  width:
+    min(
+      82%,
+      510px
+    );
+
+  aspect-ratio:
+    4 / 5;
+
+  overflow: hidden;
+
+  background: var(--soft-paper);
+}
+
+.intro-portrait__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position:
+    50% 42%;
+
+  filter:
+    saturate(.92)
+    contrast(.99);
+
+  transform:
+    scale(1.02);
+
+  transition:
+    transform 1s var(--ease),
+    filter .6s ease;
+}
+
+.intro-portrait:hover
+.intro-portrait__image img {
+  filter:
+    saturate(.98)
+    contrast(1);
+
+  transform:
+    scale(1.04);
+}
+
+
+/* ============================================================
+   INTRO PHOTO CAPTION
+   ============================================================ */
+
+.intro-portrait__caption {
+  position: static;
+
+  width:
+    min(
+      82%,
+      510px
+    );
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 14px;
+
+  padding-top: 11px;
+
+  border-top:
+    1px solid
+    rgba(118, 129, 111, .28);
+
+  color:
+    rgba(47, 46, 43, .52);
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 7px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .15em;
+}
+
+
+/* ============================================================
+   05. SERVICES
    ============================================================ */
 
 .services-section {
   position: relative;
 
-  z-index: 2;
+  z-index: 20;
 
   isolation: isolate;
 
-  /*
-    IMPORTANTE:
-    niente più -48px.
-    La Hero termina completamente prima di Services.
-  */
-
-  margin-top: 0;
+  width: 100%;
 
   padding:
-    clamp(92px, 7.5vw, 126px)
+    clamp(
+      76px,
+      6vw,
+      105px
+    )
     6.7vw
-    clamp(110px, 10vw, 165px);
+    clamp(
+      110px,
+      10vw,
+      160px
+    );
 
-  color: var(--paper);
+  overflow: hidden;
 
   background:
-    radial-gradient(
-      ellipse at 84% 14%,
-      rgba(150, 160, 141, .16) 0%,
-      rgba(150, 160, 141, .075) 19%,
-      rgba(150, 160, 141, .025) 34%,
-      transparent 52%
-    ),
-    radial-gradient(
-      ellipse at 8% 86%,
-      rgba(195, 164, 113, .11) 0%,
-      rgba(195, 164, 113, .045) 22%,
-      transparent 43%
-    ),
-    var(--mineral);
+    linear-gradient(
+      108deg,
+      #2f2e2b 0%,
+      #2f2e2b 54%,
+      #30322f 76%,
+      #343933 100%
+    );
+
+  color: var(--paper);
 }
 
 
-/* ============================================================
-   16. MINERAL SHEEN
-   ============================================================ */
+/* SAGE ATMOSPHERE */
 
 .services-section::after {
   content: "";
@@ -1048,51 +1165,29 @@ body.loaded
 
   z-index: 0;
 
-  inset: 0;
+  top: -10%;
+  right: -15%;
+
+  width: 58%;
+  height: 72%;
 
   pointer-events: none;
 
   background:
-    linear-gradient(
-      112deg,
-      transparent 0%,
-      transparent 43%,
-      rgba(238, 234, 226, .018) 49%,
-      rgba(195, 164, 113, .025) 52%,
-      transparent 58%,
-      transparent 100%
+    radial-gradient(
+      ellipse,
+      rgba(150, 160, 141, .11),
+      transparent 67%
     );
-
-  opacity: .8;
 }
 
 
-/* ============================================================
-   17. GOLD HERO → SERVICES SEAM
-   ============================================================ */
+/* GOLD SEAM */
 
 .services-threshold {
   position: absolute;
 
-  top: 0;
-  left: 0;
-
-  z-index: 20;
-
-  width: 100%;
-  height: 3px;
-
-  overflow: hidden;
-
-  background: transparent;
-
-  pointer-events: none;
-}
-
-.services-threshold::before {
-  content: "";
-
-  position: absolute;
+  z-index: 5;
 
   top: 0;
   left: 0;
@@ -1100,129 +1195,56 @@ body.loaded
   width: 100%;
   height: 3px;
 
-  background:
-    linear-gradient(
-      90deg,
-      #b7955e 0%,
-      #c3a471 32%,
-      #d0b787 68%,
-      #c3a471 100%
-    );
-
-  transform:
-    scaleX(
-      var(
-        --services-threshold-scale,
-        1
-      )
-    );
-
-  transform-origin:
-    left center;
-
-  will-change: transform;
+  background: var(--gold);
 }
-
-.services-threshold__inner {
-  display: none;
-}
-
-
-/* ============================================================
-   18. SERVICES SCROLL ENTRY
-   ============================================================ */
 
 .services-section__inner {
   position: relative;
 
   z-index: 2;
-
-  transform:
-    translate3d(
-      0,
-      var(--services-enter-y, 0px),
-      0
-    );
-}
-
-.services-section
-.section-intro {
-  transform:
-    translate3d(
-      0,
-      var(--services-intro-shift, 0px),
-      0
-    );
 }
 
 
 /* ============================================================
-   19. SERVICES INTRO
+   SERVICES TITLE
    ============================================================ */
 
-.services-section
-.section-label,
+.services-heading h2 {
+  margin: 0;
 
-.services-section
-.section-count {
-  color:
-    rgba(195, 164, 113, .92);
-
-  font-size: 9px;
-
-  letter-spacing: .18em;
-}
-
-.services-section
-.section-intro h2 {
-  margin-top:
-    clamp(
-      30px,
-      3vw,
-      46px
-    );
-
-  max-width: 950px;
-
-  color: #f0ede6;
+  color: #ece1d1;
 
   font-size:
     clamp(
-      50px,
-      4.3vw,
-      76px
+      43px,
+      3.4vw,
+      62px
     );
 
   font-weight: 300;
 
-  line-height: .95;
+  line-height: .98;
 
-  letter-spacing: -.052em;
+  letter-spacing: -.045em;
 }
 
 
 /* ============================================================
-   20. SERVICES EDITORIAL GRID
+   SERVICES EDITORIAL
    ============================================================ */
 
 .services-editorial {
-  position: relative;
-
-  z-index: 3;
-
   display: grid;
 
   grid-template-columns:
-    minmax(330px, .82fr)
-    minmax(540px, 1.18fr);
-
-  width: 100%;
+    minmax(350px, .82fr)
+    minmax(550px, 1.18fr);
 
   margin-top:
     clamp(
-      64px,
-      6vw,
-      94px
+      42px,
+      4vw,
+      60px
     );
 
   border-top:
@@ -1235,23 +1257,16 @@ body.loaded
 }
 
 .services-index {
-  position: relative;
-
-  z-index: 2;
-
   background:
-    rgba(14, 16, 14, .055);
+    rgba(15, 16, 15, .09);
 }
 
 
 /* ============================================================
-   21. SERVICE TABS
+   SERVICE TABS
    ============================================================ */
 
 .service-tab {
-  appearance: none;
-  -webkit-appearance: none;
-
   position: relative;
 
   width: 100%;
@@ -1260,27 +1275,23 @@ body.loaded
   display: grid;
 
   grid-template-columns:
-    52px
+    48px
     minmax(0, 1fr)
-    52px;
+    50px;
 
   align-items: start;
 
   padding:
-    30px
-    28px
+    29px
+    25px
     28px
     0;
 
-  border: 0;
-
   border-bottom:
     1px solid
-    rgba(238, 234, 226, .105);
+    rgba(238, 234, 226, .12);
 
   background: transparent;
-
-  color: var(--paper);
 
   text-align: left;
 
@@ -1289,10 +1300,6 @@ body.loaded
 
 .service-tab:last-child {
   border-bottom: 0;
-}
-
-.service-tab::before {
-  display: none;
 }
 
 .service-tab:focus-visible {
@@ -1304,23 +1311,15 @@ body.loaded
 }
 
 
-/* ============================================================
-   22. SERVICE NUMBER
-   ============================================================ */
+/* NUMBER */
 
 .service-tab__number {
-  position: relative;
-
-  z-index: 1;
-
-  padding-top: 8px;
+  padding-top: 7px;
 
   color:
-    rgba(238, 234, 226, .30);
+    rgba(238, 234, 226, .38);
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
   font-size: 9px;
 
@@ -1336,75 +1335,47 @@ body.loaded
 }
 
 
-/* ============================================================
-   23. SERVICE CONTENT
-   ============================================================ */
+/* CONTENT */
 
 .service-tab__content {
-  position: relative;
-
-  z-index: 1;
-
   display: flex;
   flex-direction: column;
-
-  align-items: flex-start;
 }
 
 .service-tab__title {
-  display: block;
-
   color:
-    rgba(238, 234, 226, .38);
+    rgba(238, 234, 226, .45);
 
   font-size:
     clamp(
-      39px,
+      38px,
       3vw,
-      56px
+      55px
     );
 
   font-weight: 300;
 
-  line-height: .98;
+  line-height: 1;
 
   letter-spacing: -.05em;
 
   transition:
     color .4s ease,
-    transform .55s var(--ease);
-}
-
-.service-tab:hover
-.service-tab__title {
-  color:
-    rgba(238, 234, 226, .70);
-
-  transform:
-    translateX(4px);
-}
-
-.service-tab.is-active
-.service-tab__title {
-  color:
-    #f1eee7;
-
-  transform:
-    translateX(4px);
+    transform .4s var(--ease);
 }
 
 .service-tab__summary {
   max-width: 390px;
 
-  margin-top: 16px;
+  margin-top: 15px;
 
   color:
-    rgba(238, 234, 226, .34);
+    rgba(238, 234, 226, .50);
 
   font-size:
     clamp(
       14px,
-      .9vw,
+      .92vw,
       16px
     );
 
@@ -1413,67 +1384,69 @@ body.loaded
   line-height: 1.55;
 
   transition:
-    color .35s ease,
-    transform .45s var(--ease);
+    color .4s ease;
+}
+
+
+/* HOVER */
+
+.service-tab:hover
+.service-tab__title {
+  color:
+    rgba(238, 234, 226, .72);
 }
 
 .service-tab:hover
 .service-tab__summary {
   color:
-    rgba(238, 234, 226, .52);
+    rgba(238, 234, 226, .65);
 }
 
+
+/* ACTIVE */
+
 .service-tab.is-active
-.service-tab__summary {
-  color:
-    rgba(238, 234, 226, .68);
+.service-tab__title {
+  color: var(--paper);
 
   transform:
     translateX(4px);
 }
 
+.service-tab.is-active
+.service-tab__summary {
+  color:
+    rgba(238, 234, 226, .80);
+}
 
-/* ============================================================
-   24. SERVICE ACTIVE MARK
-   ============================================================ */
+
+/* ACTIVE MARK */
 
 .service-tab__mark {
-  position: relative;
-
-  z-index: 1;
-
-  justify-self: end;
   align-self: center;
+  justify-self: end;
 
-  width: 16px;
+  width: 14px;
   height: 1px;
 
   background:
-    rgba(238, 234, 226, .18);
-
-  transform-origin:
-    right center;
+    rgba(238, 234, 226, .24);
 
   transition:
-    width .55s var(--ease),
-    background-color .35s ease;
+    width .45s var(--ease),
+    background-color .3s ease;
 }
 
 .service-tab.is-active
 .service-tab__mark {
-  width: 52px;
+  width: 45px;
 
-  background:
-    linear-gradient(
-      90deg,
-      var(--gold),
-      rgba(195, 164, 113, .35)
-    );
+  background: var(--gold);
 }
 
 
 /* ============================================================
-   25. SERVICES STAGE
+   SERVICES STAGE
    ============================================================ */
 
 .services-stage {
@@ -1483,32 +1456,14 @@ body.loaded
 
   overflow: hidden;
 
-  color: var(--ink);
+  background: var(--paper);
 
-  background:
-    linear-gradient(
-      145deg,
-      #f1eee7 0%,
-      #eeeae2 66%,
-      #e9e4da 100%
-    );
+  color: var(--ink);
 
   border-left:
     1px solid
-    rgba(195, 164, 113, .52);
-
-  outline:
-    1px solid
-    rgba(195, 164, 113, .14);
-
-  outline-offset:
-    9px;
+    rgba(195, 164, 113, .38);
 }
-
-
-/* ============================================================
-   26. STAGE GOLD DETAIL
-   ============================================================ */
 
 .services-stage::before {
   content: "";
@@ -1520,48 +1475,15 @@ body.loaded
   top: 0;
   left: 0;
 
-  width: 68px;
+  width: 52px;
   height: 2px;
 
   background: var(--gold);
-
-  pointer-events: none;
 }
 
 
 /* ============================================================
-   27. STAGE AMBIENT LIGHT
-   ============================================================ */
-
-.services-stage::after {
-  content: "";
-
-  position: absolute;
-
-  z-index: 0;
-
-  top: -20%;
-  right: -12%;
-
-  width: 55%;
-  height: 65%;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(195, 164, 113, .065) 0%,
-      rgba(195, 164, 113, .018) 42%,
-      transparent 70%
-    );
-
-  pointer-events: none;
-}
-
-
-/* ============================================================
-   28. SERVICE SCENES
+   SERVICE SCENE
    ============================================================ */
 
 .service-scene {
@@ -1569,90 +1491,144 @@ body.loaded
 
   inset: 0;
 
-  z-index: 1;
-
   display: grid;
 
   grid-template-rows:
     auto
-    1fr
+    minmax(0, 1fr)
     auto;
 
   padding:
-    31px
-    0
-    25px
-    52px;
-
-  color: var(--ink);
+    30px
+    24px
+    24px
+    48px;
 
   opacity: 0;
 
   visibility: hidden;
+
   pointer-events: none;
 
   transform:
-    translate3d(
-      0,
-      14px,
-      0
-    );
+    translateY(12px);
 
   transition:
-    opacity .45s ease,
-    transform .65s var(--ease),
-    visibility 0s linear .45s;
+    opacity .4s ease,
+    transform .55s var(--ease),
+    visibility 0s .4s;
 }
 
 .service-scene.is-active {
   opacity: 1;
 
   visibility: visible;
+
   pointer-events: auto;
 
-  transform:
-    translate3d(
-      0,
-      0,
-      0
-    );
+  transform: none;
 
   transition-delay: 0s;
 }
+
+
+/* ============================================================
+   SERVICE META — MORE READABLE
+   ============================================================ */
 
 .service-scene__meta {
   display: flex;
 
   align-items: center;
+
   justify-content: space-between;
 
-  padding-right: 5px;
+  padding-right: 2px;
 
   color:
-    rgba(32, 33, 31, .48);
+    rgba(32, 33, 31, .68);
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-size: 8px;
+  font-size: 9px;
+
+  font-weight: 400;
+
+  line-height: 1.3;
 
   text-transform: uppercase;
 
-  letter-spacing: .16em;
-}
-
-.service-scene__canvas {
-  position: relative;
-
-  min-height: 410px;
-
-  margin-top: 12px;
+  letter-spacing: .14em;
 }
 
 
 /* ============================================================
-   29. SERVICE FOOTER
+   SERVICE CANVAS
+   ============================================================ */
+
+.service-scene__canvas {
+  position: relative;
+
+  min-height: 0;
+
+  margin-top: 14px;
+}
+
+
+/* ============================================================
+   SERVICE IMAGE STAGE
+   ============================================================ */
+
+.service-image-stage {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding:
+    clamp(
+      12px,
+      1.4vw,
+      22px
+    );
+
+  background: var(--paper);
+}
+
+.service-image-stage__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  max-height: 420px;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  transform: scale(1);
+
+  transition:
+    transform .8s var(--ease),
+    filter .5s ease;
+}
+
+.service-image-stage:hover
+.service-image-stage__image {
+  transform:
+    scale(1.012);
+}
+
+
+/* ============================================================
+   SERVICE FOOTER — MORE READABLE
    ============================================================ */
 
 .service-scene__footer {
@@ -1664,42 +1640,39 @@ body.loaded
       minmax(0, 1fr)
     );
 
-  gap: 14px;
+  gap: 18px;
 
-  padding:
-    19px
-    0
-    1px;
+  padding-top: 20px;
 
   border-top:
     1px solid
-    rgba(32, 33, 31, .12);
+    rgba(32, 33, 31, .18);
 
   color:
-    rgba(32, 33, 31, .52);
+    rgba(32, 33, 31, .72);
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
   font-size:
     clamp(
-      8px,
-      .52vw,
-      10px
+      9px,
+      .58vw,
+      11px
     );
+
+  font-weight: 400;
 
   line-height: 1.45;
 
   text-transform: uppercase;
 
-  letter-spacing: .1em;
+  letter-spacing: .09em;
 }
 
 .service-scene__footer span {
   position: relative;
 
-  padding-left: 13px;
+  padding-left: 15px;
 }
 
 .service-scene__footer
@@ -1709,9 +1682,9 @@ span::before {
   position: absolute;
 
   left: 0;
-  top: .66em;
+  top: .67em;
 
-  width: 5px;
+  width: 7px;
   height: 1px;
 
   background: var(--gold);
@@ -1719,504 +1692,7 @@ span::before {
 
 
 /* ============================================================
-   30. WEB VISUAL
-   ============================================================ */
-
-.service-web {
-  position: relative;
-
-  overflow: hidden;
-}
-
-.service-web__desktop {
-  position: absolute;
-
-  top: 31px;
-  left: 0;
-
-  width: 84%;
-  height: 76%;
-
-  display: grid;
-
-  grid-template-rows:
-    46px
-    1fr;
-
-  background:
-    #f4f0e9;
-
-  border:
-    1px solid
-    rgba(32, 33, 31, .19);
-
-  transition:
-    transform .7s var(--ease);
-}
-
-.service-scene.is-active
-.service-web__desktop {
-  transform:
-    translate3d(
-      0,
-      -3px,
-      0
-    );
-}
-
-
-/* ============================================================
-   31. WEB MOCKUP NAV
-   ============================================================ */
-
-.service-web__nav {
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  padding:
-    0
-    18px;
-
-  border-bottom:
-    1px solid
-    rgba(32, 33, 31, .12);
-}
-
-.service-web__brand {
-  color:
-    rgba(32, 33, 31, .68);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 8px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .14em;
-}
-
-.service-web__nav-links {
-  display: flex;
-
-  gap: 16px;
-
-  color:
-    rgba(32, 33, 31, .4);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 6px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .12em;
-}
-
-
-/* ============================================================
-   32. WEB MOCKUP HERO
-   ============================================================ */
-
-.service-web__hero {
-  display: grid;
-
-  grid-template-columns:
-    1.08fr
-    .92fr;
-
-  min-height: 0;
-}
-
-.service-web__hero-copy {
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-start;
-  justify-content: center;
-
-  padding:
-    26px
-    28px;
-
-  border-right:
-    1px solid
-    rgba(32, 33, 31, .1);
-}
-
-.service-web__eyebrow {
-  margin-bottom: 19px;
-
-  color:
-    rgba(32, 33, 31, .42);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 6px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .14em;
-}
-
-.service-web__headline {
-  color: var(--ink);
-
-  font-size:
-    clamp(
-      21px,
-      1.75vw,
-      31px
-    );
-
-  font-weight: 300;
-
-  line-height: 1.02;
-
-  letter-spacing: -.045em;
-}
-
-.service-web__text-line {
-  display: block;
-
-  height: 1px;
-
-  margin-top: 18px;
-
-  background:
-    rgba(32, 33, 31, .22);
-}
-
-.service-web__text-line--1 {
-  width: 72%;
-}
-
-.service-web__text-line--2 {
-  width: 48%;
-
-  margin-top: 8px;
-}
-
-.service-web__fake-link {
-  margin-top: 20px;
-
-  padding-bottom: 3px;
-
-  border-bottom:
-    1px solid
-    rgba(32, 33, 31, .4);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 7px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .12em;
-}
-
-
-/* ============================================================
-   33. WEB SAGE MEDIA
-   ============================================================ */
-
-.service-web__media {
-  position: relative;
-
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      145deg,
-      #9da695 0%,
-      #8f9a89 58%,
-      #858f7f 100%
-    );
-}
-
-.service-web__media::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 13%;
-
-  border:
-    1px solid
-    rgba(238, 234, 226, .32);
-}
-
-.service-web__media::after {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  right: 0;
-
-  width: 42%;
-  height: 100%;
-
-  background:
-    linear-gradient(
-      120deg,
-      transparent 0%,
-      rgba(195, 164, 113, .06) 60%,
-      rgba(195, 164, 113, .13) 100%
-    );
-
-  pointer-events: none;
-}
-
-.service-web__media-label {
-  position: absolute;
-
-  left: 18px;
-  bottom: 17px;
-
-  z-index: 2;
-
-  color:
-    rgba(32, 33, 31, .58);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 6px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .13em;
-}
-
-.service-web__media-line {
-  position: absolute;
-
-  z-index: 2;
-
-  top: 24px;
-  right: 24px;
-
-  width: 38px;
-  height: 1px;
-
-  background: var(--gold);
-}
-
-
-/* ============================================================
-   34. WEB MOBILE MOCKUP
-   ============================================================ */
-
-.service-web__mobile {
-  position: absolute;
-
-  z-index: 3;
-
-  right: 3%;
-  bottom: 22px;
-
-  width: 22%;
-  height: 58%;
-
-  min-width: 115px;
-
-  display: grid;
-
-  grid-template-rows:
-    32px
-    1fr
-    34%;
-
-  background:
-    #f4f0e9;
-
-  border:
-    1px solid
-    rgba(32, 33, 31, .26);
-
-  transition:
-    transform .75s var(--ease);
-}
-
-.service-scene.is-active
-.service-web__mobile {
-  transform:
-    translate3d(
-      -5px,
-      -5px,
-      0
-    );
-}
-
-.service-web__mobile-nav {
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  padding:
-    0
-    9px;
-
-  border-bottom:
-    1px solid
-    rgba(32, 33, 31, .13);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 5px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .1em;
-}
-
-.service-web__mobile-nav i {
-  display: block;
-
-  width: 10px;
-  height: 6px;
-
-  border-top:
-    1px solid
-    rgba(32, 33, 31, .55);
-
-  border-bottom:
-    1px solid
-    rgba(32, 33, 31, .55);
-}
-
-.service-web__mobile-copy {
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-start;
-  justify-content: center;
-
-  padding:
-    12px
-    11px;
-}
-
-.service-web__mobile-copy small {
-  margin-bottom: 8px;
-
-  color:
-    rgba(32, 33, 31, .45);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 4.5px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .12em;
-}
-
-.service-web__mobile-copy strong {
-  margin-bottom: 11px;
-
-  font-size:
-    clamp(
-      10px,
-      .9vw,
-      15px
-    );
-
-  font-weight: 300;
-
-  line-height: 1.05;
-
-  letter-spacing: -.035em;
-}
-
-.service-web__mobile-copy span {
-  display: block;
-
-  width: 82%;
-  height: 1px;
-
-  margin-top: 5px;
-
-  background:
-    rgba(32, 33, 31, .22);
-}
-
-.service-web__mobile-copy
-span:last-child {
-  width: 54%;
-}
-
-.service-web__mobile-media {
-  position: relative;
-
-  background:
-    linear-gradient(
-      145deg,
-      #9da695,
-      #899483
-    );
-}
-
-.service-web__mobile-media::after {
-  content: "";
-
-  position: absolute;
-
-  left: 10px;
-  bottom: 10px;
-
-  width: 18px;
-  height: 1px;
-
-  background: var(--gold);
-}
-
-.service-web__device-label {
-  position: absolute;
-
-  color:
-    rgba(32, 33, 31, .42);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 6px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .14em;
-}
-
-.service-web__device-label--desktop {
-  left: 0;
-  bottom: 4px;
-}
-
-.service-web__device-label--mobile {
-  right: 3%;
-  top: 4px;
-}
-
-
-/* ============================================================
-   35. IDENTITY VISUAL
+   IDENTITY VISUAL
    ============================================================ */
 
 .service-identity__aa {
@@ -2226,84 +1702,57 @@ span:last-child {
   top: 12%;
 
   color:
-    rgba(32, 33, 31, .84);
+    rgba(32, 33, 31, .88);
 
   font-size:
     clamp(
-      150px,
+      140px,
       12vw,
-      215px
+      205px
     );
 
   font-weight: 300;
 
-  line-height: .78;
+  line-height: .8;
 
-  letter-spacing: -.075em;
-
-  transition:
-    transform .7s var(--ease);
-}
-
-.service-scene.is-active
-.service-identity__aa {
-  transform:
-    translate3d(
-      5px,
-      -4px,
-      0
-    );
+  letter-spacing: -.07em;
 }
 
 .service-identity__type {
   position: absolute;
 
-  left: 37%;
   top: 22%;
+  left: 37%;
 
   display: flex;
   flex-direction: column;
 
-  gap: 5px;
+  gap: 4px;
 
   color:
-    rgba(32, 33, 31, .46);
+    rgba(32, 33, 31, .58);
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
   font-size: 8px;
 
   text-transform: uppercase;
 
-  letter-spacing: .14em;
+  letter-spacing: .13em;
 }
 
 .service-identity__baseline {
   position: absolute;
 
+  top: 62%;
+
   left: 3%;
   right: 4%;
-  top: 62%;
 
   height: 1px;
 
   background:
-    rgba(32, 33, 31, .24);
-
-  transform:
-    scaleX(.66);
-
-  transform-origin: left;
-
-  transition:
-    transform .7s var(--ease);
-}
-
-.service-scene.is-active
-.service-identity__baseline {
-  transform: scaleX(1);
+    rgba(32, 33, 31, .25);
 }
 
 .service-identity__swatches {
@@ -2311,14 +1760,14 @@ span:last-child {
 
   left: 3%;
   right: 4%;
-  bottom: 54px;
+  bottom: 52px;
 
   display: grid;
 
   grid-template-columns:
     repeat(
       4,
-      minmax(0, 1fr)
+      1fr
     );
 
   gap: 7px;
@@ -2328,17 +1777,13 @@ span:last-child {
 > span {
   position: relative;
 
-  height: 36px;
+  height: 35px;
 
-  background:
-    var(--tone);
+  background: var(--tone);
 
   border:
     1px solid
-    rgba(32, 33, 31, .15);
-
-  transition:
-    transform .55s var(--ease);
+    rgba(32, 33, 31, .14);
 }
 
 .service-identity__swatches
@@ -2346,73 +1791,48 @@ small {
   position: absolute;
 
   left: 0;
-  bottom: -19px;
+  bottom: -18px;
 
   color:
-    rgba(32, 33, 31, .42);
+    rgba(32, 33, 31, .55);
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 6px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .12em;
-}
-
-.service-scene.is-active
-.service-identity__swatches
-span:nth-child(2) {
-  transform:
-    translateY(-4px);
-}
-
-.service-scene.is-active
-.service-identity__swatches
-span:nth-child(4) {
-  transform:
-    translateY(-6px);
-}
-
-.service-identity__caption {
-  position: absolute;
-
-  right: 4%;
-  top: 65%;
-
-  color:
-    rgba(32, 33, 31, .42);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
   font-size: 7px;
 
   text-transform: uppercase;
 
-  letter-spacing: .15em;
+  letter-spacing: .1em;
+}
+
+.service-identity__caption {
+  position: absolute;
+
+  top: 65%;
+  right: 4%;
+
+  color:
+    rgba(32, 33, 31, .56);
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 8px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .13em;
 }
 
 
 /* ============================================================
-   36. DIGITAL PRESENCE
+   DIGITAL PRESENCE VISUAL
    ============================================================ */
 
 .service-presence__line {
   position: absolute;
 
-  display: block;
-
   background:
     rgba(32, 33, 31, .26);
-
-  transform-origin: center;
-
-  transition:
-    transform .75s var(--ease);
 }
 
 .service-presence__line--h {
@@ -2421,9 +1841,6 @@ span:nth-child(4) {
   top: 48%;
 
   height: 1px;
-
-  transform:
-    scaleX(.48);
 }
 
 .service-presence__line--v {
@@ -2432,54 +1849,37 @@ span:nth-child(4) {
   left: 51%;
 
   width: 1px;
-
-  transform:
-    scaleY(.48);
-}
-
-.service-scene.is-active
-.service-presence__line--h {
-  transform:
-    scaleX(1);
-}
-
-.service-scene.is-active
-.service-presence__line--v {
-  transform:
-    scaleY(1);
 }
 
 .service-presence__node,
 .service-presence__hub {
   position: absolute;
 
-  color:
-    rgba(32, 33, 31, .56);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
   text-transform: uppercase;
 
-  letter-spacing: .14em;
+  letter-spacing: .13em;
 }
 
 .service-presence__node {
+  color:
+    rgba(32, 33, 31, .62);
+
   font-size: 8px;
 }
 
 .service-presence__node--social {
-  top: 9%;
   left: 51%;
+  top: 9%;
 
   transform:
     translateX(-50%);
 }
 
 .service-presence__node--google {
-  bottom: 10%;
   left: 51%;
+  bottom: 10%;
 
   transform:
     translateX(-50%);
@@ -2505,21 +1905,20 @@ span:nth-child(4) {
   left: 51%;
   top: 48%;
 
-  display: inline-flex;
+  display: flex;
 
   align-items: center;
 
-  gap: 9px;
+  gap: 8px;
 
   padding:
-    7px
-    10px;
+    8px
+    11px;
 
-  background:
-    #f0ece4;
+  background: var(--paper);
 
   color:
-    rgba(32, 33, 31, .72);
+    rgba(32, 33, 31, .78);
 
   font-size: 10px;
 
@@ -2533,8 +1932,7 @@ span:nth-child(4) {
 
   border-radius: 50%;
 
-  background:
-    var(--gold);
+  background: var(--gold);
 }
 
 .service-presence__schedule {
@@ -2549,641 +1947,411 @@ span:nth-child(4) {
   justify-content: space-between;
 
   color:
-    rgba(32, 33, 31, .4);
+    rgba(32, 33, 31, .56);
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-size: 7px;
+  font-size: 8px;
 
   text-transform: uppercase;
 
-  letter-spacing: .14em;
+  letter-spacing: .12em;
 }
 
 
 /* ============================================================
-   37. SELECTED WORK
+   06. SHARED SECTION INTRO
    ============================================================ */
 
-.work-section {
-  position: relative;
-
-  z-index: 3;
-
-  padding:
-    clamp(
-      110px,
-      12vw,
-      190px
-    )
-    6.7vw;
-
-  color: var(--ink);
-
-  background:
-    var(--paper);
-
-  border-top:
-    1px solid
-    rgba(195, 164, 113, .72);
-}
-
-.work-section
-.section-intro h2 {
-  font-size:
-    clamp(
-      58px,
-      6vw,
-      108px
-    );
-}
-
-.projects {
-  margin-top:
-    clamp(
-      120px,
-      12vw,
-      180px
-    );
-}
-
-.project {
-  padding:
-    55px
-    0
-    105px;
-
-  border-top:
-    1px solid
-    rgba(32, 33, 31, .15);
-}
-
-.project-meta {
+.section-intro {
   display: grid;
 
   grid-template-columns:
-    70px
-    minmax(0, 1fr)
-    220px;
-
-  align-items: start;
-
-  margin-bottom: 55px;
+    1fr
+    1fr;
 }
 
-.project-number {
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 10px;
-
-  letter-spacing: .1em;
-}
-
-.project-title-group h3 {
-  margin-top: -8px;
-
-  font-size:
-    clamp(
-      34px,
-      3.4vw,
-      58px
-    );
-
-  font-weight: 300;
-
-  line-height: 1;
-
-  letter-spacing: -.045em;
-}
-
-.project-title-group p {
-  margin-top: 5px;
-
-  font-size: 14px;
-
-  opacity: .62;
-}
-
-.project-description {
-  max-width: 500px;
-
-  margin-top: 28px;
-
-  font-size:
-    clamp(
-      15px,
-      1.1vw,
-      18px
-    );
-
-  font-weight: 300;
-
-  line-height: 1.55;
-}
-
-.project-services {
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-end;
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+.section-label,
+.section-count {
+  font-family: "IBM Plex Mono", monospace;
 
   font-size: 9px;
 
-  line-height: 1.92;
-
   text-transform: uppercase;
 
-  letter-spacing: .12em;
+  letter-spacing: .16em;
+}
 
+.section-count {
   text-align: right;
 }
 
-.project-preview {
-  position: relative;
+.section-intro h2 {
+  grid-column:
+    1 / -1;
 
-  display: block;
-
-  margin-left: auto;
-}
-
-.project-preview--lorenzo,
-.project-preview--pomeranze,
-.project-preview--maga {
-  width: 70%;
-
-  max-width: 1120px;
-
-  aspect-ratio: 16 / 9;
-}
-
-
-/* ============================================================
-   38. LIVE PROJECT PREVIEWS
-   ============================================================ */
-
-.project-live-frame {
-  position: absolute;
-  inset: 0;
-
-  overflow: hidden;
-
-  background:
-    var(--soft-paper);
-}
-
-.project-live-frame__iframe {
-  position: absolute;
-  inset: 0;
-
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  border: 0;
-
-  pointer-events: none;
-}
-
-.project-view {
-  position: absolute;
-
-  right: 24px;
-  bottom: 24px;
-
-  z-index: 5;
-
-  padding:
-    13px
-    16px;
-
-  background:
-    rgba(241, 237, 230, .94);
-
-  color:
-    var(--ink);
-
-  opacity: 0;
-
-  transform:
-    translateY(8px);
-
-  transition:
-    opacity .4s var(--ease),
-    transform .4s var(--ease);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 9px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .12em;
-}
-
-.project-preview:hover
-.project-view,
-
-.project-preview:focus-visible
-.project-view,
-
-.project-view:focus-visible {
-  opacity: 1;
-
-  transform: none;
-}
-
-
-/* ============================================================
-   39. LORENZO PREVIEW
-   ============================================================ */
-
-.lorenzo-preview {
-  container-type:
-    inline-size;
-
-  position: absolute;
-  inset: 0;
-
-  overflow: hidden;
-
-  background:
-    #151514;
-
-  color:
-    #f5f5f5;
-
-  font-family:
-    "Mozilla Text",
-    Arial,
-    sans-serif;
-
-  transition:
-    transform 1s var(--ease);
-}
-
-.project-preview:hover
-.lorenzo-preview,
-
-.project-preview:focus-visible
-.lorenzo-preview {
-  transform:
-    scale(1.012);
-}
-
-.lorenzo-preview__header {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 2;
-
-  background:
-    linear-gradient(
-      120deg,
-      rgba(8, 8, 8, .72) 0%,
-      rgba(22, 18, 14, .68) 42%,
-      rgba(10, 13, 18, .72) 100%
+  margin-top:
+    clamp(
+      60px,
+      7vw,
+      110px
     );
-
-  border-bottom:
-    1px solid
-    rgba(200, 169, 126, .24);
-
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, .04),
-    0 12px 34px rgba(0, 0, 0, .28);
-
-  backdrop-filter:
-    blur(10px)
-    saturate(1.55);
-
-  -webkit-backdrop-filter:
-    blur(10px)
-    saturate(1.55);
-}
-
-.lorenzo-preview__header-inner {
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 2cqw;
-
-  min-height: 6.1667cqw;
-
-  padding:
-    0
-    1.3333cqw;
-}
-
-.lorenzo-preview__brand {
-  display: flex;
-
-  align-items: center;
-
-  gap: 1.1667cqw;
-}
-
-.lorenzo-preview__logo {
-  width: 6cqw;
-  height: 6cqw;
-
-  object-fit: cover;
-
-  border-radius: 50%;
-
-  flex: none;
-
-  box-shadow:
-    0 0 0 1px rgba(201, 164, 92, .35),
-    0 0 16px rgba(201, 164, 92, .22);
-}
-
-.lorenzo-preview__brand-name {
-  color:
-    #f5f1e8;
-
-  font-size:
-    1.6667cqw;
-
-  letter-spacing:
-    .04em;
-
-  white-space:
-    nowrap;
-}
-
-.lorenzo-preview__nav {
-  display: flex;
-
-  align-items: center;
-
-  gap:
-    .6667cqw;
-}
-
-.lorenzo-preview__nav span {
-  display: inline-flex;
-
-  align-items: center;
-
-  min-height:
-    3cqw;
-
-  padding:
-    0
-    1cqw;
-
-  border-radius:
-    999px;
-
-  color:
-    rgba(255, 255, 255, .68);
-
-  font-size:
-    1.3333cqw;
-
-  white-space:
-    nowrap;
-}
-
-.lorenzo-preview__menu-toggle {
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  flex-direction: column;
-
-  width: 3.6667cqw;
-  height: 3.6667cqw;
-
-  gap: .4167cqw;
-
-  border:
-    1px solid
-    rgba(200, 169, 126, .35);
-
-  border-radius:
-    999px;
-
-  background:
-    rgba(10, 10, 10, .72);
-}
-
-.lorenzo-preview__menu-toggle span {
-  display: block;
-
-  width:
-    1.5833cqw;
-
-  height:
-    2px;
-
-  background:
-    #f5f1e8;
-}
-
-.lorenzo-preview__media {
-  position: absolute;
-  inset: 0;
-}
-
-.lorenzo-preview__video {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-}
-
-.lorenzo-preview__overlay {
-  position: absolute;
-  inset: 0;
-
-  z-index: 1;
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, .03),
-      transparent 32%
-    ),
-    linear-gradient(
-      to top,
-      rgba(0, 0, 0, .92) 0%,
-      rgba(0, 0, 0, .48) 52%,
-      rgba(0, 0, 0, .15) 100%
-    );
-}
-
-.lorenzo-preview__content {
-  position: absolute;
-  inset: 0;
-
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  max-width:
-    76.6667cqw;
-
-  margin:
-    0
-    auto;
-
-  padding:
-    0
-    1.3333cqw;
-
-  text-align:
-    center;
-}
-
-.lorenzo-preview__title {
-  margin:
-    0
-    0
-    2cqw;
-
-  font-family:
-    "Manrope",
-    sans-serif;
 
   font-size:
     clamp(
-      3.4667cqw,
-      5cqw,
-      5.6cqw
+      52px,
+      6vw,
+      105px
     );
 
   font-weight: 300;
 
-  line-height: 1;
-}
+  line-height: .98;
 
-.lorenzo-preview__tagline {
-  max-width:
-    50cqw;
-
-  margin:
-    0
-    auto
-    2.6667cqw;
-
-  color:
-    rgba(255, 255, 255, .72);
-
-  font-size:
-    1.8cqw;
-
-  line-height:
-    1.8;
-}
-
-.lorenzo-preview__actions {
-  display: flex;
-
-  justify-content: center;
-
-  flex-wrap: wrap;
-
-  gap:
-    1.1667cqw;
-
-  pointer-events:
-    none;
-}
-
-.lorenzo-preview__button {
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  min-height:
-    4.1667cqw;
-
-  padding:
-    1.1667cqw
-    2.5cqw;
-
-  border-radius:
-    999px;
-
-  font-size:
-    1.3333cqw;
-
-  font-weight:
-    700;
-}
-
-.lorenzo-preview__button--primary {
-  background:
-    white;
-
-  color:
-    #111;
-}
-
-.lorenzo-preview__button--secondary {
-  color:
-    rgba(255, 255, 255, .85);
-
-  border:
-    1px solid
-    rgba(200, 169, 126, .4);
+  letter-spacing: -.055em;
 }
 
 
 /* ============================================================
-   40. ABOUT
+   07. WORK — SELECTED WORK GALLERY
+   ============================================================ */
+
+.work-gallery {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  overflow: hidden;
+  padding: 72px 6.7vw 90px;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(195, 164, 113, .08), transparent 32%),
+    radial-gradient(circle at 10% 85%, rgba(150, 160, 141, .07), transparent 34%),
+    var(--paper);
+  color: var(--ink);
+  border-top: 1px solid rgba(195, 164, 113, .38);
+}
+
+.work-gallery__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .14;
+  background-image: radial-gradient(rgba(32, 33, 31, .08) .4px, transparent .4px);
+  background-size: 5px 5px;
+}
+
+.work-gallery__gold-line {
+  position: absolute;
+  top: 0;
+  left: 6.7vw;
+  z-index: 2;
+  width: 56px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.work-gallery__heading,
+.work-gallery__viewer {
+  position: relative;
+  z-index: 3;
+}
+
+.work-gallery__heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  column-gap: 60px;
+  align-items: end;
+  width: 100%;
+  max-width: 1160px;
+}
+
+.work-gallery__heading .section-label {
+  grid-column: 1 / -1;
+  margin-bottom: 22px;
+  color: rgba(32, 33, 31, .48);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+}
+
+.work-gallery__heading h2 {
+  margin: 0 !important;
+  max-width: 660px !important;
+  font-size: clamp(34px, 2.8vw, 48px) !important;
+  font-weight: 300 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.04em !important;
+}
+
+.work-gallery__intro {
+  max-width: 300px;
+  margin: 0;
+  padding-bottom: 2px;
+  color: rgba(32, 33, 31, .58);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.work-gallery__viewer {
+  margin-top: 44px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.work-gallery__meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(32, 33, 31, .13);
+}
+
+.work-gallery__titles {
+  position: relative;
+  min-height: 98px;
+}
+
+.work-gallery__title-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 570px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(7px);
+  transition: opacity .4s ease, transform .55s var(--ease), visibility 0s .4s;
+}
+
+.work-gallery__title-panel.is-active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: .1s;
+}
+
+.work-gallery__eyebrow {
+  margin-bottom: 7px;
+  color: rgba(62, 81, 72, .58);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 7px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+}
+
+.work-gallery__title-panel h3 {
+  margin: 0;
+  font-size: clamp(28px, 2.15vw, 38px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.work-gallery__description {
+  max-width: 480px;
+  margin-top: 9px;
+  color: rgba(32, 33, 31, .60);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.work-gallery__services {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  padding-bottom: 2px;
+  color: rgba(32, 33, 31, .42);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 7px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+.work-gallery__stage { position: relative; }
+
+.work-gallery__frame {
+  position: relative;
+  width: min(72vw, 980px) !important;
+  height: min(58vh, 540px) !important;
+  min-height: 340px;
+  margin-left: auto;
+  overflow: hidden;
+  background: #d8d2c7;
+  box-shadow: 0 16px 46px rgba(47, 46, 43, .09);
+  transform: translateZ(0);
+}
+
+.work-gallery__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, .28);
+}
+
+.work-gallery__panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.012);
+  transition: opacity .5s ease, transform .9s var(--ease), visibility 0s .5s;
+}
+
+.work-gallery__panel.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition-delay: .06s;
+}
+
+.work-gallery__project-link { position: absolute; inset: 0; display: block; }
+.work-gallery .lorenzo-preview { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+.work-gallery__panel .project-live-frame { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; background: var(--soft-paper); }
+.work-gallery__panel .project-live-frame__iframe { display: block; width: 100%; height: 100%; border: 0; pointer-events: none; }
+
+.work-gallery__view {
+  position: absolute;
+  z-index: 10;
+  right: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 13px;
+  border: 1px solid rgba(195, 164, 113, .52);
+  background: rgba(238, 234, 226, .92);
+  color: var(--ink);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 7px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity .3s ease, transform .4s var(--ease), background-color .3s ease;
+}
+
+.work-gallery__panel:hover .work-gallery__view { opacity: 1; transform: none; }
+.work-gallery__view:hover { background: rgba(195, 164, 113, .96); }
+
+.work-gallery__wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(195, 164, 113, .92), rgba(238, 234, 226, .97) 55%, rgba(150, 160, 141, .88));
+  transform: translateX(-102%);
+  will-change: transform;
+}
+
+.work-gallery.is-switching .work-gallery__wipe {
+  animation: workGalleryWipe .72s var(--ease) both;
+}
+
+@keyframes workGalleryWipe {
+  0% { transform: translateX(-102%); }
+  48% { transform: translateX(0); }
+  100% { transform: translateX(102%); }
+}
+
+.work-gallery__navigation {
+  width: min(72vw, 980px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  margin: 13px 0 0 auto;
+  padding-top: 11px;
+  border-top: 1px solid rgba(32, 33, 31, .12);
+}
+
+.work-gallery__project-tabs { display: flex; flex-wrap: wrap; gap: 26px; }
+
+.work-gallery__tab {
+  position: relative;
+  padding: 0 0 5px;
+  border: 0;
+  background: transparent;
+  color: rgba(32, 33, 31, .40);
+  font-size: 11px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color .3s ease;
+}
+
+.work-gallery__tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .4s var(--ease);
+}
+
+.work-gallery__tab:hover,
+.work-gallery__tab.is-active { color: var(--ink); }
+.work-gallery__tab.is-active::after { transform: scaleX(1); transform-origin: left; }
+
+.work-gallery__arrows { display: flex; gap: 7px; flex: none; }
+.work-gallery__arrow {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(118, 129, 111, .30);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--deep-sage);
+  cursor: pointer;
+  transition: background-color .3s ease, border-color .3s ease, color .3s ease, transform .3s var(--ease);
+}
+.work-gallery__arrow:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); transform: translateY(-2px); }
+
+@media (pointer: fine) {
+  .work-gallery__frame { transition: transform .65s var(--ease), box-shadow .65s ease; }
+  .work-gallery__frame:hover { transform: translateY(-2px); box-shadow: 0 20px 56px rgba(47, 46, 43, .11); }
+}
+
+
+/* ============================================================
+   08. ABOUT
    ============================================================ */
 
 .about-section {
+  position: relative;
+
+  z-index: 20;
+
   padding:
     clamp(
-      140px,
-      14vw,
+      130px,
+      13vw,
       180px
     )
     6.7vw
     clamp(
-      150px,
-      15vw,
-      200px
+      140px,
+      14vw,
+      190px
     );
 
-  background:
-    var(--soft-paper);
-
-  color:
-    var(--ink);
+  background: var(--soft-paper);
 }
 
 .about-intro {
@@ -3198,461 +2366,312 @@ span:nth-child(4) {
   display: grid;
 
   grid-template-columns:
-    minmax(
-      320px,
-      .85fr
-    )
-    minmax(
-      420px,
-      1fr
-    );
+    minmax(320px, .85fr)
+    minmax(420px, 1fr);
 
   gap:
     clamp(
       70px,
       9vw,
-      160px
+      150px
     );
-
-  align-items:
-    start;
 
   margin-top:
     clamp(
       70px,
       8vw,
-      130px
+      120px
     );
 }
 
 .about-media {
-  position:
-    relative;
-
-  margin-top:
-    clamp(
-      28px,
-      4vw,
-      56px
-    );
+  position: relative;
 }
 
 .about-index {
-  display:
-    block;
+  display: block;
 
-  margin-bottom:
-    16px;
+  margin-bottom: 14px;
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-size:
-    10px;
+  font-size: 9px;
 
-  letter-spacing:
-    .1em;
-
-  opacity:
-    .55;
+  opacity: .5;
 }
 
 .about-photo-box {
-  position:
-    relative;
+  position: relative;
 
-  width:
-    84%;
+  width: 84%;
 
-  margin-left:
-    auto;
+  margin-left: auto;
 }
 
 .about-frame {
-  position:
-    relative;
-
   aspect-ratio:
     4 / 5;
 
-  overflow:
-    hidden;
-
-  background:
-    rgba(32, 33, 31, .04);
+  overflow: hidden;
 }
 
 .about-photo {
-  width:
-    100%;
+  width: 100%;
+  height: 100%;
 
-  height:
-    100%;
-
-  object-fit:
-    cover;
-
-  will-change:
-    transform;
+  object-fit: cover;
 }
 
 .about-line {
-  position:
-    absolute;
+  position: absolute;
 
-  left:
-    0;
+  top: -28px;
+  bottom: -28px;
+  left: 0;
 
-  top:
-    -32px;
-
-  bottom:
-    -32px;
-
-  width:
-    1px;
+  width: 1px;
 
   background:
-    rgba(32, 33, 31, .22);
+    rgba(32, 33, 31, .2);
 }
 
 .about-cross {
-  position:
-    absolute;
+  position: absolute;
 
-  left:
-    -14px;
+  left: -12px;
+  bottom: -12px;
 
-  bottom:
-    -14px;
-
-  width:
-    26px;
-
-  height:
-    26px;
+  width: 24px;
+  height: 24px;
 }
 
 .about-cross::before,
 .about-cross::after {
-  content:
-    "";
+  content: "";
 
-  position:
-    absolute;
+  position: absolute;
 
-  background:
-    var(--deep-sage);
-
-  opacity:
-    .55;
+  background: var(--deep-sage);
 }
 
 .about-cross::before {
-  top:
-    50%;
+  top: 50%;
 
-  left:
-    0;
-
-  width:
-    100%;
-
-  height:
-    1px;
+  width: 100%;
+  height: 1px;
 }
 
 .about-cross::after {
-  top:
-    0;
+  left: 50%;
 
-  left:
-    50%;
-
-  width:
-    1px;
-
-  height:
-    100%;
-}
-
-.about-vertical-label {
-  position:
-    absolute;
-
-  top:
-    0;
-
-  bottom:
-    0;
-
-  right:
-    -28px;
-
-  width:
-    20px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  writing-mode:
-    vertical-rl;
-
-  transform:
-    rotate(180deg);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size:
-    9px;
-
-  text-transform:
-    uppercase;
-
-  letter-spacing:
-    .2em;
-
-  white-space:
-    nowrap;
-
-  opacity:
-    .4;
+  height: 100%;
+  width: 1px;
 }
 
 .about-caption {
-  display:
-    block;
+  display: block;
 
-  width:
-    84%;
+  width: 84%;
 
   margin:
-    18px
+    16px
     0
     0
     auto;
 
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-size:
-    10px;
+  font-size: 8px;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 
-  letter-spacing:
-    .14em;
-
-  opacity:
-    .5;
+  opacity: .45;
 }
 
 .about-headline {
-  max-width:
-    620px;
+  max-width: 680px;
 
   font-size:
     clamp(
-      46px,
-      5vw,
-      84px
+      45px,
+      4.8vw,
+      82px
     );
 
-  font-weight:
-    300;
+  font-weight: 300;
 
-  line-height:
-    .98;
+  line-height: .98;
 
-  letter-spacing:
-    -.05em;
+  letter-spacing: -.05em;
 }
 
 .about-copy {
-  max-width:
-    520px;
+  max-width: 520px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
 
   margin-top:
     clamp(
       36px,
       4vw,
-      54px
+      52px
     );
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  gap:
-    18px;
 
   font-size:
     clamp(
-      16px,
-      1.1vw,
+      15px,
+      1.05vw,
       18px
     );
 
-  font-weight:
-    300;
+  font-weight: 300;
 
-  line-height:
-    1.6;
+  line-height: 1.6;
 }
 
 .about-meta {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     repeat(
       3,
-      minmax(0, 1fr)
+      1fr
     );
 
-  gap:
-    24px;
-
-  max-width:
-    620px;
+  gap: 22px;
 
   margin-top:
     clamp(
-      48px,
+      45px,
       5vw,
-      68px
+      65px
     );
 }
 
 .about-meta-item {
-  display:
-    flex;
+  display: flex;
+  flex-direction: column;
 
-  flex-direction:
-    column;
+  gap: 8px;
 
-  gap:
-    9px;
-
-  padding-top:
-    14px;
+  padding-top: 13px;
 
   border-top:
     1px solid
-    rgba(32, 33, 31, .16);
+    rgba(32, 33, 31, .15);
 }
 
 .about-meta-label {
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-size:
-    9px;
+  font-size: 8px;
 
-  text-transform:
-    uppercase;
+  text-transform: uppercase;
 
-  letter-spacing:
-    .16em;
-
-  opacity:
-    .55;
+  opacity: .5;
 }
 
 .about-meta-value {
-  font-family:
-    "IBM Plex Mono",
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 
-  font-size:
-    12px;
+  font-size: 10px;
 
-  line-height:
-    1.5;
-}
-
-.about-cta {
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  gap:
-    12px;
-
-  width:
-    fit-content;
-
-  margin-top:
-    clamp(
-      48px,
-      5vw,
-      68px
-    );
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size:
-    12px;
-
-  text-transform:
-    uppercase;
-
-  letter-spacing:
-    .17em;
-}
-
-.about-cta-label {
-  padding-bottom:
-    4px;
-
-  border-bottom:
-    1px solid
-    rgba(32, 33, 31, .3);
-}
-
-.about-cta-arrow {
-  transition:
-    transform .35s ease;
-}
-
-.about-cta:hover
-.about-cta-arrow {
-  transform:
-    translateX(6px);
+  line-height: 1.5;
 }
 
 
 /* ============================================================
-   41. SCROLL REVEAL
+   09. CONTACT
+   ============================================================ */
+
+.contact-section {
+  position: relative;
+
+  z-index: 20;
+
+  padding:
+    clamp(
+      120px,
+      13vw,
+      190px
+    )
+    6.7vw;
+
+  background: var(--charcoal);
+
+  color: var(--paper);
+}
+
+.contact-label {
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .15em;
+
+  color: var(--gold);
+}
+
+.contact-section h2 {
+  margin-top: 30px;
+
+  font-size:
+    clamp(
+      70px,
+      10vw,
+      180px
+    );
+
+  font-weight: 300;
+
+  line-height: .9;
+
+  letter-spacing: -.06em;
+}
+
+.contact-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  margin-top: 55px;
+
+  padding-bottom: 5px;
+
+  border-bottom:
+    1px solid
+    rgba(238, 234, 226, .4);
+
+  font-family: "IBM Plex Mono", monospace;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .15em;
+}
+
+
+/* ============================================================
+   10. REVEAL
    ============================================================ */
 
 [data-reveal] {
   opacity: 0;
 
   transform:
-    translateY(25px);
+    translateY(22px);
 
   transition:
-    opacity .8s var(--ease),
-    transform .8s var(--ease);
+    opacity .75s var(--ease),
+    transform .75s var(--ease);
 }
 
 [data-reveal].is-visible {
@@ -3662,389 +2681,379 @@ span:nth-child(4) {
 }
 
 
+/* INTRO ALWAYS VISIBLE */
+
+.intro-section,
+.intro-content,
+.intro-portrait,
+.intro-copy,
+.intro-copy__primary,
+.intro-copy__secondary {
+  opacity: 1 !important;
+
+  transform: none !important;
+
+  visibility: visible !important;
+}
+
+
 /* ============================================================
-   42. TABLET — SERVICES
+   11. TABLET
    ============================================================ */
 
-@media (max-width: 1050px) {
+@media (max-width: 1100px) {
 
-  .services-editorial {
+  .intro-section {
     grid-template-columns:
-      minmax(
-        300px,
-        .9fr
-      )
-      minmax(
-        460px,
-        1.1fr
+      56%
+      44%;
+  }
+
+  .intro-content {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .intro-copy {
+    gap: 30px;
+  }
+
+  .intro-portrait__image,
+  .intro-portrait__caption {
+    width:
+      min(
+        88%,
+        480px
       );
   }
 
-  .service-tab {
-    min-height:
-      164px;
+  .services-editorial {
+    grid-template-columns:
+      minmax(300px, .9fr)
+      minmax(460px, 1.1fr);
   }
 
   .service-scene {
-    padding-left:
-      38px;
+    padding-left: 35px;
+  }
+
+  .service-scene__footer {
+    gap: 10px;
+
+    font-size: 9px;
   }
 
 }
 
 
 /* ============================================================
-   43. TABLET — GENERAL
+   12. TABLET STACK
    ============================================================ */
 
-@media (max-width: 1000px) {
-
-  .hero {
-    min-height:
-      800px;
-  }
+@media (max-width: 850px) {
 
   .nav {
-    grid-template-columns:
-      1fr
-      auto;
-
-    padding:
-      28px;
+    padding: 28px;
   }
 
   .brand-sub,
   .language {
-    display:
-      none;
+    display: none;
   }
 
   .nav-links {
-    gap:
-      18px;
+    gap: 18px;
   }
 
-  .hero-copy {
-    left:
-      28px;
 
-    width:
-      calc(100% - 56px);
+  /* INTRO */
+
+  .intro-section {
+    grid-template-columns: 1fr;
+
+    min-height: 0;
   }
 
-  .hero h1 {
-    font-size:
-      clamp(
-        50px,
-        9vw,
-        85px
-      );
+  .intro-content {
+    min-height: 590px;
+
+    padding:
+      80px
+      48px
+      90px;
   }
 
-  .hero-art {
-    inset:
-      30%
-      0
-      0
-      10%;
-
-    opacity:
-      .75;
+  .intro-copy {
+    max-width: 680px;
   }
 
-  .layout-grid {
-    opacity:
-      .5;
+  .intro-meta {
+    left: 48px;
   }
 
-  .project-meta {
-    grid-template-columns:
-      60px
-      minmax(0, 1fr)
-      200px;
-  }
+  .intro-portrait {
+    min-height: 680px;
 
-  .project-preview--lorenzo,
-  .project-preview--pomeranze,
-  .project-preview--maga {
-    width:
-      86%;
-  }
-
-}
-
-
-/* ============================================================
-   44. SERVICES STACK
-   ============================================================ */
-
-@media (max-width: 820px) {
-
-  .services-editorial {
-    grid-template-columns:
-      1fr;
-  }
-
-  .services-stage {
-    min-height:
-      470px;
-
-    border-left:
-      0;
+    border-left: 0;
 
     border-top:
       1px solid
-      rgba(195, 164, 113, .45);
+      rgba(118, 129, 111, .18);
+  }
 
-    outline:
-      0;
+  .intro-portrait__image,
+  .intro-portrait__caption {
+    width:
+      min(
+        64%,
+        480px
+      );
+  }
+
+
+  /* SERVICES */
+
+  .services-editorial {
+    grid-template-columns: 1fr;
+  }
+
+  .services-stage {
+    min-height: 520px;
+
+    border-left: 0;
+
+    border-top:
+      1px solid
+      rgba(195, 164, 113, .35);
   }
 
   .service-tab {
-    min-height:
-      auto;
-
-    grid-template-columns:
-      42px
-      minmax(0, 1fr)
-      44px;
+    min-height: auto;
 
     padding:
       23px
       0;
-  }
 
-  .service-tab__summary {
-    max-width:
-      520px;
+    grid-template-columns:
+      42px
+      1fr
+      42px;
   }
 
   .service-scene {
     padding:
       24px
-      0
       22px;
   }
 
-  .service-scene__canvas {
-    min-height:
-      330px;
-  }
 
-}
-
-
-/* ============================================================
-   45. ABOUT TABLET
-   ============================================================ */
-
-@media (max-width: 850px) {
+  /* ABOUT */
 
   .about-layout {
-    grid-template-columns:
-      1fr;
-
-    gap:
-      60px;
+    grid-template-columns: 1fr;
   }
 
   .about-photo-box,
   .about-caption {
-    width:
-      100%;
+    width: 100%;
 
-    margin-left:
-      0;
+    margin-left: 0;
   }
 
 }
 
 
 /* ============================================================
-   46. MOBILE
+   13. MOBILE
    ============================================================ */
 
 @media (max-width: 700px) {
 
-  .hero {
-    position:
-      relative;
+  /* HERO */
 
-    min-height:
-      100svh;
+  .hero {
+    position: relative;
+
+    min-height: 100svh;
   }
 
   .nav-links {
-    display:
-      none;
+    display: none;
+  }
+
+  .brand-name {
+    font-size: 25px;
   }
 
   .hero-copy {
-    top:
-      42%;
+    left: 28px;
+
+    top: 42%;
+
+    width:
+      calc(100% - 56px);
   }
 
-  .hero h1 {
+  .hero-copy h1 {
     font-size:
       clamp(
         44px,
         12vw,
         67px
       );
-
-    line-height:
-      1;
   }
 
   .hero-description {
-    font-size:
-      16px;
+    font-size: 15px;
   }
 
   .palette-card,
   .layout-grid {
-    display:
-      none;
+    display: none;
   }
 
   .hero-discover {
-    left:
-      28px;
+    left: 28px;
 
     width:
       calc(100% - 56px);
   }
 
 
+  /* INTRO */
+
+  .intro-content {
+    min-height: auto;
+
+    padding:
+      68px
+      28px
+      82px;
+  }
+
+  .intro-content h2 {
+    font-size: 40px;
+  }
+
+  .intro-copy {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    margin-top: 32px;
+
+    padding-top: 22px;
+  }
+
+  .intro-copy__primary {
+    max-width: none;
+
+    font-size: 18px;
+  }
+
+  .intro-copy__secondary {
+    max-width: 390px;
+
+    font-size: 15px;
+  }
+
+  .intro-link {
+    margin-top: 32px;
+  }
+
+  .intro-meta {
+    display: none;
+  }
+
+  .intro-portrait {
+    min-height: auto;
+
+    padding:
+      54px
+      28px
+      58px;
+  }
+
+  .intro-portrait__image,
+  .intro-portrait__caption {
+    width:
+      min(
+        86%,
+        420px
+      );
+  }
+
+  .intro-portrait__caption {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+
   /* SERVICES */
 
   .services-section {
-    margin-top:
-      0;
-
     padding:
-      76px
+      60px
       28px
       90px;
-
-    background:
-      radial-gradient(
-        ellipse at 90% 8%,
-        rgba(150, 160, 141, .14),
-        transparent 38%
-      ),
-      radial-gradient(
-        ellipse at 5% 94%,
-        rgba(195, 164, 113, .08),
-        transparent 34%
-      ),
-      var(--mineral);
   }
 
-  .services-section::after {
-    display:
-      none;
-  }
-
-  .services-threshold,
-  .services-threshold::before {
-    height:
-      3px;
-  }
-
-  .services-section__inner,
-  .services-section
-  .section-intro {
-    transform:
-      none !important;
-  }
-
-  .services-section
-  .section-intro h2 {
-    margin-top:
-      24px;
-
+  .services-heading h2 {
     font-size:
       clamp(
-        40px,
-        11vw,
-        54px
+        38px,
+        10vw,
+        52px
       );
-
-    line-height:
-      .98;
   }
 
   .services-editorial {
-    margin-top:
-      50px;
+    margin-top: 38px;
   }
 
   .service-tab {
     grid-template-columns:
-      38px
-      minmax(0, 1fr)
-      34px;
-
-    padding:
-      22px
-      0;
-  }
-
-  .service-tab__number {
-    padding-top:
-      5px;
+      35px
+      1fr
+      32px;
   }
 
   .service-tab__title {
     font-size:
       clamp(
-        30px,
+        29px,
         9vw,
         40px
       );
   }
 
   .service-tab__summary {
-    margin-top:
-      10px;
-
-    padding-right:
-      12px;
-
-    font-size:
-      13px;
-  }
-
-  .service-tab:hover
-  .service-tab__title,
-
-  .service-tab.is-active
-  .service-tab__title,
-
-  .service-tab.is-active
-  .service-tab__summary {
-    transform:
-      none;
+    font-size: 13px;
   }
 
   .services-stage {
-    min-height:
-      430px;
-
-    outline:
-      0;
+    min-height: 480px;
   }
 
   .service-scene {
     padding:
       22px
+      16px;
+  }
+
+  .service-scene__meta {
+    font-size: 8px;
+  }
+
+  .service-image-stage {
+    padding:
+      10px
       0;
   }
 
-  .service-scene__canvas {
-    min-height:
-      300px;
+  .service-image-stage__image {
+    max-height: 310px;
   }
 
   .service-scene__footer {
@@ -4053,167 +3062,10 @@ span:nth-child(4) {
       1fr;
 
     gap:
-      10px
-      12px;
-  }
-
-  .service-web__desktop {
-    top:
-      28px;
-
-    width:
-      80%;
-
-    height:
-      72%;
-
-    grid-template-rows:
-      34px
-      1fr;
-  }
-
-  .service-web__nav {
-    padding:
-      0
+      12px
       10px;
-  }
 
-  .service-web__nav-links {
-    gap:
-      8px;
-  }
-
-  .service-web__hero-copy {
-    padding:
-      15px
-      14px;
-  }
-
-  .service-web__eyebrow {
-    margin-bottom:
-      9px;
-  }
-
-  .service-web__headline {
-    font-size:
-      17px;
-  }
-
-  .service-web__fake-link {
-    margin-top:
-      12px;
-  }
-
-  .service-web__mobile {
-    right:
-      1%;
-
-    bottom:
-      18px;
-
-    min-width:
-      92px;
-
-    width:
-      25%;
-
-    height:
-      54%;
-  }
-
-
-  /* WORK */
-
-  .work-section {
-    padding:
-      90px
-      28px;
-  }
-
-  .work-section
-  .section-intro h2 {
-    font-size:
-      clamp(
-        42px,
-        11vw,
-        62px
-      );
-  }
-
-  .projects {
-    margin-top:
-      68px;
-  }
-
-  .project {
-    padding:
-      38px
-      0
-      85px;
-  }
-
-  .project-meta {
-    grid-template-columns:
-      1fr;
-
-    gap:
-      24px;
-
-    margin-bottom:
-      35px;
-  }
-
-  .project-title-group h3 {
-    margin:
-      0;
-  }
-
-  .project-description {
-    max-width:
-      none;
-  }
-
-  .project-services {
-    align-items:
-      flex-start;
-
-    text-align:
-      left;
-  }
-
-  .project-preview,
-  .project-preview--lorenzo,
-  .project-preview--pomeranze,
-  .project-preview--maga {
-    width:
-      100%;
-
-    max-width:
-      none;
-
-    margin:
-      0;
-  }
-
-  .lorenzo-preview__nav {
-    display:
-      none;
-  }
-
-  .lorenzo-preview__menu-toggle {
-    display:
-      flex;
-  }
-
-  .project-view {
-    right:
-      14px;
-
-    bottom:
-      14px;
-
-    opacity:
-      1;
+    font-size: 8px;
   }
 
 
@@ -4226,1071 +3078,432 @@ span:nth-child(4) {
       120px;
   }
 
-  .about-layout {
-    margin-top:
-      58px;
-  }
-
   .about-meta {
-    grid-template-columns:
-      1fr;
-
-    gap:
-      18px;
+    grid-template-columns: 1fr;
   }
 
-  .about-vertical-label {
-    display:
-      none;
+
+  /* CONTACT */
+
+  .contact-section {
+    padding:
+      90px
+      28px;
   }
 
 }
 
 
 /* ============================================================
-   47. REDUCED MOTION
+   14. COARSE POINTER
+   ============================================================ */
+
+@media (pointer: coarse) {
+
+  .hero-cursor {
+    display: none;
+  }
+
+}
+
+
+/* ============================================================
+   15. REDUCED MOTION
    ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
 
   html {
-    scroll-behavior:
-      auto;
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+
+    animation-duration: .01ms !important;
+
+    animation-iteration-count: 1 !important;
   }
 
   [data-reveal] {
-    opacity:
-      1;
+    opacity: 1;
 
-    transform:
-      none;
-
-    transition:
-      none;
-  }
-
-  .hero-image {
-    transition:
-      none;
-  }
-
-  .services-section__inner,
-  .services-section
-  .section-intro {
-    transform:
-      none !important;
-  }
-
-  .services-threshold::before {
-    transform:
-      scaleX(1);
-  }
-
-  .service-tab,
-  .service-tab *,
-  .service-scene,
-  .service-scene * {
-    transition:
-      none !important;
-  }
-
-  .lorenzo-preview {
-    transition:
-      none;
+    transform: none;
   }
 
 }
 
-.services-section .section-intro h2 {
-  margin-top: 20px;
-  max-width: none;
-
-  color: #ece1d1;
-
-  font-size: clamp(46px, 3.65vw, 66px);
-  font-weight: 300;
-
-  line-height: 1;
-  letter-spacing: -.045em;
-}
-
 /* ============================================================
-   DELPHI — SERVICES
-   CHARCOAL + RESTRAINED PALETTE
+   SERVICES — STRONGER TYPOGRAPHIC HIERARCHY
    ============================================================ */
 
 
-/* ============================================================
-   01. SERVICES BACKGROUND
-   ============================================================ */
+/* ------------------------------------------------------------
+   LEFT SIDE — INACTIVE SERVICES
+   Devono essere secondari, ma perfettamente leggibili.
+   ------------------------------------------------------------ */
 
-.services-section {
-  position: relative;
-  isolation: isolate;
-
-  margin-top: 0;
-
-  padding:
-    clamp(68px, 5vw, 88px)
-    6.7vw
-    clamp(110px, 10vw, 165px);
-
-  color: var(--paper);
-
-  /*
-    BASE = CHARCOAL ORIGINALE DELLA PALETTE
-
-    Il Dusty Sage entra solo come leggerissima atmosfera
-    sul lato destro, dove arriva visivamente il marbling.
-  */
-
-  background:
-    radial-gradient(
-      ellipse at 88% 10%,
-      rgba(150, 160, 141, .11) 0%,
-      rgba(150, 160, 141, .045) 28%,
-      transparent 55%
-    ),
-    #2f2e2b;
-}
-
-
-/* ============================================================
-   02. REMOVE PREVIOUS MINERAL SHEEN
-   ============================================================ */
-
-.services-section::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 0;
-
-  pointer-events: none;
-
-  /*
-    Quasi impercettibile:
-    serve solo a evitare una superficie completamente piatta.
-  */
-
-  background:
-    linear-gradient(
-      115deg,
-      transparent 0%,
-      transparent 52%,
-      rgba(238, 234, 226, .012) 57%,
-      transparent 64%
-    );
-}
-
-
-/* niente numeri / ghost element */
-
-.services-section::before {
-  display: none;
-}
-
-
-/* ============================================================
-   03. GOLD SEAM
-   ============================================================ */
-
-.services-threshold {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  z-index: 20;
-
-  width: 100%;
-  height: 3px;
-
-  overflow: hidden;
-
-  background: transparent;
-
-  pointer-events: none;
-}
-
-
-.services-threshold::before {
-  content: "";
-
-  display: block;
-
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 3px;
-
-  background: var(--gold);
-
-  transform:
-    scaleX(
-      var(
-        --services-threshold-scale,
-        1
-      )
-    );
-
-  transform-origin: left center;
-
-  will-change: transform;
-}
-
-
-.services-threshold__inner {
-  display: none;
-}
-
-
-/* ============================================================
-   04. CONTENT ABOVE BACKGROUND
-   ============================================================ */
-
-.services-section__inner {
-  position: relative;
-
-  z-index: 2;
-}
-
-
-/* ============================================================
-   05. SERVICES META
-   ============================================================ */
-
-/*
-  Niente gold qui.
-
-  Dusty Sage molto attenuato:
-  il gold rimane solo come accento prezioso.
-*/
-
-.services-section .section-label,
-.services-section .section-count {
-  color:
-    rgba(150, 160, 141, .72);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
+.service-tab__number {
+  color: rgba(238, 234, 226, .55);
   font-size: 9px;
   font-weight: 400;
-
-  text-transform: uppercase;
-
-  letter-spacing: .18em;
 }
 
 
-/* ============================================================
-   06. SERVICES TITLE
-   ============================================================ */
+.service-tab__title {
+  color: rgba(238, 234, 226, .62);
 
-.services-section .section-intro h2 {
-  margin-top: 20px;
+  font-size: clamp(40px, 3.05vw, 57px);
 
-  max-width: none;
+  font-weight: 300;
+}
 
-  /*
-    Warm Paper.
-    Non bianco puro e non Sand giallastro.
-  */
 
-  color: var(--paper);
+.service-tab__summary {
+  max-width: 420px;
 
-  font-size:
-    clamp(
-      46px,
-      3.55vw,
-      64px
-    );
+  color: rgba(238, 234, 226, .66);
+
+  font-size: clamp(15px, .96vw, 17px);
 
   font-weight: 300;
 
-  line-height: 1;
-
-  letter-spacing: -.045em;
+  line-height: 1.55;
 }
 
 
-/*
-  Desktop:
-  una sola riga.
+/* ------------------------------------------------------------
+   ACTIVE SERVICE
+   ------------------------------------------------------------ */
 
-  "Cosa posso costruire per il tuo progetto."
-*/
-
-@media (min-width: 1100px) {
-
-  .services-section .section-intro h2 br {
-    display: none;
-  }
-
-}
-
-
-/* ============================================================
-   07. REDUCE EMPTY SPACE
-   ============================================================ */
-
-.services-editorial {
-  margin-top:
-    clamp(
-      42px,
-      4vw,
-      58px
-    );
-
-  border-top:
-    1px solid
-    rgba(238, 234, 226, .15);
-
-  border-bottom:
-    1px solid
-    rgba(238, 234, 226, .15);
-}
-
-
-/* ============================================================
-   08. SERVICES INDEX
-   ============================================================ */
-
-.services-index {
-  background: transparent;
-}
-
-
-.service-tab {
-  border-bottom:
-    1px solid
-    rgba(238, 234, 226, .10);
-}
-
-
-/* niente fondi colorati / gradienti nei tab */
-
-.service-tab::before {
-  display: none;
-}
-
-
-/* ============================================================
-   09. SERVICE NUMBERS
-   ============================================================ */
-
-.service-tab__number {
-  color:
-    rgba(238, 234, 226, .28);
-}
-
-
-.service-tab.is-active
-.service-tab__number {
-  /*
-    Qui il gold ha senso:
-    indica lo stato attivo.
-  */
-
+.service-tab.is-active .service-tab__number {
   color: var(--gold);
 }
 
 
-/* ============================================================
-   10. SERVICE TITLES
-   ============================================================ */
-
-.service-tab__title {
-  color:
-    rgba(238, 234, 226, .34);
-
-  transition:
-    color .4s ease,
-    transform .5s var(--ease);
+.service-tab.is-active .service-tab__title {
+  color: #f3eee5;
 }
 
 
-.service-tab:hover
-.service-tab__title {
-  color:
-    rgba(238, 234, 226, .62);
+.service-tab.is-active .service-tab__summary {
+  color: rgba(243, 238, 229, .90);
 }
-
-
-.service-tab.is-active
-.service-tab__title {
-  color: var(--paper);
-}
-
-
-/* ============================================================
-   11. SERVICE DESCRIPTIONS
-   ============================================================ */
-
-.service-tab__summary {
-  color:
-    rgba(238, 234, 226, .32);
-}
-
-
-.service-tab:hover
-.service-tab__summary {
-  color:
-    rgba(238, 234, 226, .5);
-}
-
-
-.service-tab.is-active
-.service-tab__summary {
-  color:
-    rgba(238, 234, 226, .66);
-}
-
-
-/* ============================================================
-   12. ACTIVE MARK
-   ============================================================ */
-
-.service-tab__mark {
-  width: 16px;
-
-  background:
-    rgba(238, 234, 226, .16);
-}
-
-
-.service-tab.is-active
-.service-tab__mark {
-  width: 48px;
-
-  background: var(--gold);
-}
-
-
-/* ============================================================
-   13. STAGE
-   ============================================================ */
-
-/*
-  Lo stage rimane Warm Paper.
-
-  Questo fa sì che Services utilizzi essenzialmente:
-  Charcoal + Paper + Sage + micro Gold.
-*/
-
-.services-stage {
-  background:
-    linear-gradient(
-      145deg,
-      #f1ede6 0%,
-      #eeeae2 68%,
-      #ebe6dd 100%
-    );
-
-  color: var(--ink);
-
-  border-left:
-    1px solid
-    rgba(195, 164, 113, .38);
-
-  /*
-    Manteniamo la cornice molto discreta.
-  */
-
-  outline:
-    1px solid
-    rgba(195, 164, 113, .10);
-
-  outline-offset: 8px;
-}
-
-
-/* piccolo dettaglio gold */
-
-.services-stage::before {
-  width: 56px;
-  height: 2px;
-
-  background: var(--gold);
-}
-
-
-/* luce interna molto più tenue */
-
-.services-stage::after {
-  opacity: .35;
-}
-
-
-/* ============================================================
-   14. WEB VISUAL
-   ============================================================ */
-
-.service-web__desktop,
-.service-web__mobile {
-  background:
-    #f1ede6;
-}
-
-
-/*
-  Dusty Sage reale della palette,
-  senza inventare altri verdi.
-*/
-
-.service-web__media {
-  background:
-    linear-gradient(
-      145deg,
-      #a1aa99 0%,
-      #96a08d 55%,
-      #8d9785 100%
-    );
-}
-
-
-.service-web__mobile-media {
-  background:
-    #96a08d;
-}
-
-
-/* ============================================================
-   15. MOBILE
-   ============================================================ */
-
-@media (max-width: 700px) {
-
-  .services-section {
-    padding:
-      62px
-      28px
-      90px;
-
-    background:
-      radial-gradient(
-        ellipse at 92% 5%,
-        rgba(150, 160, 141, .09),
-        transparent 38%
-      ),
-      #2f2e2b;
-  }
-
-
-  .services-section .section-intro h2 {
-    margin-top: 22px;
-
-    max-width: 100%;
-
-    font-size:
-      clamp(
-        38px,
-        10.5vw,
-        52px
-      );
-
-    line-height: .98;
-  }
-
-
-  /*
-    Su mobile il <br> torna a funzionare normalmente.
-  */
-
-  .services-section .section-intro h2 br {
-    display: initial;
-  }
-
-
-  .services-editorial {
-    margin-top: 44px;
-  }
-
-
-  .services-stage {
-    outline: none;
-  }
-
-}
-
-/* ============================================================
-   SERVICES — PALETTE REFINED / VISIBLE VERSION
-   ============================================================ */
 
 
 /* ------------------------------------------------------------
-   SECTION BACKGROUND
+   HOVER
    ------------------------------------------------------------ */
 
-.services-section {
-  position: relative;
-  isolation: isolate;
+.service-tab:hover .service-tab__title {
+  color: rgba(243, 238, 229, .82);
+}
 
-  margin-top: 0;
 
+.service-tab:hover .service-tab__summary {
+  color: rgba(243, 238, 229, .78);
+}
+
+
+/* ------------------------------------------------------------
+   SMALL GOLD MARK
+   ------------------------------------------------------------ */
+
+.service-tab__mark {
+  background: rgba(238, 234, 226, .34);
+}
+
+
+.service-tab.is-active .service-tab__mark {
+  background: var(--gold);
+}
+
+
+
+/* ============================================================
+   RIGHT STAGE — META
+   ============================================================ */
+
+.service-scene__meta {
+  color: rgba(32, 33, 31, .78);
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: .13em;
+}
+
+
+
+/* ============================================================
+   RIGHT STAGE — IMAGE
+   Slightly less dominant
+   ============================================================ */
+
+.service-image-stage {
   padding:
-    clamp(66px, 5vw, 86px)
-    6.7vw
-    clamp(110px, 10vw, 165px);
-
-  color: var(--paper);
-
-  /*
-   * Base vera = CHARCOAL originale.
-   *
-   * A destra entra Dusty Sage in maniera visibile,
-   * ma senza trasformare tutta la sezione in verde.
-   */
-
-  background:
-    linear-gradient(
-      108deg,
-      #2f2e2b 0%,
-      #2f2e2b 48%,
-      rgba(150, 160, 141, .12) 72%,
-      rgba(150, 160, 141, .23) 100%
-    ),
-    #2f2e2b;
+    clamp(18px, 1.8vw, 30px)
+    clamp(24px, 2.4vw, 40px);
 }
 
 
-/* ------------------------------------------------------------
-   SOFT SAGE LIGHT
-   ------------------------------------------------------------ */
-
-.services-section::after {
-  content: "";
-
-  position: absolute;
-
-  z-index: 0;
-
-  top: -15%;
-  right: -12%;
-
-  width: 58%;
-  height: 72%;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(150, 160, 141, .22) 0%,
-      rgba(150, 160, 141, .10) 34%,
-      transparent 70%
-    );
-
-  filter: blur(18px);
+.service-image-stage__image {
+  width: 94%;
+  max-height: 390px;
 }
 
 
-/* niente 02 o altri elementi */
 
-.services-section::before {
-  display: none;
-}
+/* ============================================================
+   RIGHT STAGE — SERVICE DETAILS
+   These are actual information, not decoration.
+   ============================================================ */
 
+.service-scene__footer {
+  gap: 22px;
 
-/* ------------------------------------------------------------
-   CONTENT
-   ------------------------------------------------------------ */
-
-.services-section__inner {
-  position: relative;
-  z-index: 2;
-}
-
-
-/* ------------------------------------------------------------
-   SECTION META
-   ------------------------------------------------------------ */
-
-.services-section .section-label,
-.services-section .section-count {
-  /*
-   * Niente gold.
-   * Devono essere informazioni, non decorazione.
-   */
-
-  color:
-    rgba(238, 234, 226, .46);
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 9px;
-
-  text-transform: uppercase;
-
-  letter-spacing: .18em;
-}
-
-
-/* ------------------------------------------------------------
-   TITLE
-   ------------------------------------------------------------ */
-
-.services-section .section-intro h2 {
-  margin-top: 18px;
-
-  max-width: none;
-
-  /*
-   * SAND invece del bianco:
-   * più caldo, più vicino alla Hero.
-   */
-
-  color: #ece1d1;
-
-  font-size:
-    clamp(
-      44px,
-      3.45vw,
-      62px
-    );
-
-  font-weight: 300;
-
-  line-height: .98;
-
-  letter-spacing: -.045em;
-}
-
-
-/* desktop: niente a capo */
-
-@media (min-width: 1100px) {
-
-  .services-section .section-intro h2 br {
-    display: none;
-  }
-
-}
-
-
-/* ------------------------------------------------------------
-   GOLD SEAM
-   ------------------------------------------------------------ */
-
-.services-threshold {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  z-index: 20;
-
-  width: 100%;
-  height: 3px;
-
-  overflow: hidden;
-
-  background: transparent;
-}
-
-
-.services-threshold::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  height: 3px;
-
-  /*
-   * Champagne Gold vero.
-   */
-
-  background: #c3a471;
-
-  transform:
-    scaleX(
-      var(
-        --services-threshold-scale,
-        1
-      )
-    );
-
-  transform-origin: left center;
-}
-
-
-.services-threshold__inner {
-  display: none;
-}
-
-
-/* ------------------------------------------------------------
-   MOVE SERVICES UP / REDUCE EMPTY SPACE
-   ------------------------------------------------------------ */
-
-.services-editorial {
-  margin-top:
-    clamp(
-      38px,
-      3.5vw,
-      52px
-    );
+  padding-top: 22px;
 
   border-top:
     1px solid
-    rgba(238, 234, 226, .15);
+    rgba(32, 33, 31, .24);
 
-  border-bottom:
-    1px solid
-    rgba(238, 234, 226, .15);
+  color: rgba(32, 33, 31, .84);
+
+  font-size: clamp(10px, .68vw, 12px);
+
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  letter-spacing: .075em;
 }
 
 
-/* ------------------------------------------------------------
-   INDEX
-   ------------------------------------------------------------ */
-
-.services-index {
-  position: relative;
-
-  background:
-    rgba(20, 21, 19, .16);
-
-  /*
-   * Una differenza molto leggera rispetto al fondo,
-   * senza diventare una card.
-   */
+.service-scene__footer span {
+  padding-left: 16px;
 }
 
 
-/* ------------------------------------------------------------
-   SERVICE TAB
-   ------------------------------------------------------------ */
+.service-scene__footer span::before {
+  width: 8px;
+  height: 1px;
 
-.service-tab {
-  border-bottom:
-    1px solid
-    rgba(238, 234, 226, .10);
+  background: var(--gold);
 }
 
+/* ============================================================
+   SELECTED WORK — RESPONSIVE
+   ============================================================ */
 
-.service-tab::before {
-  display: none;
+@media (max-width: 1000px) {
+  .work-gallery__heading { grid-template-columns: minmax(0, 1fr) 250px; column-gap: 36px; }
+  .work-gallery__heading h2 { font-size: 50px !important; }
+  .work-gallery__frame, .work-gallery__navigation { width: 82%; }
+  .work-gallery__frame { height: min(54vh, 500px) !important; }
 }
-
-
-/* ------------------------------------------------------------
-   NUMBERS
-   ------------------------------------------------------------ */
-
-.service-tab__number {
-  color:
-    rgba(238, 234, 226, .27);
-}
-
-
-.service-tab.is-active
-.service-tab__number {
-  color: #c3a471;
-}
-
-
-/* ------------------------------------------------------------
-   TITLES
-   ------------------------------------------------------------ */
-
-.service-tab__title {
-  color:
-    rgba(238, 234, 226, .31);
-}
-
-
-.service-tab:hover
-.service-tab__title {
-  color:
-    rgba(238, 234, 226, .62);
-}
-
-
-.service-tab.is-active
-.service-tab__title {
-  color:
-    #eeeae2;
-}
-
-
-/* ------------------------------------------------------------
-   DESCRIPTIONS
-   ------------------------------------------------------------ */
-
-.service-tab__summary {
-  color:
-    rgba(238, 234, 226, .30);
-}
-
-
-.service-tab:hover
-.service-tab__summary {
-  color:
-    rgba(238, 234, 226, .47);
-}
-
-
-.service-tab.is-active
-.service-tab__summary {
-  color:
-    rgba(238, 234, 226, .65);
-}
-
-
-/* ------------------------------------------------------------
-   ACTIVE MARK
-   ------------------------------------------------------------ */
-
-.service-tab__mark {
-  width: 15px;
-
-  background:
-    rgba(238, 234, 226, .16);
-}
-
-
-.service-tab.is-active
-.service-tab__mark {
-  width: 48px;
-
-  background:
-    #c3a471;
-}
-
-
-/* ------------------------------------------------------------
-   STAGE
-   ------------------------------------------------------------ */
-
-.services-stage {
-  background:
-    #eeeae2;
-
-  color:
-    #20211f;
-
-  border-left:
-    1px solid
-    rgba(195, 164, 113, .38);
-
-  /*
-   * Tolgo quasi completamente l'effetto "cornice card".
-   */
-
-  outline:
-    1px solid
-    rgba(195, 164, 113, .08);
-
-  outline-offset: 7px;
-}
-
-
-/* ------------------------------------------------------------
-   STAGE GOLD DETAIL
-   ------------------------------------------------------------ */
-
-.services-stage::before {
-  width: 54px;
-  height: 2px;
-
-  background:
-    #c3a471;
-}
-
-
-/* ------------------------------------------------------------
-   REMOVE EXCESSIVE STAGE GLOW
-   ------------------------------------------------------------ */
-
-.services-stage::after {
-  opacity: .18;
-}
-
-
-/* ------------------------------------------------------------
-   WEB MOCKUP
-   ------------------------------------------------------------ */
-
-.service-web__desktop,
-.service-web__mobile {
-  background:
-    #f1ede6;
-}
-
-
-/* Dusty Sage reale */
-
-.service-web__media {
-  background:
-    #96a08d;
-}
-
-
-.service-web__mobile-media {
-  background:
-    #96a08d;
-}
-
-
-/* ------------------------------------------------------------
-   MOBILE
-   ------------------------------------------------------------ */
 
 @media (max-width: 700px) {
+  .work-gallery { padding: 58px 28px 72px; }
+  .work-gallery__gold-line { left: 28px; }
+  .work-gallery__heading { display: block; }
+  .work-gallery__heading .section-label { display: block; margin-bottom: 19px; }
+  .work-gallery__heading h2 { max-width: 440px !important; font-size: 40px !important; line-height: 1.04 !important; }
+  .work-gallery__intro { margin-top: 17px; font-size: 13px; }
+  .work-gallery__viewer { margin-top: 36px; }
+  .work-gallery__meta { grid-template-columns: 1fr; gap: 13px; }
+  .work-gallery__titles { min-height: 118px; }
+  .work-gallery__title-panel h3 { font-size: 27px; }
+  .work-gallery__services { flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 5px 14px; }
+  .work-gallery__frame { width: 100% !important; height: min(48vh, 390px) !important; min-height: 280px; margin-left: 0; }
+  .work-gallery__navigation { width: 100%; margin-left: 0; align-items: flex-end; }
+  .work-gallery__project-tabs { flex-direction: column; align-items: flex-start; gap: 9px; }
+  .work-gallery__view { right: 11px; bottom: 11px; opacity: 1; transform: none; }
+  .work-gallery__arrow { width: 34px; height: 34px; }
+}
 
-  .services-section {
-    padding:
-      60px
-      28px
-      90px;
+@media (prefers-reduced-motion: reduce) {
+  .work-gallery.is-switching .work-gallery__wipe { animation: none !important; }
+}
 
-    background:
-      linear-gradient(
-        120deg,
-        #2f2e2b 0%,
-        #2f2e2b 60%,
-        rgba(150, 160, 141, .15) 100%
-      ),
-      #2f2e2b;
+
+/* ============================================================
+   LORENZO MAGNANINI — WEBSITE PREVIEW
+   ============================================================ */
+
+.lorenzo-preview {
+  container-type: inline-size;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #151514;
+  color: white;
+}
+
+.lorenzo-preview__header {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12%;
+  background: rgba(15, 15, 14, .72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.lorenzo-preview__header-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.2%;
+}
+
+.lorenzo-preview__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lorenzo-preview__logo {
+  display: block;
+  width: 54px !important;
+  height: 54px !important;
+  max-width: 54px !important;
+  flex: 0 0 54px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.lorenzo-preview__brand-name {
+  color: white;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(11px, 1.15vw, 16px);
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+.lorenzo-preview__nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.7vw, 27px);
+  color: rgba(255, 255, 255, .92);
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(8px, .8vw, 12px);
+  font-weight: 300;
+}
+
+.lorenzo-preview__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.lorenzo-preview__video {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.01);
+}
+
+.lorenzo-preview__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, .12) 10%,
+    rgba(0, 0, 0, .14) 45%,
+    rgba(0, 0, 0, .68) 100%
+  );
+}
+
+.lorenzo-preview__content {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 7%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.lorenzo-preview__title {
+  margin: 0;
+  color: white;
+  font-size: clamp(30px, 4.4vw, 64px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.lorenzo-preview__tagline {
+  margin-top: 17px;
+  color: rgba(255, 255, 255, .82);
+  font-size: clamp(12px, 1.25vw, 18px);
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .lorenzo-preview__logo {
+    width: 42px !important;
+    height: 42px !important;
+    max-width: 42px !important;
+    flex-basis: 42px;
   }
 
-
-  .services-section::after {
-    opacity: .5;
+  .lorenzo-preview__nav {
+    gap: 12px;
+    font-size: 8px;
   }
 
+  .lorenzo-preview__brand-name {
+    font-size: 10px;
+  }
+}
 
-  .services-section .section-intro h2 {
-    margin-top: 20px;
-
-    color:
-      #ece1d1;
-
-    font-size:
-      clamp(
-        38px,
-        10.5vw,
-        52px
-      );
+@media (max-width: 700px) {
+  .lorenzo-preview__header {
+    height: 15%;
   }
 
-
-  .services-section .section-intro h2 br {
-    display: initial;
+  .lorenzo-preview__logo {
+    width: 34px !important;
+    height: 34px !important;
+    max-width: 34px !important;
+    flex-basis: 34px;
   }
 
-
-  .services-editorial {
-    margin-top: 40px;
+  .lorenzo-preview__brand-name {
+    font-size: 9px;
   }
 
+  .lorenzo-preview__nav {
+    display: none;
+  }
+
+  .lorenzo-preview__title {
+    font-size: clamp(26px, 9vw, 42px);
+  }
+
+  .lorenzo-preview__tagline {
+    margin-top: 10px;
+    font-size: 11px;
+  }
 }

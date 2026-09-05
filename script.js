@@ -1362,142 +1362,344 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+/*
+|--------------------------------------------------------------------------
+| SELECTED WORK — EDITORIAL GALLERY
+|--------------------------------------------------------------------------
+*/
+
+const workGallery =
+  document.querySelector(
+    "[data-work-gallery]"
+  );
+
+if (workGallery) {
+
+  const workTabs = [
+    ...workGallery.querySelectorAll(
+      "[data-work-tab]"
+    )
+  ];
+
+  const workPanels = [
+    ...workGallery.querySelectorAll(
+      "[data-work-panel]"
+    )
+  ];
+
+  const workTitles = [
+    ...workGallery.querySelectorAll(
+      "[data-work-title]"
+    )
+  ];
+
+  const workPrev =
+    workGallery.querySelector(
+      "[data-work-prev]"
+    );
+
+  const workNext =
+    workGallery.querySelector(
+      "[data-work-next]"
+    );
+
+  const workOrder =
+    workTabs.map(
+      tab => tab.dataset.workTab
+    );
+
+  let activeWork =
+    workTabs.find(
+      tab =>
+        tab.classList.contains(
+          "is-active"
+        )
+    )?.dataset.workTab ||
+    workOrder[0];
+
+  let workSwitchTimeout =
+    null;
+
+
   /*
   |--------------------------------------------------------------------------
-  | ABOUT PHOTO MICRO PARALLAX
+  | CAMBIO PROGETTO
   |--------------------------------------------------------------------------
   */
 
-  const aboutFrame =
-    document.querySelector(
-      ".about-frame"
-    );
-
-
-  const aboutPhoto =
-    document.querySelector(
-      ".about-photo"
-    );
-
-
-  if (
-    aboutFrame &&
-    aboutPhoto &&
-    !reducedMotion.matches
+  function setWork(
+    workName
   ) {
 
-    let aboutTicking =
-      false;
-
-
-    function updateAboutParallax() {
-
-      const rect =
-        aboutFrame
-          .getBoundingClientRect();
-
-
-      const frameCenter =
-        rect.top +
-        rect.height /
-        2;
-
-
-      const viewportCenter =
-        window.innerHeight /
-        2;
-
-
-      const distance =
-        viewportCenter -
-        frameCenter;
-
-
-      const progress =
-        Math.max(
-          -1,
-          Math.min(
-            1,
-            distance /
-            window.innerHeight
-          )
-        );
-
-
-      const movement =
-        progress *
-        10;
-
-
-      aboutPhoto.style.transform =
-        `
-          translate3d(
-            0,
-            ${movement.toFixed(2)}px,
-            0
-          )
-        `;
-
-
-      aboutTicking =
-        false;
-
+    if (
+      !workName ||
+      workName === activeWork ||
+      !workOrder.includes(workName)
+    ) {
+      return;
     }
 
 
-    updateAboutParallax();
+    /*
+    |--------------------------------------------------------------------------
+    | AVVIA WIPE / TRANSIZIONE
+    |--------------------------------------------------------------------------
+    */
 
+    workGallery.classList.add(
+      "is-switching"
+    );
 
-    window.addEventListener(
-      "scroll",
-      () => {
-
-        if (
-          aboutTicking
-        ) {
-          return;
-        }
-
-
-        aboutTicking =
-          true;
-
-
-        requestAnimationFrame(
-          updateAboutParallax
-        );
-
-      },
-      {
-        passive: true
-      }
+    window.clearTimeout(
+      workSwitchTimeout
     );
 
 
-    window.addEventListener(
-      "resize",
+    const swapDelay =
+      reducedMotion.matches
+        ? 0
+        : 300;
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | CAMBIA CONTENUTO A METÀ DEL WIPE
+    |--------------------------------------------------------------------------
+    */
+
+    window.setTimeout(
       () => {
 
-        if (
-          aboutTicking
-        ) {
-          return;
-        }
+        activeWork =
+          workName;
 
 
-        aboutTicking =
-          true;
+        /*
+        |--------------------------------------------------------------------------
+        | ATMOSFERA DELLA SEZIONE
+        |--------------------------------------------------------------------------
+        */
+
+        workGallery.dataset.activeWork =
+          workName;
 
 
-        requestAnimationFrame(
-          updateAboutParallax
+        /*
+        |--------------------------------------------------------------------------
+        | TAB
+        |--------------------------------------------------------------------------
+        */
+
+        workTabs.forEach(
+          tab => {
+
+            const isActive =
+              tab.dataset.workTab ===
+              workName;
+
+
+            tab.classList.toggle(
+              "is-active",
+              isActive
+            );
+
+
+            tab.setAttribute(
+              "aria-selected",
+              String(isActive)
+            );
+
+          }
         );
 
-      }
+
+        /*
+        |--------------------------------------------------------------------------
+        | PREVIEW
+        |--------------------------------------------------------------------------
+        */
+
+        workPanels.forEach(
+          panel => {
+
+            const isActive =
+              panel.dataset.workPanel ===
+              workName;
+
+
+            panel.classList.toggle(
+              "is-active",
+              isActive
+            );
+
+
+            panel.setAttribute(
+              "aria-hidden",
+              String(!isActive)
+            );
+
+          }
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | TITOLI + DESCRIZIONI
+        |--------------------------------------------------------------------------
+        */
+
+        workTitles.forEach(
+          title => {
+
+            const isActive =
+              title.dataset.workTitle ===
+              workName;
+
+
+            title.classList.toggle(
+              "is-active",
+              isActive
+            );
+
+
+            title.setAttribute(
+              "aria-hidden",
+              String(!isActive)
+            );
+
+          }
+        );
+
+      },
+
+      swapDelay
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | FINE TRANSIZIONE
+    |--------------------------------------------------------------------------
+    */
+
+    workSwitchTimeout =
+      window.setTimeout(
+        () => {
+
+          workGallery.classList.remove(
+            "is-switching"
+          );
+
+        },
+
+        reducedMotion.matches
+          ? 20
+          : 760
+      );
+
+  }
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | PREVIOUS / NEXT
+  |--------------------------------------------------------------------------
+  */
+
+  function moveWork(
+    direction
+  ) {
+
+    const currentIndex =
+      workOrder.indexOf(
+        activeWork
+      );
+
+
+    const nextIndex =
+      (
+        currentIndex +
+        direction +
+        workOrder.length
+      ) %
+      workOrder.length;
+
+
+    setWork(
+      workOrder[
+        nextIndex
+      ]
     );
 
   }
 
+
+  /*
+  |--------------------------------------------------------------------------
+  | CLICK SUI NOMI
+  |--------------------------------------------------------------------------
+  */
+
+  workTabs.forEach(
+    tab => {
+
+      tab.addEventListener(
+        "click",
+        () => {
+
+          setWork(
+            tab.dataset.workTab
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | FRECCIA INDIETRO
+  |--------------------------------------------------------------------------
+  */
+
+  workPrev?.addEventListener(
+    "click",
+    () => {
+
+      moveWork(-1);
+
+    }
+  );
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | FRECCIA AVANTI
+  |--------------------------------------------------------------------------
+  */
+
+  workNext?.addEventListener(
+    "click",
+    () => {
+
+      moveWork(1);
+
+    }
+  );
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | STATO INIZIALE
+  |--------------------------------------------------------------------------
+  */
+
+  workGallery.dataset.activeWork =
+    activeWork;
+
+}
 
   /*
   |--------------------------------------------------------------------------
