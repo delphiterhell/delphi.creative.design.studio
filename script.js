@@ -1701,6 +1701,186 @@ if (workGallery) {
 
 }
 
+/*
+|--------------------------------------------------------------------------
+| SELECTED CONCEPTS — STAGGERED SCROLL REVEAL
+|--------------------------------------------------------------------------
+*/
+
+const conceptCards =
+  document.querySelectorAll(
+    "[data-concept-reveal]"
+  );
+
+
+if (
+  conceptCards.length &&
+  !reducedMotion.matches &&
+  "IntersectionObserver" in window
+) {
+
+  const conceptObserver =
+    new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(
+          entry => {
+
+            if (
+              !entry.isIntersecting
+            ) {
+              return;
+            }
+
+
+            entry.target
+              .classList
+              .add(
+                "is-visible"
+              );
+
+
+            conceptObserver
+              .unobserve(
+                entry.target
+              );
+
+          }
+        );
+
+      },
+
+      {
+        threshold: .18,
+
+        rootMargin:
+          "0px 0px -8%"
+      }
+
+    );
+
+
+  conceptCards.forEach(
+    card => {
+
+      conceptObserver.observe(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| FALLBACK / REDUCED MOTION
+|--------------------------------------------------------------------------
+*/
+
+else {
+
+  conceptCards.forEach(
+    card => {
+
+      card.classList.add(
+        "is-visible"
+      );
+
+    }
+  );
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| PACKAGES — STAGGERED REVEAL
+|--------------------------------------------------------------------------
+*/
+
+const packageCards =
+  document.querySelectorAll(
+    "[data-package-reveal]"
+  );
+
+
+if (
+  packageCards.length &&
+  !reducedMotion.matches &&
+  "IntersectionObserver" in window
+) {
+
+  const packageObserver =
+    new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(
+          entry => {
+
+            if (
+              !entry.isIntersecting
+            ) {
+              return;
+            }
+
+
+            entry.target
+              .classList
+              .add(
+                "is-visible"
+              );
+
+
+            packageObserver
+              .unobserve(
+                entry.target
+              );
+
+          }
+        );
+
+      },
+
+      {
+        threshold: .16,
+
+        rootMargin:
+          "0px 0px -7%"
+      }
+
+    );
+
+
+  packageCards.forEach(
+    card => {
+
+      packageObserver.observe(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+else {
+
+  packageCards.forEach(
+    card => {
+
+      card.classList.add(
+        "is-visible"
+      );
+
+    }
+  );
+
+}
+
   /*
   |--------------------------------------------------------------------------
   | SCROLL REVEAL
