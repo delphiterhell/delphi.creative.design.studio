@@ -4863,3 +4863,561 @@ small {
 }
 
 
+/* ============================================================
+   16. PREMIUM MOTION DIRECTION
+   ============================================================ */
+
+.motion-title-wrap { overflow: hidden; }
+
+.motion-title {
+  display: block;
+  transform-origin: left bottom;
+}
+
+.motion-enabled [data-motion-title],
+.motion-enabled [data-motion-copy] {
+  will-change: transform, opacity;
+}
+
+
+/* ============================================================
+   INTRO — PHOTO REVEAL
+   ============================================================ */
+
+.intro-portrait__image {
+  position: relative;
+  isolation: isolate;
+}
+
+.intro-portrait__reveal {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      120deg,
+      var(--sage) 0%,
+      #a7b09d 58%,
+      #c3a471 135%
+    );
+}
+
+.intro-portrait__reveal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 249, 239, .68);
+}
+
+
+/* ============================================================
+   SERVICES — MOTION SUPPORT
+   ============================================================ */
+
+.services-section {
+  --services-visual-y: 0px;
+}
+
+.services-section__inner {
+  transform: translateY(var(--services-visual-y));
+}
+
+.services-heading {
+  position: relative;
+  z-index: 3;
+}
+
+.services-stage {
+  transform-origin: center bottom;
+}
+
+.motion-enabled .services-stage {
+  will-change: transform, opacity;
+}
+
+
+/* ============================================================
+   SELECTED WORK — PREMIUM REVEAL SUPPORT
+   ============================================================ */
+
+.work-gallery__frame {
+  --work-scroll-y: 0px;
+  transform: translateY(var(--work-scroll-y));
+  transform-origin: right center;
+}
+
+.work-gallery__reveal {
+  position: absolute;
+  z-index: 25;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold) 0%,
+      #ded6c9 48%,
+      var(--sage) 100%
+    );
+}
+
+
+/* ============================================================
+   MATERIAL TRANSITION — STRONG SCROLL VERSION
+   ============================================================ */
+
+.material-transition {
+  --material-progress: 0;
+  --material-shine-x: -130px;
+
+  position: relative;
+  z-index: 20;
+
+  display: block;
+
+  width: 100%;
+  height: clamp(205px, 15vw, 255px);
+  min-height: 205px;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    linear-gradient(
+      112deg,
+      #eeeae2 0%,
+      #e6e3da 42%,
+      #dfe3d9 100%
+    );
+
+  border-top:
+    1px solid
+    rgba(32, 33, 31, .09);
+
+  border-bottom:
+    1px solid
+    rgba(32, 33, 31, .09);
+}
+
+
+/* ------------------------------------------------------------
+   MOVING MASSES
+   ------------------------------------------------------------ */
+
+.material-transition__layer {
+  position: absolute;
+  z-index: 1;
+
+  display: block;
+
+  pointer-events: none;
+
+  border-radius:
+    48% 52% 58% 42% /
+    42% 48% 52% 58%;
+
+  will-change:
+    transform,
+    opacity;
+
+  transform-origin:
+    center center;
+}
+
+
+/* SAGE — clearly visible */
+
+.material-transition__layer--sage {
+  width: 760px;
+  height: 420px;
+
+  left: -145px;
+  top: -118px;
+
+  opacity: .72;
+
+  filter:
+    blur(26px);
+
+  background:
+    radial-gradient(
+      ellipse at 48% 50%,
+      rgba(118, 129, 111, .80) 0%,
+      rgba(150, 160, 141, .62) 26%,
+      rgba(150, 160, 141, .30) 50%,
+      rgba(150, 160, 141, .08) 66%,
+      transparent 78%
+    );
+}
+
+
+/* GOLD — clearly visible */
+
+.material-transition__layer--gold {
+  width: 720px;
+  height: 405px;
+
+  right: -150px;
+  bottom: -145px;
+
+  opacity: .62;
+
+  filter:
+    blur(25px);
+
+  background:
+    radial-gradient(
+      ellipse at 52% 50%,
+      rgba(195, 164, 113, .78) 0%,
+      rgba(195, 164, 113, .54) 27%,
+      rgba(195, 164, 113, .25) 50%,
+      rgba(195, 164, 113, .07) 67%,
+      transparent 78%
+    );
+}
+
+
+/* ------------------------------------------------------------
+   CENTRAL LIGHT / MATERIAL DEPTH
+   ------------------------------------------------------------ */
+
+.material-transition::before {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+
+  top: -95%;
+  left: 32%;
+
+  width: 22%;
+  height: 300%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 250, 241, .05) 18%,
+      rgba(255, 250, 241, .56) 50%,
+      rgba(255, 250, 241, .07) 82%,
+      transparent 100%
+    );
+
+  filter:
+    blur(13px);
+
+  transform:
+    translate3d(
+      var(--material-shine-x),
+      0,
+      0
+    )
+    rotate(18deg);
+
+  will-change:
+    transform;
+}
+
+
+/* ------------------------------------------------------------
+   GRAIN
+   ------------------------------------------------------------ */
+
+.material-transition__grain {
+  position: absolute;
+  z-index: 4;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .16;
+
+  background-image:
+    radial-gradient(
+      rgba(47, 46, 43, .13) .55px,
+      transparent .55px
+    );
+
+  background-size:
+    5px 5px;
+}
+
+
+/* ------------------------------------------------------------
+   GOLD LINE
+   ------------------------------------------------------------ */
+
+.material-transition__line {
+  position: absolute;
+  z-index: 5;
+
+  left: 6.7vw;
+  right: 6.7vw;
+
+  top: 50%;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  opacity: .72;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(195, 164, 113, .82) 12%,
+      rgba(195, 164, 113, .42) 48%,
+      rgba(195, 164, 113, .72) 84%,
+      transparent 100%
+    );
+
+  transform:
+    scaleX(.08);
+
+  transform-origin:
+    center center;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* ------------------------------------------------------------
+   FAINT SECONDARY CURVE / HALO
+   ------------------------------------------------------------ */
+
+.material-transition::after {
+  content: "";
+
+  position: absolute;
+  z-index: 3;
+
+  left: 50%;
+  top: 50%;
+
+  width: min(66vw, 980px);
+  height: 150px;
+
+  pointer-events: none;
+
+  border:
+    1px solid
+    rgba(255, 249, 239, .34);
+
+  border-radius: 50%;
+
+  opacity:
+    calc(
+      .18 +
+      var(--material-progress) * .34
+    );
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scaleX(
+      calc(
+        .72 +
+        var(--material-progress) * .38
+      )
+    );
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------ */
+
+@media (max-width: 700px) {
+
+  .material-transition {
+    height: 155px;
+    min-height: 155px;
+  }
+
+  .material-transition__layer--sage {
+    width: 520px;
+    height: 300px;
+
+    left: -190px;
+    top: -90px;
+  }
+
+  .material-transition__layer--gold {
+    width: 500px;
+    height: 290px;
+
+    right: -190px;
+    bottom: -100px;
+  }
+
+  .material-transition__line {
+    left: 28px;
+    right: 28px;
+  }
+
+  .material-transition::after {
+    width: 88vw;
+    height: 95px;
+  }
+
+}
+
+
+/* ------------------------------------------------------------
+   REDUCED MOTION
+   ------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .material-transition__layer,
+  .material-transition__line,
+  .material-transition::before,
+  .material-transition::after {
+    transition: none !important;
+  }
+
+}
+
+
+/* ============================================================
+   CONCEPT CARDS — GSAP SUPPORT
+   ============================================================ */
+
+.motion-enabled [data-concept-card] {
+  opacity: 1;
+  filter: none;
+  clip-path: none;
+  will-change: transform, opacity;
+}
+
+.motion-enabled [data-concept-card].concept-card {
+  transition: none;
+}
+
+
+/* ============================================================
+   PACKAGE CARDS — GSAP SUPPORT
+   ============================================================ */
+
+.motion-enabled [data-package-card] {
+  opacity: 1;
+  will-change: transform, opacity;
+
+  transition:
+    box-shadow .55s ease,
+    border-color .45s ease,
+    background-color .45s ease;
+}
+
+
+/* ============================================================
+   CONTACT — FINAL MOTION SUPPORT
+   ============================================================ */
+
+.motion-title-wrap--contact {
+  width: fit-content;
+}
+
+.contact-section {
+  overflow: hidden;
+}
+
+.contact-section::after {
+  content: "";
+
+  position: absolute;
+
+  right: -12vw;
+  bottom: -26vw;
+
+  width: 55vw;
+  height: 55vw;
+
+  border: 1px solid rgba(195, 164, 113, .14);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+  .material-transition {
+    height: 118px;
+    min-height: 118px;
+  }
+
+  .material-transition__layer--sage {
+    width: 145vw;
+    height: 80vw;
+    min-width: 0;
+    min-height: 0;
+    left: -70vw;
+    top: -38vw;
+  }
+
+  .material-transition__layer--gold {
+    width: 130vw;
+    height: 74vw;
+    min-width: 0;
+    min-height: 0;
+    right: -64vw;
+    bottom: -40vw;
+  }
+
+  .material-transition__line {
+    left: 28px;
+    right: 28px;
+  }
+
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .services-section__inner,
+  .work-gallery__frame {
+    transform: none !important;
+  }
+
+  .intro-portrait__reveal,
+  .work-gallery__reveal {
+    display: none !important;
+  }
+
+  [data-motion-title],
+  [data-motion-copy],
+  [data-concept-card],
+  [data-package-card] {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+}

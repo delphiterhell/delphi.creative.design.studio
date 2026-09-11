@@ -284,15 +284,21 @@
       <div class="intro-content">
 
 
-        <h2 id="intro-title">
-          Mi presento
-        </h2>
+        <div class="motion-title-wrap">
+          <h2
+            id="intro-title"
+            class="motion-title"
+            data-motion-title
+          >
+            Mi presento
+          </h2>
+        </div>
 
 
         <div class="intro-copy">
 
 
-          <p class="intro-copy__primary">
+          <p class="intro-copy__primary" data-motion-copy>
 
             <strong>Sono Delphi.</strong>
 
@@ -303,7 +309,7 @@
           </p>
 
 
-          <p class="intro-copy__secondary">
+          <p class="intro-copy__secondary" data-motion-copy>
 
             Lavoro direttamente con te, unendo design,
             sviluppo e contenuti per trovare soluzioni
@@ -375,6 +381,11 @@
             height="1200"
           >
 
+          <span
+            class="intro-portrait__reveal"
+            aria-hidden="true"
+          ></span>
+
         </div>
 
 
@@ -420,9 +431,15 @@
 
         <header class="services-heading">
 
-          <h2 id="services-title">
-            Cosa posso costruire per il tuo progetto.
-          </h2>
+          <div class="motion-title-wrap">
+            <h2
+              id="services-title"
+              class="motion-title"
+              data-motion-title
+            >
+              Cosa posso costruire per il tuo progetto.
+            </h2>
+          </div>
 
         </header>
 
@@ -455,7 +472,7 @@
             >
 
               <span class="service-tab__number">
-                01
+                
               </span>
 
 
@@ -496,14 +513,14 @@
             >
 
               <span class="service-tab__number">
-                02
+                
               </span>
 
 
               <span class="service-tab__content">
 
                 <span class="service-tab__title">
-                  Identity
+                  Creative direction
                 </span>
 
                 <span class="service-tab__summary">
@@ -537,7 +554,7 @@
             >
 
               <span class="service-tab__number">
-                03
+                
               </span>
 
 
@@ -860,9 +877,15 @@
           Selected Work
         </span>
 
-        <h2 id="works-title">
-Alcuni dei miei lavori
-        </h2>
+        <div class="motion-title-wrap">
+          <h2
+            id="works-title"
+            class="motion-title"
+            data-motion-title
+          >
+            Alcuni dei miei lavori
+          </h2>
+        </div>
 
         <p class="work-gallery__intro">
           Una selezione di presenze digitali progettate su misura,
@@ -950,6 +973,10 @@ Alcuni dei miei lavori
         <div class="work-gallery__stage" data-reveal>
 
           <div class="work-gallery__frame">
+            <div
+              class="work-gallery__reveal"
+              aria-hidden="true"
+            ></div>
 
             <!-- LORENZO -->
             <article
@@ -1168,6 +1195,37 @@ Alcuni dei miei lavori
 
 
 
+
+    <!-- =======================================================
+         SCROLL WORD
+         ======================================================= -->
+
+<section
+  class="material-transition"
+  aria-hidden="true"
+>
+
+  <div
+    class="material-transition__layer
+           material-transition__layer--sage"
+  ></div>
+
+  <div
+    class="material-transition__layer
+           material-transition__layer--gold"
+  ></div>
+
+  <div
+    class="material-transition__grain"
+  ></div>
+
+  <div
+    class="material-transition__line"
+  ></div>
+
+</section>
+
+
     <!-- =======================================================
          SELECTED CONCEPTS
          ======================================================= -->
@@ -1188,9 +1246,15 @@ Alcuni dei miei lavori
 
         <div class="concepts-heading__row">
 
-          <h2 id="concepts-title">
-            Progetti immaginati
-          </h2>
+          <div class="motion-title-wrap">
+            <h2
+              id="concepts-title"
+              class="motion-title"
+              data-motion-title
+            >
+              Progetti immaginati
+            </h2>
+          </div>
 
           <p>
             Esplorazioni visive e digitali pensate per mondi
@@ -1208,7 +1272,7 @@ Alcuni dei miei lavori
 
         <article
           class="concept-card concept-card--hotel"
-          data-concept-reveal
+          data-concept-card
           style="--concept-delay: 0ms;"
         >
 
@@ -1263,7 +1327,7 @@ Alcuni dei miei lavori
 
         <article
           class="concept-card concept-card--restaurant"
-          data-concept-reveal
+          data-concept-card
           style="--concept-delay: 120ms;"
         >
 
@@ -1318,7 +1382,7 @@ Alcuni dei miei lavori
 
         <article
           class="concept-card concept-card--wedding"
-          data-concept-reveal
+          data-concept-card
           style="--concept-delay: 240ms;"
         >
 
@@ -1397,9 +1461,15 @@ Alcuni dei miei lavori
 
     <div class="packages-heading__row">
 
-      <h2 id="packages-title">
-        Scegli il punto di partenza.
-      </h2>
+      <div class="motion-title-wrap">
+        <h2
+          id="packages-title"
+          class="motion-title"
+          data-motion-title
+        >
+          Scegli il punto di partenza.
+        </h2>
+      </div>
 
       <p>
         Ogni progetto è diverso.
@@ -1421,7 +1491,7 @@ Alcuni dei miei lavori
 
     <article
       class="package-card"
-      data-package-reveal
+      data-package-card
       style="--package-delay: 0ms;"
     >
 
@@ -1504,7 +1574,7 @@ Alcuni dei miei lavori
 
     <article
       class="package-card package-card--signature"
-      data-package-reveal
+      data-package-card
       style="--package-delay: 120ms;"
     >
 
@@ -1601,7 +1671,7 @@ Alcuni dei miei lavori
 
     <article
       class="package-card"
-      data-package-reveal
+      data-package-card
       style="--package-delay: 240ms;"
     >
 
@@ -1692,6 +1762,7 @@ Alcuni dei miei lavori
       Landing page, website refresh, contenuti,
       Google Business, newsletter e manutenzione
       possono essere richiesti anche separatamente.
+      E-commerce disponibile su progetto.
     </p>
 
   </div>
@@ -1859,8 +1930,11 @@ Alcuni dei miei lavori
 
       </div>
 
-    </section> -->
+    -->
 
+
+
+    </section>
 
 
     <!-- =======================================================
@@ -1877,9 +1951,14 @@ Alcuni dei miei lavori
       </span>
 
 
-      <h2>
-        Parliamone.
-      </h2>
+      <div class="motion-title-wrap motion-title-wrap--contact">
+        <h2
+          class="motion-title"
+          data-motion-title
+        >
+          Parliamone.
+        </h2>
+      </div>
 
 
       <a
@@ -1896,7 +1975,17 @@ Alcuni dei miei lavori
 
 
 
-  <script src="script.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+    defer
+  ></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+    defer
+  ></script>
+
+  <script src="script.js" defer></script>
 
 </body>
 
