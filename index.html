@@ -1,81 +1,50 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Delphi — Digital Creative Studio</title>
+  <meta
+    name="description"
+    content="Web design, creative direction e digital presence per brand e professionisti indipendenti."
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@300;400;500&family=Mozilla+Text:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@300;400;500&display=swap"
     rel="stylesheet"
   >
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
-
 
   <!-- =========================================================
        HERO
        ========================================================= -->
 
-  <header
-    class="hero"
-    id="top"
-  >
+  <header class="hero" id="top">
 
-    <!-- BACKGROUND ART -->
-
-    <div
-      class="hero-art"
-      aria-hidden="true"
-    >
+    <div class="hero-art" aria-hidden="true">
       <img
         class="hero-image"
         src="herodesign.png"
         alt=""
       >
-
       <div class="hero-art-fade"></div>
     </div>
 
-
-    <!-- CUSTOM CURSOR -->
-
-    <div
-      class="hero-cursor"
-      aria-hidden="true"
-    >
-      <span class="hero-cursor__dot"></span>
-    </div>
-
-
-    <!-- NAVIGATION -->
 
     <nav class="nav">
 
       <a
         href="#top"
         class="brand"
+        aria-label="Delphi Digital Creative Studio — Home"
       >
         <span class="brand-name">
           DELPHI
@@ -88,36 +57,36 @@
 
 
       <div class="nav-links">
-
-        <a href="#about">
+        <a href="#about-intro">
           About
-        </a>
-
-        <a href="#services">
-          Services
         </a>
 
         <a href="#works">
           Works
         </a>
 
+        <a href="#services">
+          Services
+        </a>
+
         <a href="#contact">
           Contact
         </a>
-
       </div>
 
 
-      <div class="language">
+      <span class="language">
         IT / EN
-      </div>
+      </span>
 
     </nav>
 
 
-    <!-- HERO TEXT -->
-
     <div class="hero-copy">
+
+      <p class="hero-kicker">
+        Design · Digital · Content
+      </p>
 
       <h1>
         <span>Web Design.</span>
@@ -125,9 +94,7 @@
         <span>Digital Content.</span>
       </h1>
 
-
       <div class="copy-line"></div>
-
 
       <p class="hero-description">
         Costruisco presenze digitali autentiche
@@ -137,13 +104,10 @@
     </div>
 
 
-    <!-- STRUCTURAL GRID -->
-
     <div
       class="layout-grid"
       aria-hidden="true"
     >
-
       <span class="grid-v grid-v-1"></span>
       <span class="grid-v grid-v-2"></span>
       <span class="grid-v grid-v-3"></span>
@@ -151,125 +115,76 @@
       <span class="grid-h grid-h-1"></span>
       <span class="grid-h grid-h-2"></span>
       <span class="grid-h grid-h-3"></span>
-
     </div>
 
 
-    <!-- PALETTE -->
-
     <div
       class="palette-card palette-card-01"
-      data-color="#EEEAE2"
       style="--swatch:#EEEAE2"
     >
-
       <span class="palette-number">
         01
       </span>
 
-      <div class="palette-info">
-
-        <span class="palette-name">
-          Warm Paper
-        </span>
-
-        <span class="palette-hex">
-          #EEEAE2
-        </span>
-
-      </div>
-
+      <span class="palette-info">
+        <b>Warm Paper</b>
+        <small>#EEEAE2</small>
+      </span>
     </div>
 
 
     <div
       class="palette-card palette-card-02"
-      data-color="#96A08D"
       style="--swatch:#96A08D"
     >
-
       <span class="palette-number">
         02
       </span>
 
-      <div class="palette-info">
-
-        <span class="palette-name">
-          Dusty Sage
-        </span>
-
-        <span class="palette-hex">
-          #96A08D
-        </span>
-
-      </div>
-
+      <span class="palette-info">
+        <b>Dusty Sage</b>
+        <small>#96A08D</small>
+      </span>
     </div>
 
 
     <div
       class="palette-card palette-card-03"
-      data-color="#C3A471"
       style="--swatch:#C3A471"
     >
-
       <span class="palette-number">
         03
       </span>
 
-      <div class="palette-info">
-
-        <span class="palette-name">
-          Champagne Gold
-        </span>
-
-        <span class="palette-hex">
-          #C3A471
-        </span>
-
-      </div>
-
+      <span class="palette-info">
+        <b>Champagne Gold</b>
+        <small>#C3A471</small>
+      </span>
     </div>
 
 
-    <!-- CTA -->
-
     <a
-      href="#works"
+      href="#about-intro"
       class="hero-discover"
     >
-
-      <span class="hero-discover__label">
-        Scopri i progetti
+      <span>
+        Scopri lo studio
       </span>
 
-      <span
-        class="hero-discover__line"
-        aria-hidden="true"
-      ></span>
+      <i aria-hidden="true"></i>
 
-      <span
-        class="hero-discover__circle"
-        aria-hidden="true"
-      >
+      <b aria-hidden="true">
         ↓
-      </span>
-
+      </b>
     </a>
 
   </header>
 
 
-
-  <!-- =========================================================
-       MAIN
-       ========================================================= -->
-
   <main>
 
-
     <!-- =======================================================
-         MI PRESENTO
+         MI PRESENTO — RIPRISTINATA
          ======================================================= -->
 
     <section
@@ -278,11 +193,7 @@
       aria-labelledby="intro-title"
     >
 
-
-      <!-- LEFT SIDE -->
-
       <div class="intro-content">
-
 
         <div class="motion-title-wrap">
           <h2
@@ -297,25 +208,26 @@
 
         <div class="intro-copy">
 
-
-          <p class="intro-copy__primary" data-motion-copy>
-
+          <p
+            class="intro-copy__primary"
+            data-motion-copy
+          >
             <strong>Sono Delphi.</strong>
 
             Aiuto piccole attività, professionisti e progetti
             indipendenti a costruire la propria presenza online
             in modo curato, personale e sostenibile.
-
           </p>
 
 
-          <p class="intro-copy__secondary" data-motion-copy>
-
+          <p
+            class="intro-copy__secondary"
+            data-motion-copy
+          >
             Lavoro direttamente con te, unendo design,
             sviluppo e contenuti per trovare soluzioni
             adatte al tuo progetto, senza la struttura
             e i costi di una grande agenzia.
-
           </p>
 
         </div>
@@ -323,7 +235,7 @@
 
         <a
           class="intro-link"
-          href="#about"
+          href="#contact"
         >
 
           <span
@@ -349,33 +261,20 @@
           class="intro-meta"
           aria-hidden="true"
         >
-
-          <span>
-            Design
-          </span>
-
-          <span>
-            Development
-          </span>
-
-          <span>
-            Content
-          </span>
-
+          <span>Design</span>
+          <span>Development</span>
+          <span>Content</span>
         </div>
 
       </div>
 
-
-
-      <!-- RIGHT SIDE -->
 
       <figure class="intro-portrait">
 
         <div class="intro-portrait__image">
 
           <img
-            src="chisono.jpeg"
+            src="chisono.jpg"
             alt="Delphi, fondatrice di Delphi Digital Creative Studio"
             width="960"
             height="1200"
@@ -391,13 +290,13 @@
 
         <figcaption class="intro-portrait__caption">
 
-          <span>
+ <!--          <span>
             Delphi
           </span>
-
-          <span>
+ -->
+<!--           <span>
             Independent Digital Creative Studio
-          </span>
+          </span> -->
 
         </figcaption>
 
@@ -406,783 +305,165 @@
     </section>
 
 
-
     <!-- =======================================================
-         SERVICES
+         SELECTED WORK — COMPACT INTRO
          ======================================================= -->
 
     <section
-      class="services-section"
-      id="services"
-      aria-labelledby="services-title"
-    >
-
-
-      <div
-        class="services-threshold"
-        aria-hidden="true"
-      ></div>
-
-
-      <div class="services-section__inner">
-
-
-        <!-- TITLE -->
-
-        <header class="services-heading">
-
-          <div class="motion-title-wrap">
-            <h2
-              id="services-title"
-              class="motion-title"
-              data-motion-title
-            >
-              Cosa posso costruire per il tuo progetto.
-            </h2>
-          </div>
-
-        </header>
-
-
-
-        <div class="services-editorial">
-
-
-          <!-- =================================================
-               SERVICES INDEX
-               ================================================= -->
-
-          <div
-            class="services-index"
-            role="tablist"
-            aria-label="Aree di servizio"
-          >
-
-
-            <!-- WEB -->
-
-            <button
-              class="service-tab is-active"
-              type="button"
-              role="tab"
-              id="service-tab-web"
-              aria-selected="true"
-              aria-controls="service-scene-web"
-              data-service-tab="web"
-            >
-
-              <span class="service-tab__number">
-                
-              </span>
-
-
-              <span class="service-tab__content">
-
-                <span class="service-tab__title">
-                  Web
-                </span>
-
-                <span class="service-tab__summary">
-                  Siti web e landing page progettati su misura,
-                  dalla struttura alla pubblicazione.
-                </span>
-
-              </span>
-
-
-              <span
-                class="service-tab__mark"
-                aria-hidden="true"
-              ></span>
-
-            </button>
-
-
-
-            <!-- IDENTITY -->
-
-            <button
-              class="service-tab"
-              type="button"
-              role="tab"
-              id="service-tab-identity"
-              aria-selected="false"
-              aria-controls="service-scene-identity"
-              data-service-tab="identity"
-              tabindex="-1"
-            >
-
-              <span class="service-tab__number">
-                
-              </span>
-
-
-              <span class="service-tab__content">
-
-                <span class="service-tab__title">
-                  Creative direction
-                </span>
-
-                <span class="service-tab__summary">
-                  Direzione visiva e sistemi grafici per costruire
-                  una presenza coerente e riconoscibile.
-                </span>
-
-              </span>
-
-
-              <span
-                class="service-tab__mark"
-                aria-hidden="true"
-              ></span>
-
-            </button>
-
-
-
-            <!-- DIGITAL PRESENCE -->
-
-            <button
-              class="service-tab"
-              type="button"
-              role="tab"
-              id="service-tab-presence"
-              aria-selected="false"
-              aria-controls="service-scene-presence"
-              data-service-tab="presence"
-              tabindex="-1"
-            >
-
-              <span class="service-tab__number">
-                
-              </span>
-
-
-              <span class="service-tab__content">
-
-                <span class="service-tab__title">
-                  Digital Presence
-                </span>
-
-                <span class="service-tab__summary">
-                  Contenuti e strumenti digitali per costruire
-                  e mantenere una presenza online coerente.
-                </span>
-
-              </span>
-
-
-              <span
-                class="service-tab__mark"
-                aria-hidden="true"
-              ></span>
-
-            </button>
-
-          </div>
-
-
-
-          <!-- =================================================
-               SERVICES STAGE
-               ================================================= -->
-
-          <div class="services-stage">
-
-
-            <!-- WEB -->
-
-<!-- =================================================
-     WEB
-     ================================================= -->
-
-<article
-  class="service-scene service-scene--web is-active"
-  id="service-scene-web"
-  role="tabpanel"
-  aria-labelledby="service-tab-web"
-  data-service-scene="web"
-  aria-hidden="false"
->
-
-  <header class="service-scene__meta">
-
-    <span>
-      Web Design
-    </span>
-
-    <span>
-      01 / 03
-    </span>
-
-  </header>
-
-
-  <!-- IMAGE -->
-
-  <div class="service-scene__canvas service-image-stage">
-
-    <img
-      class="service-image-stage__image"
-      src="imageweb.png"
-      alt="Concept di un sito web responsive visualizzato in versione desktop e mobile"
-      loading="lazy"
-      decoding="async"
-    >
-
-  </div>
-
-
-  <footer class="service-scene__footer">
-
-    <span>
-      Web Design
-    </span>
-
-    <span>
-      Development
-    </span>
-
-    <span>
-      Responsive Design
-    </span>
-
-    <span>
-      Gestione &amp; aggiornamenti
-    </span>
-
-  </footer>
-
-</article>
-
-
-
-            <!-- IDENTITY -->
-
-            <article
-              class="service-scene service-scene--identity"
-              id="service-scene-identity"
-              role="tabpanel"
-              aria-labelledby="service-tab-identity"
-              data-service-scene="identity"
-              aria-hidden="true"
-            >
-
-              <header class="service-scene__meta">
-
-                <span>
-                  Visual System
-                </span>
-
-                <span>
-                  02 / 03
-                </span>
-
-              </header>
-
-
-              <div
-                class="service-scene__canvas service-identity"
-                aria-hidden="true"
-              >
-
-                <span class="service-identity__aa">
-                  Aa
-                </span>
-
-
-                <div class="service-identity__type">
-                  <span>Manrope</span>
-                  <span>Light / 300</span>
-                </div>
-
-
-                <span class="service-identity__baseline"></span>
-
-
-                <div class="service-identity__swatches">
-
-                  <span style="--tone:#EEEAE2">
-                    <small>Paper</small>
-                  </span>
-
-                  <span style="--tone:#96A08D">
-                    <small>Sage</small>
-                  </span>
-
-                  <span style="--tone:#76816F">
-                    <small>Deep</small>
-                  </span>
-
-                  <span style="--tone:#C3A471">
-                    <small>Gold</small>
-                  </span>
-
-                </div>
-
-
-                <span class="service-identity__caption">
-                  Direction / System / Application
-                </span>
-
-              </div>
-
-
-              <footer class="service-scene__footer">
-
-                <span>
-                  Creative Direction
-                </span>
-
-                <span>
-                  Visual Identity
-                </span>
-
-                <span>
-                  Digital Graphics
-                </span>
-
-                <span>
-                  Brand Applications
-                </span>
-
-              </footer>
-
-            </article>
-
-
-
-            <!-- DIGITAL PRESENCE -->
-
-            <article
-              class="service-scene service-scene--presence"
-              id="service-scene-presence"
-              role="tabpanel"
-              aria-labelledby="service-tab-presence"
-              data-service-scene="presence"
-              aria-hidden="true"
-            >
-
-              <header class="service-scene__meta">
-
-                <span>
-                  Ecosystem
-                </span>
-
-                <span>
-                  03 / 03
-                </span>
-
-              </header>
-
-
-              <div
-                class="service-scene__canvas service-presence"
-                aria-hidden="true"
-              >
-
-                <span class="service-presence__line service-presence__line--h"></span>
-
-                <span class="service-presence__line service-presence__line--v"></span>
-
-
-                <span class="service-presence__node service-presence__node--social">
-                  Social
-                </span>
-
-                <span class="service-presence__node service-presence__node--search">
-                  Search
-                </span>
-
-                <span class="service-presence__node service-presence__node--email">
-                  Email
-                </span>
-
-                <span class="service-presence__node service-presence__node--google">
-                  Google
-                </span>
-
-
-                <span class="service-presence__hub">
-                  <i></i>
-                  Content
-                </span>
-
-
-                <div class="service-presence__schedule">
-
-                  <span>
-                    MON 01
-                  </span>
-
-                  <span>
-                    WED 02
-                  </span>
-
-                  <span>
-                    FRI 03
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <footer class="service-scene__footer">
-
-                <span>
-                  Social Content
-                </span>
-
-                <span>
-                  Email Marketing
-                </span>
-
-                <span>
-                  Google Presence
-                </span>
-
-                <span>
-                  Digital Strategy
-                </span>
-
-              </footer>
-
-            </article>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- =======================================================
-         SELECTED WORK — EDITORIAL GALLERY
-         ======================================================= -->
-
-    <section
-      class="work-gallery"
+      class="works-intro"
       id="works"
       aria-labelledby="works-title"
-      data-work-gallery
     >
 
-      <div class="work-gallery__grain" aria-hidden="true"></div>
-      <div class="work-gallery__gold-line" aria-hidden="true"></div>
+      <div class="works-intro__top">
 
-      <header class="work-gallery__heading" data-reveal>
         <span class="section-label">
           Selected Work
         </span>
 
-        <div class="motion-title-wrap">
-          <h2
-            id="works-title"
-            class="motion-title"
-            data-motion-title
-          >
-            Alcuni dei miei lavori
-          </h2>
-        </div>
+        <span class="works-intro__count">
+          01 — 03
+        </span>
 
-        <p class="work-gallery__intro">
-          Una selezione di presenze digitali progettate su misura,
-          tra direzione creativa, sviluppo e contenuti.
+      </div>
+
+
+      <div class="works-intro__bottom">
+
+        <h2 id="works-title">
+          Alcuni dei miei lavori
+        </h2>
+
+        <p>
+          Una selezione di progetti tra web design,
+          sviluppo e direzione creativa.
         </p>
-      </header>
+
+      </div>
+
+    </section>
 
 
-      <div class="work-gallery__viewer">
+    <!-- =======================================================
+         WORK 01 — LORENZO MAGNANINI
+         ======================================================= -->
 
-        <div class="work-gallery__meta" data-reveal>
+    <section
+      class="project project--hero"
+      data-project-hero
+    >
 
-          <div class="work-gallery__titles">
+      <div class="project-hero__sticky">
 
-            <div
-              class="work-gallery__title-panel is-active"
-              data-work-title="lorenzo"
-            >
-              <p class="work-gallery__eyebrow">
-                Drone &amp; FPV Filmmaker
-              </p>
+        <div
+          class="project-hero__frame"
+          data-project-frame
+        >
 
-              <h3>
-                Lorenzo Magnanini
-              </h3>
+          <a
+            href="https://lorenzomagnanini.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-hero__link"
+            aria-label="Visita il sito di Lorenzo Magnanini"
+          >
 
-              <p class="work-gallery__description">
-                Portfolio digitale sviluppato per dare centralità a video
-                e riprese, con un linguaggio essenziale e cinematografico.
-              </p>
-            </div>
+            <div class="lorenzo-preview">
 
+              <div class="lorenzo-preview__top">
 
-            <div
-              class="work-gallery__title-panel"
-              data-work-title="maga"
-              aria-hidden="true"
-            >
-              <p class="work-gallery__eyebrow">
-                Gioielli artigianali
-              </p>
+                <span class="lorenzo-preview__brand">
 
-              <h3>
-                La Maga Alchemy
-              </h3>
+                  <img
+                    src="assets/projects/lorenzo/logo.jpeg"
+                    alt=""
+                  >
 
-              <p class="work-gallery__description">
-                Un universo digitale più materico ed evocativo,
-                costruito attorno a dettagli, immagini e unicità dei pezzi.
-              </p>
-            </div>
+                  <small>
+                    Lorenzo Magnanini
+                  </small>
 
-
-            <div
-              class="work-gallery__title-panel"
-              data-work-title="pomeranze"
-              aria-hidden="true"
-            >
-              <p class="work-gallery__eyebrow">
-                Floral Studio · Modena
-              </p>
-
-              <h3>
-                Pomeranze
-              </h3>
-
-              <p class="work-gallery__description">
-                Una presenza calda e naturale che traduce il carattere
-                artigianale del progetto in un'esperienza digitale riconoscibile.
-              </p>
-            </div>
-
-          </div>
-
-
-          <div class="work-gallery__services" aria-label="Servizi del progetto">
-            <span>Web Design</span>
-            <span>Creative Direction</span>
-            <span>Development</span>
-          </div>
-
-        </div>
-
-
-        <div class="work-gallery__stage" data-reveal>
-
-          <div class="work-gallery__frame">
-            <div
-              class="work-gallery__reveal"
-              aria-hidden="true"
-            ></div>
-
-            <!-- LORENZO -->
-            <article
-              class="work-gallery__panel work-gallery__panel--lorenzo is-active"
-              data-work-panel="lorenzo"
-            >
-              <a
-                class="work-gallery__project-link"
-                href="https://lorenzomagnanini.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visita il sito di Lorenzo Magnanini"
-              >
-
-                <div class="lorenzo-preview" aria-hidden="true">
-
-                  <header class="lorenzo-preview__header">
-                    <div class="lorenzo-preview__header-inner">
-
-                      <span class="lorenzo-preview__brand">
-                        <img
-                          class="lorenzo-preview__logo"
-                          src="assets/projects/lorenzo/logo.jpeg"
-                          alt=""
-                        >
-
-                        <span class="lorenzo-preview__brand-name">
-                          Lorenzo Magnanini
-                        </span>
-                      </span>
-
-                      <nav class="lorenzo-preview__nav">
-                        <span>Home</span>
-                        <span>Drone</span>
-                        <span>Progetti</span>
-                        <span>Chi sono</span>
-                        <span>Contatti</span>
-                      </nav>
-
-                    </div>
-                  </header>
-
-                  <div class="lorenzo-preview__media">
-
-                    <video
-                      class="lorenzo-preview__video"
-                      data-project-video
-                      data-src="fpv.mp4"
-                      muted
-                      loop
-                      playsinline
-                      preload="none"
-                    ></video>
-
-                    <div class="lorenzo-preview__overlay"></div>
-
-                    <div class="lorenzo-preview__content">
-                      <p class="lorenzo-preview__title">
-                        DRONE &amp; FPV
-                      </p>
-
-                      <p class="lorenzo-preview__tagline">
-                        Riprese che prendono il volo.
-                      </p>
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <span class="work-gallery__view">
-                  View project ↗
                 </span>
 
-              </a>
-            </article>
 
+                <span class="lorenzo-preview__nav">
+                  Home &nbsp;&nbsp;
+                  Drone &nbsp;&nbsp;
+                  Progetti &nbsp;&nbsp;
+                  Chi sono &nbsp;&nbsp;
+                  Contatti
+                </span>
 
-            <!-- MAGA -->
-            <article
-              class="work-gallery__panel work-gallery__panel--maga"
-              data-work-panel="maga"
-              aria-hidden="true"
-            >
-
-              <div
-                class="project-live-frame"
-                data-live-preview
-                data-src="https://la-maga-alchemy.netlify.app/"
-              >
-                <iframe
-                  class="project-live-frame__iframe"
-                  title="Anteprima del sito La Maga Alchemy"
-                  loading="lazy"
-                  tabindex="-1"
-                  aria-hidden="true"
-                ></iframe>
               </div>
 
-              <a
-                class="work-gallery__view"
-                href="https://la-maga-alchemy.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View project ↗
-              </a>
 
-            </article>
+              <video
+                class="lorenzo-preview__video"
+                data-project-video
+                data-src="fpv.mp4"
+                muted
+                loop
+                playsinline
+                preload="none"
+              ></video>
 
 
-            <!-- POMERANZE -->
-            <article
-              class="work-gallery__panel work-gallery__panel--pomeranze"
-              data-work-panel="pomeranze"
-              aria-hidden="true"
-            >
+              <div class="lorenzo-preview__shade"></div>
 
-              <div
-                class="project-live-frame"
-                data-live-preview
-                data-src="https://pomeranz-e.netlify.app/"
-              >
-                <iframe
-                  class="project-live-frame__iframe"
-                  title="Anteprima del sito Pomeranze"
-                  loading="lazy"
-                  tabindex="-1"
-                  aria-hidden="true"
-                ></iframe>
+
+              <div class="lorenzo-preview__center">
+
+                <strong>
+                  DRONE &amp; FPV
+                </strong>
+
+                <span>
+                  Riprese che prendono il volo.
+                </span>
+
               </div>
 
-              <a
-                class="work-gallery__view"
-                href="https://pomeranz-e.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View project ↗
-              </a>
-
-            </article>
+            </div>
 
 
-            <div class="work-gallery__wipe" aria-hidden="true"></div>
+            <span class="project-hero__visit">
+              View live ↗
+            </span>
+
+          </a>
+
+        </div>
+
+
+        <div
+          class="project-hero__meta"
+          data-project-meta
+        >
+
+          <div>
+
+<!--             <span class="project-count">
+              01 / 03
+            </span> -->
+
+            <h3>
+              Lorenzo Magnanini
+            </h3>
 
           </div>
 
 
-          <div class="work-gallery__navigation">
+          <div class="project-hero__meta-right">
 
-            <div
-              class="work-gallery__project-tabs"
-              role="tablist"
-              aria-label="Seleziona progetto"
-            >
+            <p>
+              Portfolio digitale sviluppato per dare centralità
+              a video e riprese, con un linguaggio essenziale
+              e cinematografico.
+            </p>
 
-              <button
-                class="work-gallery__tab is-active"
-                type="button"
-                data-work-tab="lorenzo"
-                aria-selected="true"
-              >
-                Lorenzo Magnanini
-              </button>
-
-              <button
-                class="work-gallery__tab"
-                type="button"
-                data-work-tab="maga"
-                aria-selected="false"
-              >
-                La Maga Alchemy
-              </button>
-
-              <button
-                class="work-gallery__tab"
-                type="button"
-                data-work-tab="pomeranze"
-                aria-selected="false"
-              >
-                Pomeranze
-              </button>
-
-            </div>
-
-
-            <div class="work-gallery__arrows">
-              <button
-                class="work-gallery__arrow"
-                type="button"
-                data-work-prev
-                aria-label="Progetto precedente"
-              >
-                ←
-              </button>
-
-              <button
-                class="work-gallery__arrow"
-                type="button"
-                data-work-next
-                aria-label="Progetto successivo"
-              >
-                →
-              </button>
-            </div>
+            <span>
+              Web Design · Development · Creative Direction
+            </span>
 
           </div>
 
@@ -1193,41 +474,178 @@
     </section>
 
 
-
-
-
     <!-- =======================================================
-         SCROLL WORD
+         WORK 02 + 03 — LA MAGA ALCHEMY / POMERANZE (SIDE BY SIDE)
          ======================================================= -->
 
-<section
-  class="material-transition"
-  aria-hidden="true"
->
+    <div class="projects-duo">
 
-  <div
-    class="material-transition__layer
-           material-transition__layer--sage"
-  ></div>
+    <!-- =======================================================
+         WORK 02 — LA MAGA ALCHEMY
+         ======================================================= -->
 
-  <div
-    class="material-transition__layer
-           material-transition__layer--gold"
-  ></div>
+    <section
+      class="project project--editorial project--maga"
+    >
 
-  <div
-    class="material-transition__grain"
-  ></div>
+      <header
+        class="project-heading"
+        data-reveal
+      >
 
-  <div
-    class="material-transition__line"
-  ></div>
+<!--         <span class="project-count">
+          02 / 03
+        </span> -->
 
-</section>
+
+        <div>
+
+ <!--          <p class="eyebrow">
+            Gioielli artigianali
+          </p> -->
+
+          <h3>
+            La Maga Alchemy
+          </h3>
+
+        </div>
+
+
+        <p>
+          Un universo digitale più materico ed evocativo,
+          costruito attorno a dettagli, immagini e unicità
+          dei pezzi.
+        </p>
+
+      </header>
+
+
+      <a
+        class="project-live project-reel"
+        href="https://la-maga-alchemy.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-reveal
+      >
+
+        <div class="project-reel__frame">
+
+          <video
+            class="project-reel__video"
+            data-project-video
+            data-src="lamagaalchemy.mp4"
+            muted
+            loop
+            playsinline
+            autoplay
+            preload="metadata"
+          ></video>
+
+        </div>
+
+      </a>
+
+
+      <div class="project-reel__caption">
+
+        <h4>
+          Maga Alchemy
+        </h4>
+
+        <span>
+          Web Design · Creative Direction
+        </span>
+
+      </div>
+
+    </section>
 
 
     <!-- =======================================================
-         SELECTED CONCEPTS
+         WORK 03 — POMERANZE
+         ======================================================= -->
+
+    <section
+      class="project project--editorial project--pomeranze"
+    >
+
+      <header
+        class="project-heading"
+        data-reveal
+      >
+
+<!--         <span class="project-count">
+          03 / 03
+        </span> -->
+
+
+        <div>
+
+<!--           <p class="eyebrow">
+            Floral Studio · Modena
+          </p> -->
+
+          <h3>
+            Pomeranze
+          </h3>
+
+        </div>
+
+
+        <p>
+          Una presenza calda e naturale che traduce
+          il carattere artigianale del progetto in
+          un'esperienza digitale riconoscibile.
+        </p>
+
+      </header>
+
+
+      <a
+        class="project-live project-reel"
+        href="https://pomeranz-e.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-reveal
+      >
+
+        <div class="project-reel__frame">
+
+          <video
+            class="project-reel__video"
+            data-project-video
+            data-src="pomeranze.mp4"
+            muted
+            loop
+            playsinline
+            autoplay
+            preload="metadata"
+          ></video>
+
+        </div>
+
+      </a>
+
+
+      <div class="project-reel__caption">
+
+        <h4>
+          Pomeranze
+        </h4>
+
+        <span>
+          Web Design · Creative Direction
+        </span>
+
+      </div>
+
+    </section>
+
+    </div>
+
+
+    <!-- =======================================================
+         SELECTED CONCEPTS — PROGETTI IMMAGINATI
          ======================================================= -->
 
     <section
@@ -1236,9 +654,15 @@
       aria-labelledby="concepts-title"
     >
 
-      <div class="concepts-section__glow" aria-hidden="true"></div>
+      <div
+        class="concepts-section__glow"
+        aria-hidden="true"
+      ></div>
 
-      <header class="concepts-heading" data-reveal>
+      <header
+        class="concepts-heading"
+        data-reveal
+      >
 
         <span class="section-label">
           Selected Concepts
@@ -1247,6 +671,7 @@
         <div class="concepts-heading__row">
 
           <div class="motion-title-wrap">
+
             <h2
               id="concepts-title"
               class="motion-title"
@@ -1254,6 +679,7 @@
             >
               Progetti immaginati
             </h2>
+
           </div>
 
           <p>
@@ -1268,7 +694,9 @@
 
       <div class="concepts-grid">
 
-        <!-- HOSPITALITY -->
+        <!-- =========================================
+             BOUTIQUE HOTEL
+             ========================================= -->
 
         <article
           class="concept-card concept-card--hotel"
@@ -1284,14 +712,30 @@
 
             <div class="concept-card__media">
 
-              <div class="concept-card__ambient" aria-hidden="true"></div>
+              <div
+                class="concept-card__ambient"
+                aria-hidden="true"
+              ></div>
 
-              <div class="concept-card__placeholder" aria-hidden="true">
-                <span>Boutique</span>
-                <strong>Hotel</strong>
+              <div
+                class="concept-card__placeholder"
+                aria-hidden="true"
+              >
+
+                <span>
+                  Boutique
+                </span>
+
+                <strong>
+                  Hotel
+                </strong>
+
               </div>
 
-              <div class="concept-card__veil" aria-hidden="true"></div>
+              <div
+                class="concept-card__veil"
+                aria-hidden="true"
+              ></div>
 
               <span class="concept-card__view">
                 View concept ↗
@@ -1303,6 +747,7 @@
             <footer class="concept-card__footer">
 
               <div>
+
                 <span class="concept-card__type">
                   Hospitality
                 </span>
@@ -1310,6 +755,7 @@
                 <h3>
                   Boutique Hotel
                 </h3>
+
               </div>
 
               <span class="concept-card__tag">
@@ -1323,7 +769,9 @@
         </article>
 
 
-        <!-- RESTAURANT -->
+        <!-- =========================================
+             RESTAURANT
+             ========================================= -->
 
         <article
           class="concept-card concept-card--restaurant"
@@ -1339,14 +787,30 @@
 
             <div class="concept-card__media">
 
-              <div class="concept-card__ambient" aria-hidden="true"></div>
+              <div
+                class="concept-card__ambient"
+                aria-hidden="true"
+              ></div>
 
-              <div class="concept-card__placeholder" aria-hidden="true">
-                <span>Fine</span>
-                <strong>Dining</strong>
+              <div
+                class="concept-card__placeholder"
+                aria-hidden="true"
+              >
+
+                <span>
+                  Fine
+                </span>
+
+                <strong>
+                  Dining
+                </strong>
+
               </div>
 
-              <div class="concept-card__veil" aria-hidden="true"></div>
+              <div
+                class="concept-card__veil"
+                aria-hidden="true"
+              ></div>
 
               <span class="concept-card__view">
                 View concept ↗
@@ -1358,6 +822,7 @@
             <footer class="concept-card__footer">
 
               <div>
+
                 <span class="concept-card__type">
                   Food &amp; Hospitality
                 </span>
@@ -1365,6 +830,7 @@
                 <h3>
                   Restaurant
                 </h3>
+
               </div>
 
               <span class="concept-card__tag">
@@ -1378,7 +844,9 @@
         </article>
 
 
-        <!-- WEDDING -->
+        <!-- =========================================
+             WEDDING
+             ========================================= -->
 
         <article
           class="concept-card concept-card--wedding"
@@ -1394,14 +862,30 @@
 
             <div class="concept-card__media">
 
-              <div class="concept-card__ambient" aria-hidden="true"></div>
+              <div
+                class="concept-card__ambient"
+                aria-hidden="true"
+              ></div>
 
-              <div class="concept-card__placeholder" aria-hidden="true">
-                <span>Wedding</span>
-                <strong>Studio</strong>
+              <div
+                class="concept-card__placeholder"
+                aria-hidden="true"
+              >
+
+                <span>
+                  Wedding
+                </span>
+
+                <strong>
+                  Studio
+                </strong>
+
               </div>
 
-              <div class="concept-card__veil" aria-hidden="true"></div>
+              <div
+                class="concept-card__veil"
+                aria-hidden="true"
+              ></div>
 
               <span class="concept-card__view">
                 View concept ↗
@@ -1413,6 +897,7 @@
             <footer class="concept-card__footer">
 
               <div>
+
                 <span class="concept-card__type">
                   Events &amp; Editorial
                 </span>
@@ -1420,6 +905,7 @@
                 <h3>
                   Wedding Studio
                 </h3>
+
               </div>
 
               <span class="concept-card__tag">
@@ -1436,503 +922,651 @@
 
     </section>
 
+
     <!-- =======================================================
-     WORK WITH ME / PACKAGES
-     ======================================================= -->
+         SERVICES
+         ======================================================= -->
 
-<!-- =======================================================
-     PACKAGES
-     ======================================================= -->
-
-<section
-  class="packages-section"
-  id="packages"
-  aria-labelledby="packages-title"
->
-
-  <header
-    class="packages-heading"
-    data-reveal
-  >
-
-    <span class="section-label">
-      Work with me
-    </span>
-
-    <div class="packages-heading__row">
-
-      <div class="motion-title-wrap">
-        <h2
-          id="packages-title"
-          class="motion-title"
-          data-motion-title
-        >
-          Scegli il punto di partenza.
-        </h2>
-      </div>
-
-      <p>
-        Ogni progetto è diverso.
-        Queste proposte servono a capire da dove partire:
-        poi costruiamo insieme ciò che ti serve davvero.
-      </p>
-
-    </div>
-
-  </header>
-
-
-  <div class="packages-grid">
-
-
-    <!-- =====================================================
-         WEB ESSENTIAL
-         ===================================================== -->
-
-    <article
-      class="package-card"
-      data-package-card
-      style="--package-delay: 0ms;"
+    <section
+      class="services"
+      id="services"
+      aria-labelledby="services-title"
     >
 
-      <div class="package-card__header">
+      <div
+        class="services__heading"
+        data-reveal
+      >
 
-        <span class="package-card__label">
-          Web Essential
+        <span class="section-label">
+          Services
         </span>
 
-        <h3>
-          Un sito curato,<br>
-          chiaro e professionale.
-        </h3>
+        <h2 id="services-title">
+          Cosa posso costruire<br>
+          per il tuo progetto.
+        </h2>
+
+      </div>
+
+
+      <div class="services__layout">
+
+        <div
+          class="service-list"
+          role="tablist"
+          aria-label="Servizi"
+        >
+
+          <button
+            class="service-tab is-active"
+            type="button"
+            data-service-tab="web"
+            aria-selected="true"
+          >
+
+            <span></span>
+
+            <div>
+
+              <strong>
+                Web
+              </strong>
+
+              <p>
+                Siti web e landing page progettati su misura,
+                dalla struttura alla pubblicazione.
+              </p>
+
+            </div>
+
+            <i aria-hidden="true"></i>
+
+          </button>
+
+
+          <button
+            class="service-tab"
+            type="button"
+            data-service-tab="direction"
+            aria-selected="false"
+          >
+
+            <span></span>
+
+            <div>
+
+              <strong>
+                Creative direction
+              </strong>
+
+              <p>
+                Direzione visiva e sistemi grafici per costruire
+                una presenza coerente e riconoscibile.
+              </p>
+
+            </div>
+
+            <i aria-hidden="true"></i>
+
+          </button>
+
+
+          <button
+            class="service-tab"
+            type="button"
+            data-service-tab="presence"
+            aria-selected="false"
+          >
+
+            <span></span>
+
+            <div>
+
+              <strong>
+                Digital Presence
+              </strong>
+
+              <p>
+                Contenuti e strumenti digitali per costruire
+                e mantenere una presenza online coerente.
+              </p>
+
+            </div>
+
+            <i aria-hidden="true"></i>
+
+          </button>
+
+        </div>
+
+
+        <div class="service-stage" data-service-stage>
+
+          <!-- WEB -->
+
+          <article
+            class="service-scene is-active"
+            data-service-scene="web"
+          >
+
+            <div class="service-scene__meta">
+
+              <span>
+                
+              </span>
+
+            </div>
+
+
+            <div class="service-scene__stage3d" data-stage3d>
+
+              <div class="stage3d-inner">
+
+                <div class="web3d-shadow"></div>
+
+                <div class="web3d-panel web3d-panel--back">
+
+                  <div class="web3d-panel__bar"></div>
+
+                  <div class="web3d-panel__line web3d-panel__line--w60"></div>
+                  <div class="web3d-panel__line web3d-panel__line--w40"></div>
+
+                </div>
+
+                <div class="web3d-panel web3d-panel--main">
+
+                  <div class="web3d-panel__bar">
+                    <i></i><i></i><i></i>
+                  </div>
+
+                  <div class="web3d-panel__hero"></div>
+
+                  <div class="web3d-panel__line web3d-panel__line--w70"></div>
+                  <div class="web3d-panel__line web3d-panel__line--w45"></div>
+                  <div class="web3d-panel__line web3d-panel__line--w55"></div>
+
+                </div>
+
+                <div class="web3d-panel web3d-panel--mobile">
+
+                  <div class="web3d-panel__bar web3d-panel__bar--mobile"></div>
+
+                  <div class="web3d-panel__block"></div>
+
+                  <div class="web3d-panel__line web3d-panel__line--w70"></div>
+                  <div class="web3d-panel__line web3d-panel__line--w50"></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="service-subgrid" data-subgrid>
+
+              <div class="subgrid-item" style="--i:0">
+                <span></span>
+                <p>Web Design</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:1">
+                <span></span>
+                <p>Development</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:2">
+                <span></span>
+                <p>Responsive Design</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:3">
+                <span></span>
+                <p>Landing Pages</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:4">
+                <span></span>
+                <p>SEO di base</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:5">
+                <span></span>
+                <p>Gestione &amp; aggiornamenti</p>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- CREATIVE DIRECTION -->
+
+          <article
+            class="service-scene"
+            data-service-scene="direction"
+            aria-hidden="true"
+          >
+
+            <div class="service-scene__meta">
+
+              <span>
+                
+              </span>
+
+            </div>
+
+
+            <div class="service-scene__stage3d" data-stage3d>
+
+              <div class="stage3d-inner">
+
+                <div class="dir3d-plate"></div>
+
+                <div class="dir3d-card dir3d-card--photo"></div>
+
+                <div class="dir3d-card dir3d-card--frame">
+                  <span>EDITORIAL</span>
+                </div>
+
+                <div class="dir3d-card dir3d-card--clay"></div>
+
+                <div class="dir3d-card dir3d-card--sage"></div>
+
+                <div class="dir3d-card dir3d-card--type">
+                  <b>Aa</b>
+                  <small>Typography</small>
+                </div>
+
+                <div class="dir3d-palette">
+
+                  <i style="--c:#f1ece2"></i>
+                  <i style="--c:#c3a471"></i>
+                  <i style="--c:#b06a4c"></i>
+                  <i style="--c:#2f2e2b"></i>
+
+                </div>
+
+                <div class="dir3d-card dir3d-card--dark">
+                  <small>
+                    CREATIVE<br>
+                    DIRECTION
+                  </small>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="service-subgrid" data-subgrid>
+
+              <div class="subgrid-item" style="--i:0">
+                <span></span>
+                <p>Visual Direction</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:1">
+                <span></span>
+                <p>Art Direction</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:2">
+                <span></span>
+                <p>Typography</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:3">
+                <span></span>
+                <p>Color Systems</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:4">
+                <span></span>
+                <p>Image Curation</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:5">
+                <span></span>
+                <p>AI Visual Content</p>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- DIGITAL PRESENCE -->
+
+          <article
+            class="service-scene"
+            data-service-scene="presence"
+            aria-hidden="true"
+          >
+
+            <div class="service-scene__meta">
+
+              <span>
+                
+              </span>
+
+            </div>
+
+
+            <div class="service-scene__stage3d" data-stage3d>
+
+              <div class="stage3d-inner">
+
+                <div class="pres3d-plate"></div>
+                <div class="pres3d-shadow"></div>
+
+                <div class="pres3d-node pres3d-node--website">
+
+                  <div class="pres3d-node__bar">
+                    <i></i><i></i><i></i>
+                  </div>
+
+                  <div class="pres3d-node__addressbar"></div>
+
+                  <div class="pres3d-node__hero"></div>
+
+                  <div class="pres3d-node__cols">
+                    <div class="pres3d-node__block pres3d-node__block--half"></div>
+                    <div class="pres3d-node__block pres3d-node__block--half"></div>
+                  </div>
+
+                </div>
+
+                <div class="pres3d-node pres3d-node--newsletter">
+
+                  <div class="pres3d-node__line pres3d-node__line--title pres3d-node__line--w85"></div>
+
+                  <div class="pres3d-node__line pres3d-node__line--w80"></div>
+                  <div class="pres3d-node__line pres3d-node__line--w60"></div>
+                  <div class="pres3d-node__line pres3d-node__line--w40"></div>
+
+                  <div class="pres3d-node__cta"></div>
+
+                </div>
+
+                <div class="pres3d-node pres3d-node--social">
+
+                  <div class="pres3d-node__avatar"></div>
+
+                  <div class="pres3d-node__photo"></div>
+
+                  <div class="pres3d-node__line pres3d-node__line--w60"></div>
+                  <div class="pres3d-node__line pres3d-node__line--w35"></div>
+
+                  <div class="pres3d-node__micro">
+                    <i></i><i></i><i></i>
+                  </div>
+
+                </div>
+
+                <div class="pres3d-node pres3d-node--local">
+
+                  <div class="pres3d-node__pin"></div>
+
+                  <div class="pres3d-node__line pres3d-node__line--title pres3d-node__line--w70"></div>
+
+                  <div class="pres3d-node__stars">★ ★ ★ ★ ★</div>
+
+                  <div class="pres3d-node__line pres3d-node__line--w80"></div>
+                  <div class="pres3d-node__line pres3d-node__line--w55"></div>
+
+                </div>
+
+                <div class="pres3d-node pres3d-node--editorial">
+
+                  <div class="pres3d-node__calendar">
+                    <i></i><i></i><i></i>
+                    <i></i><i class="is-marked"></i><i></i>
+                    <i></i><i></i><i class="is-marked"></i>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="service-subgrid" data-subgrid>
+
+              <div class="subgrid-item" style="--i:0">
+                <span></span>
+                <p>Social Presence</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:1">
+                <span></span>
+                <p>Content Creation</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:2">
+                <span></span>
+                <p>Editorial Planning</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:3">
+                <span></span>
+                <p>Email Marketing</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:4">
+                <span></span>
+                <p>Google Business</p>
+              </div>
+
+              <div class="subgrid-item" style="--i:5">
+                <span></span>
+                <p>Local SEO</p>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         PACKAGES
+         ======================================================= -->
+
+    <section
+      class="packages"
+      id="packages"
+    >
+
+      <div
+        class="packages__heading"
+        data-reveal
+      >
+
+        <span class="section-label">
+          Work with me
+        </span>
+
+        <h2>
+          Scegli il punto di partenza.
+        </h2>
 
         <p>
-          Per chi ha già una propria identità e vuole
-          trasformarla in una presenza online solida e riconoscibile.
+          Ogni progetto è diverso.
+          Queste proposte servono a capire da dove partire:
+          poi costruiamo insieme ciò che ti serve davvero.
         </p>
 
       </div>
 
 
-      <div class="package-card__features">
+      <div class="packages__grid">
 
-        <span>
-          Web Design
-        </span>
+        <!-- WEB ESSENTIAL -->
 
-        <span>
-          Development
-        </span>
+        <article
+          class="package-card"
+          data-reveal
+        >
 
-        <span>
-          Responsive Design
-        </span>
-
-        <span>
-          SEO base
-        </span>
-
-        <span>
-          Launch
-        </span>
-
-      </div>
-
-
-      <footer class="package-card__footer">
-
-        <div class="package-card__investment">
-
-          <span>
-            A partire da
+          <span class="package-card__label">
+            Web Essential
           </span>
 
-          <strong>
-            € 650
-          </strong>
+          <h3>
+            Un sito curato,<br>
+            chiaro e professionale.
+          </h3>
 
-        </div>
+          <p>
+            Per chi ha già una propria identità e vuole
+            trasformarla in una presenza online solida
+            e riconoscibile.
+          </p>
 
 
-        <a
-          href="#contact"
-          class="package-card__cta"
+          <div class="package-card__features">
+
+            <span>Web Design</span>
+            <span>Development</span>
+            <span>Responsive Design</span>
+            <span>SEO base</span>
+            <span>Launch</span>
+
+          </div>
+
+
+          <footer>
+
+            <small>
+              A partire da
+            </small>
+
+            <strong>
+              € 650
+            </strong>
+
+            <a href="#contact">
+              Parliamone ↗
+            </a>
+
+          </footer>
+
+        </article>
+
+
+        <!-- SIGNATURE -->
+
+        <article
+          class="package-card package-card--featured"
+          data-reveal
         >
-          Scopri il pacchetto
-          <span>↗</span>
-        </a>
-
-      </footer>
-
-    </article>
-
-
-
-    <!-- =====================================================
-         SIGNATURE
-         ===================================================== -->
-
-    <article
-      class="package-card package-card--signature"
-      data-package-card
-      style="--package-delay: 120ms;"
-    >
-
-      <div
-        class="package-card__accent"
-        aria-hidden="true"
-      ></div>
-
-
-      <div class="package-card__header">
-
-        <div class="package-card__label-row">
 
           <span class="package-card__label">
             Web + Creative Direction
           </span>
 
-          <span class="package-card__signature">
-            Signature
-          </span>
+          <h3>
+            Sito e direzione<br>
+            visiva insieme.
+          </h3>
 
-        </div>
+          <p>
+            Per chi vuole costruire non solo il sito,
+            ma anche un linguaggio visivo più definito
+            e coerente.
+          </p>
 
-        <h3>
-          Sito e direzione<br>
-          visiva insieme.
-        </h3>
 
-        <p>
-          Per chi vuole costruire non solo il sito,
-          ma anche un linguaggio visivo più definito e coerente.
-        </p>
+          <div class="package-card__features">
 
-      </div>
+            <span>Creative Direction</span>
+            <span>Web Design</span>
+            <span>Development</span>
+            <span>AI Art Direction</span>
+            <span>Launch</span>
 
+          </div>
 
-      <div class="package-card__features">
 
-        <span>
-          Creative Direction
-        </span>
+          <footer>
 
-        <span>
-          Web Design
-        </span>
+            <small>
+              A partire da
+            </small>
 
-        <span>
-          Development
-        </span>
+            <strong>
+              € 1000
+            </strong>
 
-        <span>
-          AI Art Direction
-        </span>
+            <a href="#contact">
+              Parliamone ↗
+            </a>
 
-        <span>
-          Launch
-        </span>
+          </footer>
 
-      </div>
+        </article>
 
 
-      <footer class="package-card__footer">
+        <!-- DIGITAL PRESENCE -->
 
-        <div class="package-card__investment">
-
-          <span>
-            A partire da
-          </span>
-
-          <strong>
-            € 1000
-          </strong>
-
-        </div>
-
-
-        <a
-          href="#contact"
-          class="package-card__cta"
-        >
-          Scopri il pacchetto
-          <span>↗</span>
-        </a>
-
-      </footer>
-
-    </article>
-
-
-
-    <!-- =====================================================
-         DIGITAL PRESENCE
-         ===================================================== -->
-
-    <article
-      class="package-card"
-      data-package-card
-      style="--package-delay: 240ms;"
-    >
-
-      <div class="package-card__header">
-
-        <span class="package-card__label">
-          Digital Presence
-        </span>
-
-        <h3>
-          Una presenza digitale<br>
-          più completa.
-        </h3>
-
-        <p>
-          Per chi vuole lavorare in modo coerente
-          su più punti di contatto oltre al sito.
-        </p>
-
-      </div>
-
-
-      <div class="package-card__features">
-
-        <span>
-          Website
-        </span>
-
-        <span>
-          Content Direction
-        </span>
-
-        <span>
-          Google Presence
-        </span>
-
-        <span>
-          Social Visuals
-        </span>
-
-        <span>
-          Newsletter
-        </span>
-
-      </div>
-
-
-      <footer class="package-card__footer">
-
-        <div class="package-card__investment">
-
-          <span>
-            Investimento
-          </span>
-
-          <strong>
-            Su progetto
-          </strong>
-
-        </div>
-
-
-        <a
-          href="#contact"
-          class="package-card__cta"
-        >
-          Parliamone
-          <span>↗</span>
-        </a>
-
-      </footer>
-
-    </article>
-
-  </div>
-
-
-  <div
-    class="packages-note"
-    data-reveal
-  >
-
-    <span>
-      Hai bisogno solo di una parte?
-    </span>
-
-    <p>
-      Landing page, website refresh, contenuti,
-      Google Business, newsletter e manutenzione
-      possono essere richiesti anche separatamente.
-      E-commerce disponibile su progetto.
-    </p>
-
-  </div>
-
-</section>
-
-    <!-- =======================================================
-         ABOUT
-         ======================================================= -->
-
-    <section
-      class="about-section"
-      id="about"
-    >
-
-      <div
-        class="about-intro"
-        data-reveal
-      >
-
-        <span class="section-label">
-          About
-        </span>
-
-        <span class="section-count">
-          01 / Profile
-        </span>
-
-      </div>
-
-
-      <!-- <div class="about-layout"> -->
-
-
-        <!-- PHOTO -->
-<!-- 
-        <div
-          class="about-media"
+        <article
+          class="package-card"
           data-reveal
         >
 
-          <span class="about-index">
-            01
+          <span class="package-card__label">
+            Digital Presence
           </span>
 
+          <h3>
+            Una presenza digitale<br>
+            più completa.
+          </h3>
 
-          <div class="about-photo-box">
-
-            <div class="about-frame">
-
-              <img
-                class="about-photo"
-                src="chisono.jpg"
-                alt="Ritratto di Delphi"
-                width="960"
-                height="1200"
-                loading="lazy"
-              >
-
-            </div>
+          <p>
+            Per chi vuole lavorare in modo coerente
+            su più punti di contatto oltre al sito.
+          </p>
 
 
-            <span
-              class="about-line"
-              aria-hidden="true"
-            ></span>
+          <div class="package-card__features">
 
-
-            <span
-              class="about-cross"
-              aria-hidden="true"
-            ></span>
+            <span>Website</span>
+            <span>Content Direction</span>
+            <span>Google Presence</span>
+            <span>Social Visuals</span>
+            <span>Newsletter</span>
 
           </div>
 
 
-          <span class="about-caption">
-            Ritratto — Delphi
-          </span>
+          <footer>
 
-        </div> -->
+            <small>
+              Investimento
+            </small>
 
+            <strong>
+              Su progetto
+            </strong>
 
+            <a href="#contact">
+              Parliamone ↗
+            </a>
 
-        <!-- CONTENT -->
+          </footer>
 
-<!--         <div class="about-content">
-
-          <h2
-            class="about-headline"
-            data-reveal
-          >
-            Un approccio diretto,<br>
-            costruito intorno al progetto.
-          </h2>
-
-
-          <div
-            class="about-copy"
-            data-reveal
-          >
-
-            <p>
-              Lavoro con piccole attività, professionisti e realtà
-              indipendenti che vogliono costruire una presenza digitale
-              curata senza affidarsi alla struttura di una grande agenzia.
-            </p>
-
-
-            <p>
-              Seguo direttamente ogni fase del progetto, dalla direzione
-              visiva allo sviluppo e ai contenuti, cercando ogni volta
-              una soluzione che abbia senso per la realtà che ho davanti.
-            </p>
-
-          </div>
-
-
-          <div
-            class="about-meta"
-            data-reveal
-          >
-
-            <div class="about-meta-item">
-
-              <span class="about-meta-label">
-                Base
-              </span>
-
-              <span class="about-meta-value">
-                Modena / Italy
-              </span>
-
-            </div>
-
-
-            <div class="about-meta-item">
-
-              <span class="about-meta-label">
-                Focus
-              </span>
-
-              <span class="about-meta-value">
-                Web · Identity · Digital Content
-              </span>
-
-            </div>
-
-
-            <div class="about-meta-item">
-
-              <span class="about-meta-label">
-                Approach
-              </span>
-
-              <span class="about-meta-value">
-                Independent · Direct · Tailored
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
+        </article>
 
       </div>
-
-    -->
-
-
 
     </section>
 
@@ -1942,37 +1576,39 @@
          ======================================================= -->
 
     <section
-      class="contact-section"
+      class="contact"
       id="contact"
     >
 
-      <span class="contact-label">
+      <span class="contact__label">
         Hai un progetto in mente?
       </span>
 
+      <h2>
+        Parliamone.
+      </h2>
 
-      <div class="motion-title-wrap motion-title-wrap--contact">
-        <h2
-          class="motion-title"
-          data-motion-title
-        >
-          Parliamone.
-        </h2>
-      </div>
-
-
-      <a
-        class="contact-link"
-        href="mailto:hello@studio-delphi.com"
-      >
+      <a href="mailto:hello@studio-delphi.com">
         Scrivimi
         <span>↗</span>
       </a>
 
+
+      <footer class="site-footer">
+
+        <span>
+          Delphi — Digital Creative Studio
+        </span>
+
+        <span>
+          Italy · 2026
+        </span>
+
+      </footer>
+
     </section>
 
   </main>
-
 
 
   <script
@@ -1985,8 +1621,10 @@
     defer
   ></script>
 
-  <script src="script.js" defer></script>
+  <script
+    src="script.js"
+    defer
+  ></script>
 
 </body>
-
 </html>
