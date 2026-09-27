@@ -81,6 +81,27 @@ document.addEventListener("DOMContentLoaded", () => {
       ".hero-image"
     );
 
+  const heroFlow =
+    document.querySelector(
+      ".hero-flow"
+    );
+
+  // the image and its animated canvas move together
+  const setHeroTransform =
+    value => {
+
+      heroImage.style.transform =
+        value;
+
+      if (
+        heroFlow
+      ) {
+        heroFlow.style.transform =
+          value;
+      }
+
+    };
+
 
   if (
     hero &&
@@ -115,13 +136,13 @@ document.addEventListener("DOMContentLoaded", () => {
           0.5;
 
 
-        heroImage.style.transform = `
+        setHeroTransform(`
           scale(1.035)
           translate(
             ${x * 8}px,
             ${y * 6}px
           )
-        `;
+        `);
 
       }
     );
@@ -131,11 +152,554 @@ document.addEventListener("DOMContentLoaded", () => {
       "mouseleave",
       () => {
 
-        heroImage.style.transform =
-          "scale(1.02) translate(0, 0)";
+        setHeroTransform(
+          "scale(1.02) translate(0, 0)"
+        );
 
       }
     );
+
+  }
+
+
+  /* ============================================================
+     HERO MARBLE FLOW
+     The marbling drifts very slowly, like liquid, via a WebGL
+     displacement shader. Any failure leaves the static <img>.
+     ============================================================ */
+
+  if (
+    hero &&
+    heroImage &&
+    heroFlow &&
+    !reducedMotion.matches
+  ) {
+
+    initHeroFlow(
+      hero,
+      heroImage,
+      heroFlow
+    );
+
+  }
+
+
+  function initHeroFlow(
+    hero,
+    image,
+    canvas
+  ) {
+
+    const gl =
+      canvas.getContext(
+        "webgl",
+        {
+          alpha: false,
+          antialias: false,
+          premultipliedAlpha: false
+        }
+      );
+
+    if (
+      !gl
+    ) {
+      canvas.remove();
+      return;
+    }
+
+
+    const vertexSource = `
+      attribute vec2 aPos;
+      varying vec2 vUv;
+
+      void main() {
+        vUv = aPos * 0.5 + 0.5;
+        gl_Position = vec4(aPos, 0.0, 1.0);
+      }
+    `;
+
+
+    const fragmentSource = `
+      precision mediump float;
+
+      uniform sampler2D uImage;
+      uniform vec2 uRes;
+      uniform vec2 uImg;
+      uniform float uTime;
+
+      varying vec2 vUv;
+
+      float hash(vec2 p) {
+        return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+      }
+
+      float noise(vec2 p) {
+        vec2 i = floor(p);
+        vec2 f = fract(p);
+        vec2 u = f * f * (3.0 - 2.0 * f);
+
+        return mix(
+          mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x),
+          mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
+          u.y
+        );
+      }
+
+      float fbm(vec2 p) {
+        float v = 0.0;
+        float a = 0.5;
+
+        for (int i = 0; i < 3; i++) {
+          v += a * noise(p);
+          p *= 2.03;
+          a *= 0.5;
+        }
+
+        return v;
+      }
+
+      void main() {
+        float canvasRatio = uRes.x / uRes.y;
+        float imageRatio = uImg.x / uImg.y;
+
+        // object-fit: cover + object-position: center right
+        vec2 visible = canvasRatio > imageRatio
+          ? vec2(1.0, imageRatio / canvasRatio)
+          : vec2(canvasRatio / imageRatio, 1.0);
+
+        vec2 uv = vec2(
+          1.0 - visible.x + vUv.x * visible.x,
+          0.5 - visible.y * 0.5 + vUv.y * visible.y
+        );
+
+        // slow domain-warped noise = liquid drift
+        vec2 p = vUv * vec2(canvasRatio, 1.0) * 2.2;
+        float t = uTime * 0.045;
+
+        vec2 q = vec2(
+          fbm(p + vec2(0.0, t)),
+          fbm(p + vec2(5.2, 1.3) - t)
+        );
+
+        vec2 d = vec2(
+          fbm(p + 2.0 * q + vec2(1.7, 9.2) + t * 0.6),
+          fbm(p + 2.0 * q + vec2(8.3, 2.8) - t * 0.6)
+        ) - 0.5;
+
+        uv += d * 0.018 * visible;
+
+        gl_FragColor = texture2D(uImage, uv);
+      }
+    `;
+
+
+    const compile =
+      (
+        type,
+        source
+      ) => {
+
+        const shader =
+          gl.createShader(type);
+
+        gl.shaderSource(
+          shader,
+          source
+        );
+
+        gl.compileShader(
+          shader
+        );
+
+        return gl.getShaderParameter(
+          shader,
+          gl.COMPILE_STATUS
+        )
+          ? shader
+          : null;
+
+      };
+
+
+    const vertexShader =
+      compile(
+        gl.VERTEX_SHADER,
+        vertexSource
+      );
+
+    const fragmentShader =
+      compile(
+        gl.FRAGMENT_SHADER,
+        fragmentSource
+      );
+
+
+    if (
+      !vertexShader ||
+      !fragmentShader
+    ) {
+      canvas.remove();
+      return;
+    }
+
+
+    const program =
+      gl.createProgram();
+
+    gl.attachShader(
+      program,
+      vertexShader
+    );
+
+    gl.attachShader(
+      program,
+      fragmentShader
+    );
+
+    gl.linkProgram(
+      program
+    );
+
+
+    if (
+      !gl.getProgramParameter(
+        program,
+        gl.LINK_STATUS
+      )
+    ) {
+      canvas.remove();
+      return;
+    }
+
+
+    gl.useProgram(
+      program
+    );
+
+
+    const buffer =
+      gl.createBuffer();
+
+    gl.bindBuffer(
+      gl.ARRAY_BUFFER,
+      buffer
+    );
+
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([
+        -1, -1,
+         1, -1,
+        -1,  1,
+         1,  1
+      ]),
+      gl.STATIC_DRAW
+    );
+
+
+    const aPos =
+      gl.getAttribLocation(
+        program,
+        "aPos"
+      );
+
+    gl.enableVertexAttribArray(
+      aPos
+    );
+
+    gl.vertexAttribPointer(
+      aPos,
+      2,
+      gl.FLOAT,
+      false,
+      0,
+      0
+    );
+
+
+    const uRes =
+      gl.getUniformLocation(
+        program,
+        "uRes"
+      );
+
+    const uImg =
+      gl.getUniformLocation(
+        program,
+        "uImg"
+      );
+
+    const uTime =
+      gl.getUniformLocation(
+        program,
+        "uTime"
+      );
+
+
+    let running =
+      false;
+
+    let lastFrame =
+      0;
+
+    let frameId =
+      0;
+
+
+    const resize =
+      () => {
+
+        // capped resolution: the image is soft, no need for full DPR
+        const ratio =
+          Math.min(
+            window.devicePixelRatio || 1,
+            1.5
+          );
+
+        const width =
+          Math.round(
+            canvas.clientWidth * ratio
+          );
+
+        const height =
+          Math.round(
+            canvas.clientHeight * ratio
+          );
+
+
+        if (
+          canvas.width !== width ||
+          canvas.height !== height
+        ) {
+
+          canvas.width =
+            width;
+
+          canvas.height =
+            height;
+
+          gl.viewport(
+            0,
+            0,
+            width,
+            height
+          );
+
+        }
+
+
+        gl.uniform2f(
+          uRes,
+          width,
+          height
+        );
+
+      };
+
+
+    const draw =
+      now => {
+
+        frameId =
+          requestAnimationFrame(
+            draw
+          );
+
+
+        // ~30fps is plenty for a movement this slow
+        if (
+          now - lastFrame < 33
+        ) {
+          return;
+        }
+
+
+        // the hero is covered once the page has scrolled past it
+        if (
+          window.scrollY >
+          hero.offsetHeight
+        ) {
+          return;
+        }
+
+
+        lastFrame =
+          now;
+
+        gl.uniform1f(
+          uTime,
+          now / 1000
+        );
+
+        gl.drawArrays(
+          gl.TRIANGLE_STRIP,
+          0,
+          4
+        );
+
+
+        if (
+          !canvas.classList.contains(
+            "is-ready"
+          )
+        ) {
+          canvas.classList.add(
+            "is-ready"
+          );
+        }
+
+      };
+
+
+    const start =
+      () => {
+
+        const texture =
+          gl.createTexture();
+
+        gl.bindTexture(
+          gl.TEXTURE_2D,
+          texture
+        );
+
+        gl.pixelStorei(
+          gl.UNPACK_FLIP_Y_WEBGL,
+          true
+        );
+
+
+        try {
+
+          gl.texImage2D(
+            gl.TEXTURE_2D,
+            0,
+            gl.RGB,
+            gl.RGB,
+            gl.UNSIGNED_BYTE,
+            image
+          );
+
+        }
+
+        catch (
+          error
+        ) {
+
+          // e.g. opened from file:// — keep the static image
+          canvas.remove();
+          return;
+
+        }
+
+
+        gl.texParameteri(
+          gl.TEXTURE_2D,
+          gl.TEXTURE_WRAP_S,
+          gl.CLAMP_TO_EDGE
+        );
+
+        gl.texParameteri(
+          gl.TEXTURE_2D,
+          gl.TEXTURE_WRAP_T,
+          gl.CLAMP_TO_EDGE
+        );
+
+        gl.texParameteri(
+          gl.TEXTURE_2D,
+          gl.TEXTURE_MIN_FILTER,
+          gl.LINEAR
+        );
+
+        gl.texParameteri(
+          gl.TEXTURE_2D,
+          gl.TEXTURE_MAG_FILTER,
+          gl.LINEAR
+        );
+
+
+        gl.uniform2f(
+          uImg,
+          image.naturalWidth,
+          image.naturalHeight
+        );
+
+
+        resize();
+
+
+        if (
+          "ResizeObserver" in window
+        ) {
+
+          new ResizeObserver(
+            resize
+          ).observe(
+            canvas
+          );
+
+        }
+
+        else {
+
+          window.addEventListener(
+            "resize",
+            resize
+          );
+
+        }
+
+
+        running =
+          true;
+
+        frameId =
+          requestAnimationFrame(
+            draw
+          );
+
+      };
+
+
+    canvas.addEventListener(
+      "webglcontextlost",
+      event => {
+
+        event.preventDefault();
+
+        if (
+          running
+        ) {
+          cancelAnimationFrame(
+            frameId
+          );
+        }
+
+        canvas.remove();
+
+      }
+    );
+
+
+    if (
+      image.complete &&
+      image.naturalWidth
+    ) {
+
+      start();
+
+    }
+
+    else {
+
+      image.addEventListener(
+        "load",
+        start,
+        {
+          once: true
+        }
+      );
+
+    }
 
   }
 
@@ -201,6 +765,30 @@ document.addEventListener("DOMContentLoaded", () => {
         String(!active)
       );
 
+
+      if (!active) {
+
+        scene
+          .querySelectorAll(
+            ".subgrid-item.is-focused"
+          )
+          .forEach(item => {
+
+            item.classList.remove(
+              "is-focused"
+            );
+
+          });
+
+
+        if (scene.dataset.webFocus !== undefined) {
+
+          scene.dataset.webFocus = "";
+
+        }
+
+      }
+
     });
 
   }
@@ -220,6 +808,145 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
   });
+
+
+  /* ============================================================
+     SERVICES — SUBCATEGORY HOVER / TAP REACTIONS
+     ============================================================ */
+
+  const hoverCapable =
+    window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    );
+
+  const webScene =
+    document.querySelector(
+      '[data-service-scene="web"]'
+    );
+
+
+  function clearFocusedSiblings(
+    scope,
+    exceptItem
+  ) {
+
+    scope
+      .querySelectorAll(
+        ".subgrid-item.is-focused"
+      )
+      .forEach(item => {
+
+        if (item !== exceptItem) {
+
+          item.classList.remove(
+            "is-focused"
+          );
+
+        }
+
+      });
+
+  }
+
+
+  document
+    .querySelectorAll(
+      ".service-subgrid .subgrid-item"
+    )
+    .forEach(item => {
+
+      const scene =
+        item.closest(
+          ".service-scene"
+        );
+
+      const focusKey =
+        item.dataset.focus;
+
+
+      if (hoverCapable.matches) {
+
+        item.addEventListener(
+          "mouseenter",
+          () => {
+
+            if (
+              webScene &&
+              scene === webScene &&
+              focusKey
+            ) {
+
+              webScene.dataset.webFocus =
+                focusKey;
+
+            }
+
+          }
+        );
+
+
+        item.addEventListener(
+          "mouseleave",
+          () => {
+
+            if (
+              webScene &&
+              scene === webScene &&
+              focusKey
+            ) {
+
+              webScene.dataset.webFocus = "";
+
+            }
+
+          }
+        );
+
+      }
+
+      else {
+
+        item.addEventListener(
+          "click",
+          () => {
+
+            const alreadyFocused =
+              item.classList.contains(
+                "is-focused"
+              );
+
+
+            clearFocusedSiblings(
+              scene,
+              item
+            );
+
+
+            item.classList.toggle(
+              "is-focused",
+              !alreadyFocused
+            );
+
+
+            if (
+              webScene &&
+              scene === webScene &&
+              focusKey
+            ) {
+
+              webScene.dataset.webFocus =
+                alreadyFocused ?
+                  "" :
+                  focusKey;
+
+            }
+
+          }
+        );
+
+      }
+
+    });
 
 
   /* ============================================================
@@ -387,6 +1114,71 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
 
   }
+
+
+  /* ============================================================
+     SERVICES — MOBILE ACCORDION
+     ============================================================ */
+
+  const accordionItems = [
+    ...document.querySelectorAll(
+      "[data-accordion-item]"
+    )
+  ];
+
+
+  accordionItems.forEach(item => {
+
+    const trigger =
+      item.querySelector(
+        "[data-accordion-trigger]"
+      );
+
+    trigger.addEventListener(
+      "click",
+      () => {
+
+        const wasOpen =
+          item.classList.contains(
+            "is-open"
+          );
+
+
+        accordionItems.forEach(other => {
+
+          other.classList.remove(
+            "is-open"
+          );
+
+          other
+            .querySelector(
+              "[data-accordion-trigger]"
+            )
+            .setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+        });
+
+
+        if (!wasOpen) {
+
+          item.classList.add(
+            "is-open"
+          );
+
+          trigger.setAttribute(
+            "aria-expanded",
+            "true"
+          );
+
+        }
+
+      }
+    );
+
+  });
 
 
   /* ============================================================
@@ -735,15 +1527,27 @@ document.addEventListener("DOMContentLoaded", () => {
       !mobileLayout.matches
     ) {
 
+      /*
+       * The photo is scaled up just enough (3.5% per side) to
+       * cover its ±3% travel, so the container's background
+       * never shows as a light strip above or below it.
+       */
+
       gsap.fromTo(
         introPhoto,
         {
           yPercent:
-            -2
+            -3,
+
+          scale:
+            1.07
         },
         {
           yPercent:
-            4,
+            3,
+
+          scale:
+            1.07,
 
           ease:
             "none",
@@ -824,256 +1628,173 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ==========================================================
-       LORENZO — SMOOTH IMMERSIVE PROJECT
+       LORENZO — CASE STUDY FRAME
+       Enters once (fade + slight rise), then stays still.
+       Only the video inside moves, by a few pixels.
        ========================================================== */
 
-    const project =
+    const caseFrame =
       document.querySelector(
-        "[data-project-hero]"
-      );
-
-
-    const projectFrame =
-      document.querySelector(
-        "[data-project-frame]"
-      );
-
-
-    const projectMeta =
-      document.querySelector(
-        "[data-project-meta]"
-      );
-
-
-    const projectVideo =
-      project &&
-      project.querySelector(
-        ".lorenzo-preview__video"
+        "[data-case-frame]"
       );
 
 
     if (
-      project &&
-      projectFrame
+      caseFrame
     ) {
 
-      const desktop =
-        window.matchMedia(
-          "(min-width: 701px)"
-        );
+      const caseMobile =
+        mobileLayout.matches;
 
 
-      /*
-       * IMPORTANTISSIMO:
-       *
-       * NON animiamo più la width.
-       *
-       * Il frame ha già la sua width finale nel CSS
-       * (92vw desktop / 100vw mobile).
-       *
-       * Usiamo solo scale.
-       * In questo modo non ci sono continui
-       * ricalcoli del layout durante lo scroll.
-       */
-
-
-      gsap.set(
-        projectFrame,
+      gsap.fromTo(
+        caseFrame,
         {
 
-          xPercent:
-            -50,
+          opacity:
+            0,
 
-          yPercent:
-            -50,
+          y:
+            caseMobile
+              ? 24
+              : 40,
 
           scale:
-            .68,
+            caseMobile
+              ? 1
+              : .98
 
-          force3D:
-            true
+        },
+        {
+
+          opacity:
+            1,
+
+          y:
+            0,
+
+          scale:
+            1,
+
+          duration:
+            1.2,
+
+          ease:
+            "power3.out",
+
+          // once in place the frame keeps no transform at all
+          clearProps:
+            "transform",
+
+          scrollTrigger: {
+
+            trigger:
+              caseFrame,
+
+            start:
+              "top 85%",
+
+            once:
+              true
+
+          }
 
         }
       );
 
 
-      if (
-        projectVideo &&
-        !desktop.matches
-      ) {
+      gsap.utils
+        .toArray(
+          "[data-case-reveal]"
+        )
+        .forEach(element => {
 
-        gsap.set(
-          projectVideo,
-          {
+          gsap.fromTo(
+            element,
+            {
 
-            scale:
-              1.08,
+              opacity:
+                0,
 
-            force3D:
-              true
+              y:
+                24
 
-          }
-        );
+            },
+            {
 
-      }
+              opacity:
+                1,
 
+              y:
+                0,
 
-      if (
-        projectMeta
-      ) {
+              duration:
+                1,
 
-        gsap.set(
-          projectMeta,
-          {
+              ease:
+                "power3.out",
 
-            opacity:
-              0,
+              scrollTrigger: {
 
-            y:
-              24
+                trigger:
+                  element,
 
-          }
-        );
+                start:
+                  "top 88%",
 
-      }
+                once:
+                  true
 
+              }
 
-      const projectTimeline =
-        gsap.timeline({
-
-          scrollTrigger: {
-
-            trigger:
-              project,
-
-            start:
-              "top top",
-
-            end:
-              "bottom bottom",
-
-            scrub:
-              .85,
-
-            invalidateOnRefresh:
-              true
-
-          }
+            }
+          );
 
         });
 
 
-      /*
-       * PHASE 1:
-       *
-       * Lorenzo si ingrandisce
-       * restando perfettamente centrato.
-       */
+      const caseParallax =
+        caseFrame.querySelector(
+          "[data-case-parallax]"
+        );
 
-      projectTimeline.to(
-        projectFrame,
-        {
-
-          scale:
-            1,
-
-          ease:
-            "none",
-
-          duration:
-            .70
-
-        },
-        0
-      );
-
-
-      /*
-       * In parallelo, solo su mobile,
-       * il video interno si "assesta"
-       * con un piccolo effetto cinematic/parallax.
-       */
 
       if (
-        projectVideo &&
-        !desktop.matches
+        caseParallax &&
+        !caseMobile
       ) {
 
-        projectTimeline.to(
-          projectVideo,
+        gsap.fromTo(
+          caseParallax,
+          {
+            y:
+              -12
+          },
           {
 
-            scale:
-              1,
+            y:
+              12,
 
             ease:
               "none",
 
-            duration:
-              .70
+            scrollTrigger: {
 
-          },
-          0
-        );
+              trigger:
+                caseFrame,
 
-      }
+              start:
+                "top bottom",
 
+              end:
+                "bottom top",
 
-      /*
-       * PHASE 2:
-       *
-       * Solo alla fine facciamo salire
-       * leggermente il progetto.
-       *
-       * Così sotto compare la descrizione.
-       */
+              scrub:
+                true
 
-      projectTimeline.to(
-        projectFrame,
-        {
+            }
 
-          yPercent:
-            desktop.matches
-              ? -57
-              : -60,
-
-          ease:
-            "none",
-
-          duration:
-            .30
-
-        },
-        .70
-      );
-
-
-      /*
-       * PROJECT META
-       */
-
-      if (
-        projectMeta
-      ) {
-
-        projectTimeline.to(
-          projectMeta,
-          {
-
-            opacity:
-              1,
-
-            y:
-              0,
-
-            duration:
-              .20,
-
-            ease:
-              "power2.out"
-
-          },
-          .76
+          }
         );
 
       }
@@ -1151,20 +1872,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
 
       conceptCards.forEach(
-        (
-          card,
-          index
-        ) => {
+        card => {
 
           gsap.fromTo(
             card,
             {
 
               y:
-                40,
-
-              scale:
-                .97,
+                60,
 
               opacity:
                 0
@@ -1175,17 +1890,11 @@ document.addEventListener("DOMContentLoaded", () => {
               y:
                 0,
 
-              scale:
-                1,
-
               opacity:
                 1,
 
               duration:
-                .9,
-
-              delay:
-                index * .08,
+                1.1,
 
               ease:
                 "power3.out",
@@ -1196,10 +1905,10 @@ document.addEventListener("DOMContentLoaded", () => {
               scrollTrigger: {
 
                 trigger:
-                  ".concepts-grid",
+                  card,
 
                 start:
-                  "top 80%",
+                  "top 85%",
 
                 once:
                   true
@@ -1402,70 +2111,70 @@ document.addEventListener("DOMContentLoaded", () => {
        PACKAGES
        ========================================================== */
 
-    const packageCards =
+    const offerItems =
       gsap.utils.toArray(
-        ".package-card"
+        ".offers__item"
       );
 
 
-    packageCards.forEach(
-      (
-        card,
-        index
-      ) => {
+    if (
+      !mobileLayout.matches
+    ) {
 
-        gsap.fromTo(
-          card,
-          {
+      offerItems.forEach(
+        (
+          item,
+          index
+        ) => {
 
-            y:
-              50,
+          gsap.fromTo(
+            item,
+            {
 
-            opacity:
-              0,
+              y:
+                60,
 
-            scale:
-              .98
+              opacity:
+                0
 
-          },
-          {
+            },
+            {
 
-            y:
-              0,
+              y:
+                0,
 
-            opacity:
-              1,
+              opacity:
+                1,
 
-            scale:
-              1,
+              duration:
+                1.1,
 
-            duration:
-              .9,
+              delay:
+                index * .12,
 
-            delay:
-              index * .07,
+              ease:
+                "power4.out",
 
-            ease:
-              "power4.out",
+              scrollTrigger: {
 
-            scrollTrigger: {
+                trigger:
+                  ".offers",
 
-              trigger:
-                ".packages__grid",
+                start:
+                  "top 84%",
 
-              start:
-                "top 84%",
+                once:
+                  true
 
-              once:
-                true
+              }
 
             }
+          );
 
-          }
-        );
+        }
+      );
 
-      }
-    );
+    }
 
 
     /* ==========================================================
@@ -1600,48 +2309,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
 
       introReveal.style.display =
-        "none";
-
-    }
-
-
-    const projectFrame =
-      document.querySelector(
-        "[data-project-frame]"
-      );
-
-
-    const projectMeta =
-      document.querySelector(
-        "[data-project-meta]"
-      );
-
-
-    if (
-      projectFrame
-    ) {
-
-      projectFrame.style.transform =
-        `
-          translate3d(
-            -50%,
-            -50%,
-            0
-          )
-          scale(1)
-        `;
-
-    }
-
-
-    if (
-      projectMeta
-    ) {
-
-      projectMeta.style.opacity =
-        "1";
-
-      projectMeta.style.transform =
         "none";
 
     }

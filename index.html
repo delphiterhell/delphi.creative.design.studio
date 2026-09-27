@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@300;400;500&family=Syne:wght@500;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -35,6 +35,7 @@
         src="herodesign.png"
         alt=""
       >
+      <canvas class="hero-flow"></canvas>
       <div class="hero-art-fade"></div>
     </div>
 
@@ -90,14 +91,12 @@
 
       <h1>
         <span>Web Design.</span>
-        <span>Creative Direction.</span>
+        <span class="hero-copy__accent">Creative Direction.</span>
         <span>Digital Content.</span>
       </h1>
 
-      <div class="copy-line"></div>
-
       <p class="hero-description">
-        Costruisco presenze digitali autentiche
+        Siti, direzione creativa e contenuti digitali
         per brand e professionisti indipendenti.
       </p>
 
@@ -164,18 +163,14 @@
 
 
     <a
-      href="#about-intro"
+      href="#works"
       class="hero-discover"
     >
       <span>
-        Scopri lo studio
+        Esplora i progetti
       </span>
 
       <i aria-hidden="true"></i>
-
-      <b aria-hidden="true">
-        ↓
-      </b>
     </a>
 
   </header>
@@ -201,7 +196,7 @@
             class="motion-title"
             data-motion-title
           >
-            Mi presento
+            Mi <span class="accent">presento.</span>
           </h2>
         </div>
 
@@ -321,10 +316,6 @@
           Selected Work
         </span>
 
-        <span class="works-intro__count">
-          01 — 03
-        </span>
-
       </div>
 
 
@@ -349,24 +340,56 @@
          ======================================================= -->
 
     <section
-      class="project project--hero"
-      data-project-hero
+      class="project project--case"
+      aria-labelledby="lorenzo-title"
     >
 
-      <div class="project-hero__sticky">
+      <div class="case">
 
-        <div
-          class="project-hero__frame"
-          data-project-frame
+        <header
+          class="case__head"
+          data-case-reveal
         >
 
-          <a
-            href="https://lorenzomagnanini.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-hero__link"
-            aria-label="Visita il sito di Lorenzo Magnanini"
-          >
+          <div class="case__title-wrap">
+
+            <h3
+              id="lorenzo-title"
+              class="case__title"
+            >
+              Lorenzo Magnanini
+            </h3>
+
+          </div>
+
+
+          <div class="case__intro">
+
+            <span class="case__category">
+              Portfolio · Drone &amp; FPV
+            </span>
+
+            <p>
+              Portfolio digitale sviluppato per dare centralità
+              a video e riprese, con un linguaggio essenziale
+              e cinematografico.
+            </p>
+
+          </div>
+
+        </header>
+
+
+        <a
+          href="https://lorenzomagnanini.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="case__frame"
+          aria-label="Visita il sito di Lorenzo Magnanini"
+          data-case-frame
+        >
+
+          <div class="case__screen">
 
             <div class="lorenzo-preview">
 
@@ -397,15 +420,23 @@
               </div>
 
 
-              <video
-                class="lorenzo-preview__video"
-                data-project-video
-                data-src="fpv.mp4"
-                muted
-                loop
-                playsinline
-                preload="none"
-              ></video>
+              <div
+                class="lorenzo-preview__media"
+                data-case-parallax
+              >
+
+                <video
+                  class="lorenzo-preview__video"
+                  data-project-video
+                  data-src="fpv.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                ></video>
+
+              </div>
 
 
               <div class="lorenzo-preview__shade"></div>
@@ -425,49 +456,42 @@
 
             </div>
 
+          </div>
 
-            <span class="project-hero__visit">
-              View live ↗
-            </span>
-
-          </a>
-
-        </div>
+        </a>
 
 
-        <div
-          class="project-hero__meta"
-          data-project-meta
+        <dl
+          class="case__meta"
+          data-case-reveal
         >
 
           <div>
-
-<!--             <span class="project-count">
-              01 / 03
-            </span> -->
-
-            <h3>
-              Lorenzo Magnanini
-            </h3>
-
+            <dt>Servizi</dt>
+            <dd>Web Design · Development · Creative Direction</dd>
           </div>
 
-
-          <div class="project-hero__meta-right">
-
-            <p>
-              Portfolio digitale sviluppato per dare centralità
-              a video e riprese, con un linguaggio essenziale
-              e cinematografico.
-            </p>
-
-            <span>
-              Web Design · Development · Creative Direction
-            </span>
-
+          <div>
+            <dt>Settore</dt>
+            <dd>Videomaking, drone &amp; FPV</dd>
           </div>
 
-        </div>
+          <div>
+            <dt>Online</dt>
+            <dd>
+              <a
+                href="https://lorenzomagnanini.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="case__visit"
+              >
+                lorenzomagnanini.com
+                <span aria-hidden="true">↗</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
 
       </div>
 
@@ -528,18 +552,24 @@
         data-reveal
       >
 
-        <div class="project-reel__frame">
+        <div class="project-reel__frame project-frame--maga">
 
-          <video
-            class="project-reel__video"
-            data-project-video
-            data-src="lamagaalchemy.mp4"
-            muted
-            loop
-            playsinline
-            autoplay
-            preload="metadata"
-          ></video>
+          <div class="project-reel__screen">
+
+            <video
+              class="project-reel__video"
+              data-project-video
+              data-src="lamagaalchemy.mp4"
+              width="1898"
+              height="862"
+              muted
+              loop
+              playsinline
+              autoplay
+              preload="metadata"
+            ></video>
+
+          </div>
 
         </div>
 
@@ -609,18 +639,24 @@
         data-reveal
       >
 
-        <div class="project-reel__frame">
+        <div class="project-reel__frame project-frame--pomeranze">
 
-          <video
-            class="project-reel__video"
-            data-project-video
-            data-src="pomeranze.mp4"
-            muted
-            loop
-            playsinline
-            autoplay
-            preload="metadata"
-          ></video>
+          <div class="project-reel__screen">
+
+            <video
+              class="project-reel__video"
+              data-project-video
+              data-src="pomeranze.mp4"
+              width="1894"
+              height="858"
+              muted
+              loop
+              playsinline
+              autoplay
+              preload="metadata"
+            ></video>
+
+          </div>
 
         </div>
 
@@ -654,18 +690,13 @@
       aria-labelledby="concepts-title"
     >
 
-      <div
-        class="concepts-section__glow"
-        aria-hidden="true"
-      ></div>
-
       <header
         class="concepts-heading"
         data-reveal
       >
 
         <span class="section-label">
-          Selected Concepts
+          Concepts
         </span>
 
         <div class="concepts-heading__row">
@@ -677,14 +708,14 @@
               class="motion-title"
               data-motion-title
             >
-              Progetti immaginati
+              Progetti <span class="accent">immaginati.</span>
             </h2>
 
           </div>
 
           <p>
-            Esplorazioni visive e digitali pensate per mondi
-            che mi piacerebbe progettare.
+            Luoghi, idee e atmosfere trasformati
+            in esperienze digitali.
           </p>
 
         </div>
@@ -692,77 +723,64 @@
       </header>
 
 
-      <div class="concepts-grid">
+      <div class="concepts-list">
 
         <!-- =========================================
-             BOUTIQUE HOTEL
+             01 — VILLA CIPRESSO · wide, horizontal
              ========================================= -->
 
         <article
-          class="concept-card concept-card--hotel"
+          class="concept concept--wide"
           data-concept-card
-          style="--concept-delay: 0ms;"
         >
 
           <a
-            class="concept-card__link"
+            class="concept__link"
             href="#"
-            aria-label="Apri il concept Boutique Hotel"
+            aria-label="Villa Cipresso — concept di boutique hotel"
           >
 
-            <div class="concept-card__media">
+            <div class="concept__visual concept__visual--browser">
 
-              <div
-                class="concept-card__ambient"
-                aria-hidden="true"
-              ></div>
-
-              <div
-                class="concept-card__placeholder"
-                aria-hidden="true"
-              >
-
-                <span>
-                  Boutique
-                </span>
-
-                <strong>
-                  Hotel
-                </strong>
-
-              </div>
-
-              <div
-                class="concept-card__veil"
-                aria-hidden="true"
-              ></div>
-
-              <span class="concept-card__view">
-                View concept ↗
+              <span class="concept__chrome" aria-hidden="true">
+                <i></i><i></i><i></i>
+                <b>villacipresso.it</b>
               </span>
+
+              <div class="concept__screen">
+                <img
+                  src="images/concept-villa-cipresso.jpg"
+                  alt="Homepage del concept Villa Cipresso: villa toscana con piscina tra i cipressi"
+                  width="1440"
+                  height="2560"
+                  loading="lazy"
+                  decoding="async"
+                >
+
+                <div class="concept__overlay" aria-hidden="true">
+                  <span>Boutique hotel · Pienza, Toscana</span>
+                  <strong>Il tempo lento della Val d'Orcia.</strong>
+                </div>
+              </div>
 
             </div>
 
+            <div class="concept__meta">
 
-            <footer class="concept-card__footer">
+              <span class="concept__index">01</span>
 
-              <div>
-
-                <span class="concept-card__type">
-                  Hospitality
-                </span>
-
-                <h3>
-                  Boutique Hotel
-                </h3>
-
+              <div class="concept__text">
+                <span class="concept__category">Boutique Hotel</span>
+                <h3 class="concept__title">Villa Cipresso</h3>
+                <p class="concept__place">Val d'Orcia, Toscana — un casale ottocentesco dove rallentare.</p>
               </div>
 
-              <span class="concept-card__tag">
-                Concept Project
+              <span class="concept__cta">
+                Vedi il concept
+                <span class="circle-arrow" aria-hidden="true">↗</span>
               </span>
 
-            </footer>
+            </div>
 
           </a>
 
@@ -770,74 +788,56 @@
 
 
         <!-- =========================================
-             RESTAURANT
+             02 — SALVIA · visual shifted right
              ========================================= -->
 
         <article
-          class="concept-card concept-card--restaurant"
+          class="concept concept--offset"
           data-concept-card
-          style="--concept-delay: 120ms;"
         >
 
           <a
-            class="concept-card__link"
+            class="concept__link"
             href="#"
-            aria-label="Apri il concept Restaurant"
+            aria-label="Salvia — concept di ristorante fine dining"
           >
 
-            <div class="concept-card__media">
+            <div class="concept__visual concept__visual--browser">
 
-              <div
-                class="concept-card__ambient"
-                aria-hidden="true"
-              ></div>
-
-              <div
-                class="concept-card__placeholder"
-                aria-hidden="true"
-              >
-
-                <span>
-                  Fine
-                </span>
-
-                <strong>
-                  Dining
-                </strong>
-
-              </div>
-
-              <div
-                class="concept-card__veil"
-                aria-hidden="true"
-              ></div>
-
-              <span class="concept-card__view">
-                View concept ↗
+              <span class="concept__chrome" aria-hidden="true">
+                <i></i><i></i><i></i>
+                <b>salvia.restaurant</b>
               </span>
+
+              <div class="concept__screen">
+                <img
+                  src="images/concept-salvia.jpg"
+                  alt="Homepage del concept Salvia: sala del ristorante a lume di candela e piatti del menu"
+                  width="1440"
+                  height="1780"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
 
             </div>
 
+            <div class="concept__meta">
 
-            <footer class="concept-card__footer">
+              <span class="concept__index">02</span>
 
-              <div>
-
-                <span class="concept-card__type">
-                  Food &amp; Hospitality
-                </span>
-
-                <h3>
-                  Restaurant
-                </h3>
-
+              <div class="concept__text">
+                <span class="concept__category">Fine Dining</span>
+                <h3 class="concept__title">Salvia</h3>
+                <p class="concept__place">Milano — cucina di stagione, trenta coperti, lume di candela.</p>
               </div>
 
-              <span class="concept-card__tag">
-                Concept Project
+              <span class="concept__cta">
+                Vedi il concept
+                <span class="circle-arrow" aria-hidden="true">↗</span>
               </span>
 
-            </footer>
+            </div>
 
           </a>
 
@@ -845,74 +845,49 @@
 
 
         <!-- =========================================
-             WEDDING
+             03 — ELENA & ALEX · photographic, editorial
              ========================================= -->
 
         <article
-          class="concept-card concept-card--wedding"
+          class="concept concept--editorial"
           data-concept-card
-          style="--concept-delay: 240ms;"
         >
 
           <a
-            class="concept-card__link"
-            href="#"
-            aria-label="Apri il concept Wedding Studio"
+            class="concept__link"
+            href="https://alexandelena.delphiterhell.workers.dev/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Elena &amp; Alex — sito del matrimonio (si apre in una nuova scheda)"
           >
 
-            <div class="concept-card__media">
-
-              <div
-                class="concept-card__ambient"
-                aria-hidden="true"
-              ></div>
-
-              <div
-                class="concept-card__placeholder"
-                aria-hidden="true"
+            <div class="concept__visual concept__visual--photo">
+              <img
+                src="images/wedding-alexandelena.jpg"
+                alt="Homepage del sito Elena &amp; Alex: gli sposi accanto a un'auto d'epoca"
+                width="1410"
+                height="1553"
+                loading="lazy"
+                decoding="async"
               >
+            </div>
 
-                <span>
-                  Wedding
-                </span>
+            <div class="concept__meta">
 
-                <strong>
-                  Studio
-                </strong>
+              <span class="concept__index">03</span>
 
+              <div class="concept__text">
+                <span class="concept__category">Wedding · Live site</span>
+                <h3 class="concept__title">Elena &amp; Alex</h3>
+                <p class="concept__place">20.09.2025 — un archivio personale del matrimonio, in cinque momenti.</p>
               </div>
 
-              <div
-                class="concept-card__veil"
-                aria-hidden="true"
-              ></div>
-
-              <span class="concept-card__view">
-                View concept ↗
+              <span class="concept__cta">
+                Visita il sito
+                <span class="circle-arrow" aria-hidden="true">↗</span>
               </span>
 
             </div>
-
-
-            <footer class="concept-card__footer">
-
-              <div>
-
-                <span class="concept-card__type">
-                  Events &amp; Editorial
-                </span>
-
-                <h3>
-                  Wedding Studio
-                </h3>
-
-              </div>
-
-              <span class="concept-card__tag">
-                Concept Project
-              </span>
-
-            </footer>
 
           </a>
 
@@ -944,7 +919,7 @@
 
         <h2 id="services-title">
           Cosa posso costruire<br>
-          per il tuo progetto.
+          per il tuo <span class="accent">progetto.</span>
         </h2>
 
       </div>
@@ -965,7 +940,7 @@
             aria-selected="true"
           >
 
-            <span></span>
+            <span class="index-num">01</span>
 
             <div>
 
@@ -992,7 +967,7 @@
             aria-selected="false"
           >
 
-            <span></span>
+            <span class="index-num">02</span>
 
             <div>
 
@@ -1019,7 +994,7 @@
             aria-selected="false"
           >
 
-            <span></span>
+            <span class="index-num">03</span>
 
             <div>
 
@@ -1048,12 +1023,13 @@
           <article
             class="service-scene is-active"
             data-service-scene="web"
+            data-web-focus=""
           >
 
             <div class="service-scene__meta">
 
               <span>
-                
+                Web Design
               </span>
 
             </div>
@@ -1065,37 +1041,162 @@
 
                 <div class="web3d-shadow"></div>
 
-                <div class="web3d-panel web3d-panel--back">
-
-                  <div class="web3d-panel__bar"></div>
-
-                  <div class="web3d-panel__line web3d-panel__line--w60"></div>
-                  <div class="web3d-panel__line web3d-panel__line--w40"></div>
-
-                </div>
-
-                <div class="web3d-panel web3d-panel--main">
+                <div class="web3d-panel web3d-panel--back" data-panel="back">
 
                   <div class="web3d-panel__bar">
                     <i></i><i></i><i></i>
                   </div>
 
-                  <div class="web3d-panel__hero"></div>
+                  <div class="web3d-panel__nav">
+                    <b class="web3d-panel__brand">NOVA</b>
+                    <i></i><i></i>
+                  </div>
 
-                  <div class="web3d-panel__line web3d-panel__line--w70"></div>
-                  <div class="web3d-panel__line web3d-panel__line--w45"></div>
-                  <div class="web3d-panel__line web3d-panel__line--w55"></div>
+                  <h4 class="web3d-panel__subhead">About the studio</h4>
+
+                  <p class="web3d-panel__copy">
+                    Design, craft and a quiet kind of care.
+                  </p>
+
+                  <div class="web3d-panel__block web3d-panel__block--soft"></div>
 
                 </div>
 
-                <div class="web3d-panel web3d-panel--mobile">
+                <div class="web3d-panel web3d-panel--main" data-panel="main">
+
+                  <div class="web3d-panel__bar">
+                    <i></i><i></i><i></i>
+                  </div>
+
+                  <div class="web3d-panel__nav">
+
+                    <b class="web3d-panel__brand">NOVA</b>
+
+                    <div class="web3d-panel__navlinks" data-content>
+                      <span>Work</span>
+                      <span>Studio</span>
+                      <span>Contact</span>
+                    </div>
+
+                    <span class="web3d-panel__navcta">Let's talk</span>
+
+                  </div>
+
+                  <div class="web3d-panel__hero">
+                    <span class="web3d-panel__herotag">Selected Work</span>
+                  </div>
+
+                  <span class="web3d-panel__eyebrow" data-landing-only>Free 20-minute consultation</span>
+
+                  <h3 class="web3d-panel__headline">
+                    Design that feels considered.
+                  </h3>
+
+                  <p class="web3d-panel__copy">
+                    Web design, development and digital direction
+                    for independent studios.
+                  </p>
+
+                  <span class="web3d-panel__cta">View the work →</span>
+
+                  <div class="web3d-panel__cards" data-content>
+
+                    <div class="web3d-panel__card">
+                      <b>Editorial</b>
+                      <small>Visual systems</small>
+                    </div>
+
+                    <div class="web3d-panel__card">
+                      <b>Craft</b>
+                      <small>Built to last</small>
+                    </div>
+
+                  </div>
+
+                  <div class="web3d-panel__footer">
+                    <span>Nova Studio — 2025</span>
+                  </div>
+
+                </div>
+
+                <div class="web3d-panel web3d-panel--mobile" data-panel="mobile">
 
                   <div class="web3d-panel__bar web3d-panel__bar--mobile"></div>
 
+                  <div class="web3d-panel__mobilenav">
+                    <b class="web3d-panel__brand">NOVA</b>
+                    <i class="web3d-panel__burger"></i>
+                  </div>
+
                   <div class="web3d-panel__block"></div>
 
-                  <div class="web3d-panel__line web3d-panel__line--w70"></div>
-                  <div class="web3d-panel__line web3d-panel__line--w50"></div>
+                  <h4 class="web3d-panel__mheadline">
+                    Design that feels considered.
+                  </h4>
+
+                  <span class="web3d-panel__cta web3d-panel__cta--mobile">View the work →</span>
+
+                </div>
+
+                <div class="web3d-devpanel" data-panel="dev">
+
+                  <div class="web3d-devpanel__bar">
+                    <i></i><i></i><i></i>
+                  </div>
+
+                  <div class="web3d-devpanel__code">
+
+                    <div class="web3d-devpanel__line">
+                      <span class="tok-key">function</span>
+                      <span class="tok-fn">Home</span>() {
+                    </div>
+
+                    <div class="web3d-devpanel__line web3d-devpanel__line--indent">
+                      return &lt;<span class="tok-tag">Hero</span> /&gt;
+                    </div>
+
+                    <div class="web3d-devpanel__line">}</div>
+
+                    <div class="web3d-devpanel__line web3d-devpanel__line--muted">
+                      // build --watch<i class="web3d-devpanel__cursor"></i>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="web3d-seopanel" data-panel="seo">
+
+                  <div class="web3d-seopanel__url">www.novastudio.com</div>
+                  <div class="web3d-seopanel__title">Nova Studio — Web Design &amp; Digital Direction</div>
+                  <div class="web3d-seopanel__desc">
+                    Independent studio for web design, branding
+                    and digital presence, based in Milan.
+                  </div>
+
+                </div>
+
+                <div class="web3d-cmspanel" data-panel="cms">
+
+                  <div class="web3d-cmspanel__side">
+                    <span class="is-active">Pages</span>
+                    <span>Media</span>
+                    <span>Settings</span>
+                  </div>
+
+                  <div class="web3d-cmspanel__main">
+
+                    <div class="web3d-cmspanel__row">
+                      <b>Homepage</b>
+                      <small class="web3d-cmspanel__tag web3d-cmspanel__tag--live">Published</small>
+                    </div>
+
+                    <div class="web3d-cmspanel__row">
+                      <b>About</b>
+                      <small class="web3d-cmspanel__tag web3d-cmspanel__tag--draft">Draft</small>
+                    </div>
+
+                  </div>
 
                 </div>
 
@@ -1106,34 +1207,40 @@
 
             <div class="service-subgrid" data-subgrid>
 
-              <div class="subgrid-item" style="--i:0">
-                <span></span>
+              <div class="subgrid-item" style="--i:0" data-focus="webdesign">
+                <span>01</span>
                 <p>Web Design</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
-              <div class="subgrid-item" style="--i:1">
-                <span></span>
+              <div class="subgrid-item" style="--i:1" data-focus="development">
+                <span>02</span>
                 <p>Development</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
-              <div class="subgrid-item" style="--i:2">
-                <span></span>
+              <div class="subgrid-item" style="--i:2" data-focus="responsive">
+                <span>03</span>
                 <p>Responsive Design</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
-              <div class="subgrid-item" style="--i:3">
-                <span></span>
+              <div class="subgrid-item" style="--i:3" data-focus="landing">
+                <span>04</span>
                 <p>Landing Pages</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
-              <div class="subgrid-item" style="--i:4">
-                <span></span>
+              <div class="subgrid-item" style="--i:4" data-focus="seo">
+                <span>05</span>
                 <p>SEO di base</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
-              <div class="subgrid-item" style="--i:5">
-                <span></span>
+              <div class="subgrid-item" style="--i:5" data-focus="cms">
+                <span>06</span>
                 <p>Gestione &amp; aggiornamenti</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
             </div>
@@ -1152,7 +1259,7 @@
             <div class="service-scene__meta">
 
               <span>
-                
+                Visual World
               </span>
 
             </div>
@@ -1203,33 +1310,39 @@
             <div class="service-subgrid" data-subgrid>
 
               <div class="subgrid-item" style="--i:0">
-                <span></span>
+                <span>01</span>
                 <p>Visual Direction</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:1">
-                <span></span>
+                <span>02</span>
                 <p>Art Direction</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:2">
-                <span></span>
+                <span>03</span>
                 <p>Typography</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:3">
-                <span></span>
+                <span>04</span>
                 <p>Color Systems</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:4">
-                <span></span>
+                <span>05</span>
                 <p>Image Curation</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:5">
-                <span></span>
+                <span>06</span>
                 <p>AI Visual Content</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
             </div>
@@ -1248,7 +1361,7 @@
             <div class="service-scene__meta">
 
               <span>
-                
+                Digital Ecosystem
               </span>
 
             </div>
@@ -1336,38 +1449,149 @@
             <div class="service-subgrid" data-subgrid>
 
               <div class="subgrid-item" style="--i:0">
-                <span></span>
+                <span>01</span>
                 <p>Social Presence</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:1">
-                <span></span>
+                <span>02</span>
                 <p>Content Creation</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:2">
-                <span></span>
+                <span>03</span>
                 <p>Editorial Planning</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:3">
-                <span></span>
+                <span>04</span>
                 <p>Email Marketing</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:4">
-                <span></span>
+                <span>05</span>
                 <p>Google Business</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
               <div class="subgrid-item" style="--i:5">
-                <span></span>
+                <span>06</span>
                 <p>Local SEO</p>
+                <i class="subgrid-item__bar" aria-hidden="true"></i>
               </div>
 
             </div>
 
           </article>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOBILE — EDITORIAL ACCORDION -->
+
+      <div class="services-mobile" data-services-mobile>
+
+        <div class="service-accordion" data-accordion-item>
+
+          <button
+            class="service-accordion__trigger"
+            type="button"
+            aria-expanded="false"
+            data-accordion-trigger
+          >
+            <span class="service-accordion__title">Web</span>
+            <i class="service-accordion__indicator" aria-hidden="true"></i>
+          </button>
+
+          <div class="service-accordion__panel" data-accordion-panel>
+
+            <p class="service-accordion__desc">
+              Siti web e landing page progettati su misura,
+              dalla struttura alla pubblicazione.
+            </p>
+
+            <ul class="service-accordion__list">
+              <li>Web Design</li>
+              <li>Development</li>
+              <li>Responsive Design</li>
+              <li>Landing Pages</li>
+              <li>SEO di base</li>
+              <li>Gestione &amp; aggiornamenti</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        <div class="service-accordion" data-accordion-item>
+
+          <button
+            class="service-accordion__trigger"
+            type="button"
+            aria-expanded="false"
+            data-accordion-trigger
+          >
+            <span class="service-accordion__title">Creative Direction</span>
+            <i class="service-accordion__indicator" aria-hidden="true"></i>
+          </button>
+
+          <div class="service-accordion__panel" data-accordion-panel>
+
+            <p class="service-accordion__desc">
+              Direzione visiva e sistemi grafici per costruire
+              una presenza coerente e riconoscibile.
+            </p>
+
+            <ul class="service-accordion__list">
+              <li>Visual Direction</li>
+              <li>Art Direction</li>
+              <li>Typography</li>
+              <li>Color Systems</li>
+              <li>Image Curation</li>
+              <li>AI Visual Content</li>
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        <div class="service-accordion" data-accordion-item>
+
+          <button
+            class="service-accordion__trigger"
+            type="button"
+            aria-expanded="false"
+            data-accordion-trigger
+          >
+            <span class="service-accordion__title">Digital Presence</span>
+            <i class="service-accordion__indicator" aria-hidden="true"></i>
+          </button>
+
+          <div class="service-accordion__panel" data-accordion-panel>
+
+            <p class="service-accordion__desc">
+              Contenuti e strumenti digitali per costruire
+              e mantenere una presenza online coerente.
+            </p>
+
+            <ul class="service-accordion__list">
+              <li>Social Presence</li>
+              <li>Content Creation</li>
+              <li>Editorial Planning</li>
+              <li>Email Marketing</li>
+              <li>Google Business</li>
+              <li>Local SEO</li>
+            </ul>
+
+          </div>
 
         </div>
 
@@ -1391,182 +1615,196 @@
       >
 
         <span class="section-label">
-          Work with me
+          Formule
         </span>
 
         <h2>
-          Scegli il punto di partenza.
+          Un sito,<br>
+          <span class="accent">a modo tuo.</span>
         </h2>
 
         <p>
-          Ogni progetto è diverso.
-          Queste proposte servono a capire da dove partire:
-          poi costruiamo insieme ciò che ti serve davvero.
+          Tre punti di partenza per capire insieme
+          cosa ti serve. Poi ogni progetto prende
+          la sua forma, un dettaglio alla volta.
         </p>
 
       </div>
 
 
-      <div class="packages__grid">
+      <ol class="offers">
 
-        <!-- WEB ESSENTIAL -->
+        <!-- 01 — ONE PAGE -->
 
-        <article
-          class="package-card"
-          data-reveal
-        >
+        <li class="offers__item">
 
-          <span class="package-card__label">
-            Web Essential
-          </span>
+          <a
+            class="offer offer--one"
+            href="#contact"
+            aria-label="One Page, da 399 euro. Scrivimi per parlarne."
+          >
 
-          <h3>
-            Un sito curato,<br>
-            chiaro e professionale.
-          </h3>
+            <span class="offer__top">
 
-          <p>
-            Per chi ha già una propria identità e vuole
-            trasformarla in una presenza online solida
-            e riconoscibile.
-          </p>
+              <svg class="offer__glyph" viewBox="0 0 48 48" aria-hidden="true">
+                <rect x="13" y="7" width="22" height="34" rx="2.5"></rect>
+                <path class="offer__lines" d="M18 15h12M18 20h8M18 33h12"></path>
+              </svg>
 
+            </span>
 
-          <div class="package-card__features">
+            <h3 class="offer__title">
+              One<br>
+              <span class="accent">page</span>
+            </h3>
 
-            <span>Web Design</span>
-            <span>Development</span>
-            <span>Responsive Design</span>
-            <span>SEO base</span>
-            <span>Launch</span>
+            <p class="offer__text">
+              Una pagina completa e su misura per presentare
+              attività, servizi e contatti.
+            </p>
 
-          </div>
+            <span class="offer__label">Include</span>
 
+            <ul class="offer__list">
+              <li>Design personalizzato</li>
+              <li>Responsive design</li>
+              <li>SEO base</li>
+              <li>Form contatti</li>
+              <li>Messa online</li>
+            </ul>
 
-          <footer>
+            <span class="offer__foot">
 
-            <small>
-              A partire da
-            </small>
+              <span class="offer__price">
+                <span class="accent">da</span> €399<sup>*</sup>
+              </span>
 
-            <strong>
-              € 650
-            </strong>
+              <span class="offer__arrow" aria-hidden="true">↗</span>
 
-            <a href="#contact">
-              Parliamone ↗
-            </a>
+            </span>
 
-          </footer>
+          </a>
 
-        </article>
-
-
-        <!-- SIGNATURE -->
-
-        <article
-          class="package-card package-card--featured"
-          data-reveal
-        >
-
-          <span class="package-card__label">
-            Web + Creative Direction
-          </span>
-
-          <h3>
-            Sito e direzione<br>
-            visiva insieme.
-          </h3>
-
-          <p>
-            Per chi vuole costruire non solo il sito,
-            ma anche un linguaggio visivo più definito
-            e coerente.
-          </p>
+        </li>
 
 
-          <div class="package-card__features">
+        <!-- 02 — MULTI-PAGE -->
 
-            <span>Creative Direction</span>
-            <span>Web Design</span>
-            <span>Development</span>
-            <span>AI Art Direction</span>
-            <span>Launch</span>
+        <li class="offers__item">
 
-          </div>
+          <a
+            class="offer offer--multi"
+            href="#contact"
+            aria-label="Multi-page, da 599 euro. Scrivimi per parlarne."
+          >
 
+            <span class="offer__top">
 
-          <footer>
+              <svg class="offer__glyph" viewBox="0 0 48 48" aria-hidden="true">
+                <rect class="offer__sheet offer__sheet--back" x="13" y="7" width="22" height="34" rx="2.5"></rect>
+                <rect class="offer__sheet offer__sheet--mid" x="13" y="7" width="22" height="34" rx="2.5"></rect>
+                <rect class="offer__sheet offer__sheet--front" x="13" y="7" width="22" height="34" rx="2.5"></rect>
+              </svg>
 
-            <small>
-              A partire da
-            </small>
+            </span>
 
-            <strong>
-              € 1000
-            </strong>
+            <h3 class="offer__title">
+              Multi<br>
+              <span class="accent">page</span>
+            </h3>
 
-            <a href="#contact">
-              Parliamone ↗
-            </a>
+            <p class="offer__text">
+              Per chi ha bisogno di più spazio per raccontare
+              la propria attività, con pagine dedicate.
+            </p>
 
-          </footer>
+            <span class="offer__label">Include</span>
 
-        </article>
+            <ul class="offer__list">
+              <li>Design personalizzato</li>
+              <li>Struttura multi-pagina</li>
+              <li>Responsive design</li>
+              <li>SEO base</li>
+              <li>Form contatti</li>
+              <li>Messa online</li>
+            </ul>
 
+            <span class="offer__foot">
 
-        <!-- DIGITAL PRESENCE -->
+              <span class="offer__price">
+                <span class="accent">da</span> €599<sup>*</sup>
+              </span>
 
-        <article
-          class="package-card"
-          data-reveal
-        >
+              <span class="offer__arrow" aria-hidden="true">↗</span>
 
-          <span class="package-card__label">
-            Digital Presence
-          </span>
+            </span>
 
-          <h3>
-            Una presenza digitale<br>
-            più completa.
-          </h3>
+          </a>
 
-          <p>
-            Per chi vuole lavorare in modo coerente
-            su più punti di contatto oltre al sito.
-          </p>
-
-
-          <div class="package-card__features">
-
-            <span>Website</span>
-            <span>Content Direction</span>
-            <span>Google Presence</span>
-            <span>Social Visuals</span>
-            <span>Newsletter</span>
-
-          </div>
+        </li>
 
 
-          <footer>
+        <!-- 03 — CUSTOM WEBSITE -->
 
-            <small>
-              Investimento
-            </small>
+        <li class="offers__item">
 
-            <strong>
-              Su progetto
-            </strong>
+          <a
+            class="offer offer--custom"
+            href="#contact"
+            aria-label="Custom website, su preventivo. Scrivimi per parlarne."
+          >
 
-            <a href="#contact">
-              Parliamone ↗
-            </a>
+            <span class="offer__top">
 
-          </footer>
+              <svg class="offer__glyph" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M24 9v30M9 24h30M13.4 13.4l21.2 21.2M34.6 13.4 13.4 34.6"></path>
+                <circle cx="24" cy="24" r="3.4"></circle>
+              </svg>
 
-        </article>
+            </span>
 
-      </div>
+            <h3 class="offer__title">
+              Custom<br>
+              <span class="accent">website</span>
+            </h3>
+
+            <p class="offer__text">
+              Per progetti più articolati e creativi,
+              costruiti attorno a un&rsquo;idea precisa.
+            </p>
+
+            <span class="offer__label">Può includere</span>
+
+            <ul class="offer__list">
+              <li>Animazioni avanzate</li>
+              <li>Portfolio complessi</li>
+              <li>Creative direction</li>
+              <li>Integrazioni</li>
+              <li>Contenuti personalizzati</li>
+            </ul>
+
+            <span class="offer__foot">
+
+              <span class="offer__price offer__price--quote">
+                <span class="accent">su preventivo</span>
+              </span>
+
+              <span class="offer__arrow" aria-hidden="true">↗</span>
+
+            </span>
+
+          </a>
+
+        </li>
+
+      </ol>
+
+
+      <p class="packages__note">
+        <span aria-hidden="true">*</span>
+        I prezzi indicano il punto di partenza e possono variare
+        in base a struttura, contenuti e complessità del progetto.
+      </p>
 
     </section>
 
@@ -1580,29 +1818,147 @@
       id="contact"
     >
 
-      <span class="contact__label">
-        Hai un progetto in mente?
-      </span>
+      <div class="contact-shape" aria-hidden="true"></div>
 
-      <h2>
-        Parliamone.
-      </h2>
+      <div
+        class="contact-panel"
+        data-reveal
+      >
 
-      <a href="mailto:hello@studio-delphi.com">
-        Scrivimi
-        <span>↗</span>
-      </a>
+        <div class="contact-intro">
+
+          <span class="contact__label">
+            Contatti
+          </span>
+
+          <h2 class="contact__title">
+            Scrivimi, raccontami cosa stai costruendo.
+          </h2>
+
+        </div>
+
+
+        <div class="contact-cards">
+
+          <a
+            href="mailto:delphi.terhell@gmail.com"
+            class="contact-card"
+          >
+            <span class="contact-card__main">
+              <span
+                class="contact-card__icon"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="M3 6.5l9 6.5 9-6.5"></path>
+                </svg>
+              </span>
+              <span class="contact-card__body">
+                <span class="contact-card__label">Email</span>
+                <span class="contact-card__value">delphi.terhell@gmail.com</span>
+              </span>
+            </span>
+            <span
+              class="contact-card__arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener"
+            class="contact-card"
+          >
+            <span class="contact-card__main">
+              <span
+                class="contact-card__icon"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <circle cx="17.2" cy="6.8" r=".6" fill="currentColor" stroke="none"></circle>
+                </svg>
+              </span>
+              <span class="contact-card__body">
+                <span class="contact-card__label">Instagram</span>
+                <span class="contact-card__value">@_delphi.terhell</span>
+              </span>
+            </span>
+            <span
+              class="contact-card__arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener"
+            class="contact-card"
+          >
+            <span class="contact-card__main">
+              <span
+                class="contact-card__icon"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                  <circle cx="8" cy="8.2" r=".9" fill="currentColor" stroke="none"></circle>
+                  <line x1="8" y1="11" x2="8" y2="17"></line>
+                  <path d="M12 17v-4a2.4 2.4 0 0 1 4.8 0v4"></path>
+                </svg>
+              </span>
+              <span class="contact-card__body">
+                <span class="contact-card__label">LinkedIn</span>
+                <span class="contact-card__value">Delphi Terhell</span>
+              </span>
+            </span>
+            <span
+              class="contact-card__arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </a>
+
+        </div>
+
+
+        <div class="contact-meta">
+          <span class="contact-meta__label">Based in</span>
+          <span class="contact-meta__value">
+            Italy · available for remote projects
+          </span>
+        </div>
+
+      </div>
 
 
       <footer class="site-footer">
 
-        <span>
-          Delphi — Digital Creative Studio
-        </span>
+        <div class="site-footer__brand">
+          <span class="site-footer__name">
+            Delphi — Digital Creative Studio
+          </span>
+          <span class="site-footer__tag">
+            Web · Creative Direction · Digital Content
+          </span>
+        </div>
 
-        <span>
-          Italy · 2026
-        </span>
+        <div class="site-footer__meta">
+          <span>© 2026</span>
+          <a href="#top" class="site-footer__top">
+            Torna su
+            <span class="site-footer__top-arrow">↑</span>
+          </a>
+        </div>
 
       </footer>
 
