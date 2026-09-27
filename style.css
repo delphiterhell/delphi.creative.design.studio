@@ -1620,9 +1620,8 @@ span:not(:last-child)::after {
   width: 40px;
   height: 40px;
 
-  border-radius: 50%;
-
-  object-fit: cover;
+  /* transparent white mark: show it whole, no circular crop */
+  object-fit: contain;
 }
 
 
@@ -1755,6 +1754,343 @@ span:not(:last-child)::after {
       1vw,
       17px
     );
+}
+
+
+/* ============================================================
+   LORENZO — HERO REPLICA (lm-hero-*)
+   the lorenzomagnanini.com hero, isolated and scaled
+   to fill the preview (100% of its container, never 100vh)
+   ============================================================ */
+
+.lm-hero-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background: #111;
+  isolation: isolate;
+}
+
+/* VIDEO */
+
+/* oversized vertically so the existing ±12px parallax never shows an edge */
+.lm-hero-media {
+  position: absolute;
+  inset: -14px 0;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.lm-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transform: scale(1.05);
+}
+
+/* OVERLAY */
+
+.lm-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.03),
+      transparent 32%
+    ),
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.48) 52%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
+}
+
+/* CONTENT */
+
+.lm-hero-content {
+  position: absolute;
+  z-index: 2;
+
+  left: 50%;
+  bottom: 13%;
+  transform: translateX(-50%);
+
+  width: min(90%, 760px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  font-family: "Jost", sans-serif;
+}
+
+/* TITLE */
+
+.lm-hero-title {
+  position: relative;
+
+  margin: 0 0 clamp(5px, 1vw, 14px);
+
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+
+  font-size: clamp(1.25rem, 3.1vw, 3.15rem);
+
+  line-height: 1.05;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.lm-hero-title-text {
+  display: inline-block;
+
+  background-image: linear-gradient(
+    100deg,
+    #6f6b65 0%,
+    #9f9a91 8%,
+    #f4f1eb 15%,
+    #ffffff 21%,
+    #d5b98a 27%,
+    #9f9a91 36%,
+    #6f6b65 47%,
+    #9f9a91 58%,
+    #f4f1eb 66%,
+    #ffffff 71%,
+    #d5b98a 77%,
+    #6f6b65 88%,
+    #f5f3ee 100%
+  );
+
+  background-size: 350% 100%;
+  background-position: 66% 50%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  filter: brightness(1);
+  transition:
+    background-position 2.6s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lm-hero-preview:hover .lm-hero-title-text {
+  background-position: 38% 50%;
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* SUBTITLE */
+
+.lm-hero-subtitle {
+  margin: 0 0 clamp(12px, 2vw, 30px);
+
+  color: rgba(255, 255, 255, 0.6);
+
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+
+  font-size: clamp(0.65rem, 1.1vw, 1.02rem);
+
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+/* CTA WRAPPER */
+
+.lm-hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: clamp(10px, 2vw, 28px);
+}
+
+/* PRIMARY */
+
+.lm-hero-cta-primary {
+  position: relative;
+  overflow: hidden;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    clamp(7px, 1vw, 13px)
+    clamp(12px, 1.8vw, 24px);
+
+  border-radius: 10px;
+
+  background: #f2efe9;
+  color: #14120f;
+
+  font-family: "Jost", sans-serif;
+
+  font-size: clamp(0.5rem, 0.8vw, 0.85rem);
+  font-weight: 500;
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  transition:
+    background 0.4s ease,
+    transform 0.4s ease;
+}
+
+.lm-hero-cta-primary::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -60%;
+
+  width: 35%;
+  height: 100%;
+
+  background: linear-gradient(
+    115deg,
+    transparent,
+    rgba(255,255,255,0.55),
+    transparent
+  );
+
+  transform: skewX(-18deg);
+
+  transition:
+    left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lm-hero-preview:hover .lm-hero-cta-primary::before {
+  left: 120%;
+}
+
+.lm-hero-primary-arrow {
+  display: inline-block;
+}
+
+/* SECONDARY */
+
+.lm-hero-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: rgba(235, 233, 228, 0.68);
+
+  font-size: clamp(0.5rem, 0.8vw, 0.88rem);
+  font-weight: 300;
+
+  letter-spacing: 0.02em;
+}
+
+.lm-hero-secondary-label {
+  position: relative;
+}
+
+.lm-hero-secondary-label::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 100%;
+  bottom: -3px;
+
+  height: 1px;
+
+  background: currentColor;
+  opacity: 0.6;
+
+  transition:
+    right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lm-hero-preview:hover
+.lm-hero-secondary-label::after {
+  right: 0;
+}
+
+/* LIVE SITE FRAME (test) — desktop only, covers the replica once loaded */
+
+.lm-site-frame {
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  left: 0;
+
+  width: 1440px;
+  height: 810px;
+
+  border: 0;
+
+  background: #111;
+
+  transform-origin: 0 0;
+  transform: scale(var(--lm-frame-scale, .44));
+
+  /* clicks stay on the card link */
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition: opacity .6s ease;
+}
+
+.lm-site-frame.is-loaded {
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+
+  .lm-site-frame {
+    display: none;
+  }
+
+}
+
+/* RESPONSIVE DELLA PREVIEW */
+
+@media (max-width: 700px) {
+
+  .lm-hero-content {
+    bottom: 9%;
+    width: 92%;
+  }
+
+  .lm-hero-title {
+    font-size: clamp(1.15rem, 6vw, 2rem);
+    letter-spacing: 0.07em;
+  }
+
+  .lm-hero-subtitle {
+    font-size: 0.72rem;
+    margin-bottom: 12px;
+  }
+
+  .lm-hero-actions {
+    gap: 10px;
+  }
+
+  .lm-hero-cta-primary {
+    padding: 8px 12px;
+  }
+
+  .lm-hero-cta-secondary {
+    font-size: 0.6rem;
+  }
 }
 
 
@@ -2317,7 +2653,8 @@ span:not(:last-child)::after {
 .concepts-heading h2 {
   margin: 0;
 
-  padding-bottom: .12em;
+  /* room for descenders (g, p) inside the clipped motion wrap */
+  padding-bottom: .22em;
 
   font-size:
     clamp(
@@ -3596,7 +3933,6 @@ span:not(:last-child)::after {
   display: grid;
 
   grid-template-columns:
-    48px
     minmax(0, 1fr)
     44px;
 
@@ -3618,17 +3954,6 @@ span:not(:last-child)::after {
 
   transition:
     background-color .6s var(--ease);
-}
-
-
-.service-tab > .index-num {
-  padding-top: 12px;
-
-  color:
-    rgba(32, 33, 31, .38);
-
-  transition:
-    color .35s ease;
 }
 
 
@@ -3707,11 +4032,6 @@ span:not(:last-child)::after {
 
 .service-tab.is-active {
   background: var(--surface-paper);
-}
-
-
-.service-tab.is-active > .index-num {
-  color: var(--deep-sage);
 }
 
 
@@ -7339,7 +7659,6 @@ span:not(:last-child)::after {
 
   .service-tab {
     grid-template-columns:
-      34px
       1fr
       30px;
   }
@@ -7554,7 +7873,8 @@ span:not(:last-child)::after {
   }
 
 
-  .lorenzo-preview__media {
+  .lorenzo-preview__media,
+  .lm-hero-media {
     transform: none !important;
   }
 

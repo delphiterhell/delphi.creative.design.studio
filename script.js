@@ -1263,6 +1263,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ============================================================
+     LIVE SITE FRAME — rendered at 1440px, scaled to the preview
+     ============================================================ */
+
+  document
+    .querySelectorAll(
+      ".lm-site-frame"
+    )
+    .forEach(frame => {
+
+      const fit = () => {
+
+        frame.style.setProperty(
+          "--lm-frame-scale",
+          frame.parentElement.clientWidth / 1440
+        );
+
+      };
+
+
+      fit();
+
+      new ResizeObserver(fit)
+        .observe(
+          frame.parentElement
+        );
+
+
+      frame.addEventListener(
+        "load",
+        () => frame.classList.add("is-loaded")
+      );
+
+    });
+
+
+  /* ============================================================
      GENERIC REVEALS
      ============================================================ */
 

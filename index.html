@@ -18,6 +18,11 @@
     rel="stylesheet"
   >
 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -84,10 +89,6 @@
 
 
     <div class="hero-copy">
-
-      <p class="hero-kicker">
-        Design · Digital · Content
-      </p>
 
       <h1>
         <span>Web Design.</span>
@@ -310,15 +311,6 @@
       aria-labelledby="works-title"
     >
 
-      <div class="works-intro__top">
-
-        <span class="section-label">
-          Selected Work
-        </span>
-
-      </div>
-
-
       <div class="works-intro__bottom">
 
         <h2 id="works-title">
@@ -398,7 +390,7 @@
                 <span class="lorenzo-preview__brand">
 
                   <img
-                    src="assets/projects/lorenzo/logo.jpeg"
+                    src="assets/projects/lorenzo/logo.png"
                     alt=""
                   >
 
@@ -420,39 +412,62 @@
               </div>
 
 
-              <div
-                class="lorenzo-preview__media"
-                data-case-parallax
-              >
+              <!-- hero of lorenzomagnanini.com, reproduced at preview scale -->
+              <div class="lm-hero-preview" aria-hidden="true">
 
-                <video
-                  class="lorenzo-preview__video"
-                  data-project-video
-                  data-src="fpv.mp4"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  preload="none"
-                ></video>
+                <div
+                  class="lm-hero-media"
+                  data-case-parallax
+                >
+                  <video
+                    class="lm-hero-video"
+                    data-project-video
+                    data-src="fpv.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                  ></video>
+                </div>
+
+                <div class="lm-hero-overlay"></div>
+
+                <div class="lm-hero-content">
+                  <h2 class="lm-hero-title">
+                    <span class="lm-hero-title-text">Drone &amp; FPV</span>
+                  </h2>
+
+                  <p class="lm-hero-subtitle">
+                    Riprese che prendono il volo.
+                  </p>
+
+                  <div class="lm-hero-actions">
+                    <span class="lm-hero-cta-primary">
+                      <span>Guarda lo showreel</span>
+                      <span class="lm-hero-primary-arrow">↗</span>
+                    </span>
+
+                    <span class="lm-hero-cta-secondary">
+                      <span class="lm-hero-secondary-label">
+                        Parliamo del tuo progetto
+                      </span>
+                      <span class="lm-hero-secondary-arrow">→</span>
+                    </span>
+                  </div>
+                </div>
 
               </div>
 
-
-              <div class="lorenzo-preview__shade"></div>
-
-
-              <div class="lorenzo-preview__center">
-
-                <strong>
-                  DRONE &amp; FPV
-                </strong>
-
-                <span>
-                  Riprese che prendono il volo.
-                </span>
-
-              </div>
+              <!-- TEST: live site on desktop, over the replica (which stays as fallback) -->
+              <iframe
+                class="lm-site-frame"
+                src="https://lorenzomagnanini.com"
+                title="Anteprima dal vivo di lorenzomagnanini.com"
+                loading="lazy"
+                tabindex="-1"
+                aria-hidden="true"
+              ></iframe>
 
             </div>
 
@@ -695,10 +710,6 @@
         data-reveal
       >
 
-        <span class="section-label">
-          Concepts
-        </span>
-
         <div class="concepts-heading__row">
 
           <div class="motion-title-wrap">
@@ -913,10 +924,6 @@
         data-reveal
       >
 
-        <span class="section-label">
-          Services
-        </span>
-
         <h2 id="services-title">
           Cosa posso costruire<br>
           per il tuo <span class="accent">progetto.</span>
@@ -939,8 +946,6 @@
             data-service-tab="web"
             aria-selected="true"
           >
-
-            <span class="index-num">01</span>
 
             <div>
 
@@ -967,8 +972,6 @@
             aria-selected="false"
           >
 
-            <span class="index-num">02</span>
-
             <div>
 
               <strong>
@@ -993,8 +996,6 @@
             data-service-tab="presence"
             aria-selected="false"
           >
-
-            <span class="index-num">03</span>
 
             <div>
 
@@ -1614,10 +1615,6 @@
         data-reveal
       >
 
-        <span class="section-label">
-          Formule
-        </span>
-
         <h2>
           Un sito,<br>
           <span class="accent">a modo tuo.</span>
@@ -1826,10 +1823,6 @@
       >
 
         <div class="contact-intro">
-
-          <span class="contact__label">
-            Contatti
-          </span>
 
           <h2 class="contact__title">
             Scrivimi, raccontami cosa stai costruendo.
