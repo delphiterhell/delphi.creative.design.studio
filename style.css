@@ -25,7 +25,13 @@
 
   --ease: cubic-bezier(.16, 1, .3, 1);
 
-  --font-accent: "Syne", sans-serif;
+  /* running text and small labels use Bhavuka; titles use Arima Madurai */
+  --font-text: "Bhavuka", serif;
+  --font-heading: "Arima Madurai", serif;
+  --font-mockup: "Manrope", sans-serif;
+
+  /* small uppercase labels (formerly Syne) */
+  --font-accent: var(--font-text);
 
   /* tonal surfaces — used instead of borders and dark blocks */
   --surface-paper: #f3efe8;
@@ -38,6 +44,85 @@
   --radius-lg: 26px;
   --radius-md: 18px;
   --radius-sm: 10px;
+}
+
+
+/* ============================================================
+   HERO FONTS
+   local files in assets/fonts/ (an installed copy is used first)
+   ============================================================ */
+
+@font-face {
+  font-family: "Anaktoria";
+  src:
+    local("Anaktoria"),
+    local("Anaktoria-Regular"),
+    url("assets/fonts/Anaktoria.woff2") format("woff2"),
+    url("assets/fonts/Anaktoria.woff") format("woff"),
+    url("assets/fonts/Anaktoria.otf") format("opentype"),
+    url("assets/fonts/Anaktoria.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cocomat Pro";
+  src:
+    local("Cocomat Pro Light"),
+    local("CocomatPro-Light"),
+    url("assets/fonts/CocomatPro-Light.woff2") format("woff2"),
+    url("assets/fonts/CocomatPro-Light.woff") format("woff"),
+    url("assets/fonts/CocomatPro-Light.otf") format("opentype"),
+    url("assets/fonts/CocomatPro-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cocomat Pro";
+  src:
+    local("Cocomat Pro Regular"),
+    local("Cocomat Pro"),
+    local("CocomatPro-Regular"),
+    url("assets/fonts/CocomatPro-Regular.woff2") format("woff2"),
+    url("assets/fonts/CocomatPro-Regular.woff") format("woff"),
+    url("assets/fonts/CocomatPro-Regular.otf") format("opentype"),
+    url("assets/fonts/CocomatPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bhavuka";
+  src:
+    local("Bhavuka"),
+    local("Bhavuka-Regular"),
+    url("assets/fonts/Bhavuka-Regular.woff") format("woff"),
+    url("assets/fonts/Bhavuka-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+
+  /* Bhavuka's x-height is ~35% smaller than Manrope's: scaling it
+     here keeps every existing font-size readable and the line
+     lengths close to what the layout was built for */
+  size-adjust: 125%;
+}
+
+@font-face {
+  font-family: "Brittany";
+  src:
+    local("Brittany Signature"),
+    local("BrittanySignature"),
+    local("Brittany"),
+    url("assets/fonts/BrittanySignature.woff2") format("woff2"),
+    url("assets/fonts/BrittanySignature.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 
@@ -67,11 +152,56 @@ body {
 
   color: var(--ink);
 
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-text);
+
+  /* Bhavuka has a single weight: labels set to 500/600 stay regular
+     instead of getting a smeared synthetic bold */
+  font-synthesis-weight: none;
 
   -webkit-font-smoothing: antialiased;
 
   text-rendering: optimizeLegibility;
+}
+
+
+/* real emphasis inside running text keeps its bold */
+strong,
+b {
+  font-synthesis-weight: auto;
+}
+
+
+/* titles use the heading face */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.case__title,
+.concept__title,
+.concept__overlay strong,
+.service-accordion__title,
+.service-tab strong,
+.offer__title,
+.offer__price,
+.contact__title {
+  font-family: var(--font-heading);
+
+  font-synthesis-weight: auto;
+}
+
+
+/* the illustrative mockups (3D service scenes, client-site previews)
+   depict other UIs, so they keep their own neutral sans */
+.service-scene__stage3d,
+.lorenzo-preview,
+.lm-hero-preview,
+.service-scene__stage3d :is(h1, h2, h3, h4, h5, h6),
+.lorenzo-preview :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-mockup);
+
+  font-synthesis-weight: auto;
 }
 
 
@@ -252,6 +382,15 @@ main {
   overflow: hidden;
 
   background: var(--soft-paper);
+
+  /* hero-only faces; text and labels follow the site-wide --font-text */
+  /* trying WindSong on the wordmark (Brittany @font-face kept) */
+  --font-wordmark: "WindSong", "Brittany", serif;
+  --font-editorial: var(--font-text);
+  /* same face as every other title on the site */
+  --font-title: var(--font-heading);
+
+  font-family: var(--font-editorial);
 }
 
 
@@ -391,41 +530,51 @@ main {
 .brand {
   display: flex;
 
-  align-items: center;
+  align-items: baseline;
 
-  gap: 22px;
+  gap: 20px;
 
   width: fit-content;
 }
 
 
+/* a loose, airy signature; the studio line stays small beside it */
 .brand-name {
-  font-size: 30px;
+  font-family: var(--font-wordmark);
 
-  font-weight: 400;
+  /* script faces run small for their size */
+  font-size: 50px;
+
+  /* WindSong's real medium weight, for a bolder signature */
+  font-weight: 500;
 
   line-height: 1;
 
-  letter-spacing: .22em;
+  letter-spacing: .04em;
 }
 
 
 .brand-sub,
 .nav-links a,
 .language {
-  font-family: var(--font-accent);
+  font-family: var(--font-text);
 
-  font-size: 9px;
+  font-size: 10.5px;
 
-  font-weight: 500;
+  font-weight: 400;
 
   text-transform: uppercase;
 
-  letter-spacing: .10em;
+  letter-spacing: .08em;
 }
 
 
+/* a readable line next to the signature, not a tiny tag */
 .brand-sub {
+  font-size: 10.5px;
+
+  letter-spacing: .16em;
+
   opacity: .68;
 }
 
@@ -525,39 +674,52 @@ main {
 
   flex-direction: column;
 
+  font-family: var(--font-title);
+
   font-size:
     clamp(
-      58px,
-      5.15vw,
-      98px
+      44px,
+      4vw,
+      76px
     );
 
-  font-weight: 300;
+  font-weight: 400;
 
-  line-height: 1.01;
+  line-height: 1.08;
 
-  letter-spacing: -.055em;
+  letter-spacing: -.01em;
 }
 
 
+/* same face as the lines above; only colour and a step down in size */
 .hero-copy__accent {
   color: var(--deep-sage);
+
+  font-size: .9em;
+}
+
+
+/* if the line has to break, break after "e", never inside the phrase */
+.hero-copy__keep {
+  white-space: nowrap;
 }
 
 
 .hero-description {
-  max-width: 460px;
+  max-width: 400px;
 
-  /* same distance from the title as before (line + its margins) */
-  margin-top: 69px;
+  margin-top: 34px;
 
-  font-size: 17px;
+  font-family: var(--font-editorial);
 
-  font-weight: 300;
+  /* Bhavuka is scaled up in its @font-face; this reads like ~17px */
+  font-size: 14px;
 
-  line-height: 1.55;
+  font-weight: 400;
 
-  letter-spacing: -.015em;
+  line-height: 1.65;
+
+  letter-spacing: 0;
 }
 
 
@@ -697,7 +859,7 @@ main {
   top: 17px;
   left: 17px;
 
-  font-family: var(--font-accent);
+  font-family: var(--font-text);
 
   font-size: 9px;
 
@@ -740,7 +902,7 @@ main {
 
 
 .palette-info small {
-  font-family: var(--font-accent);
+  font-family: var(--font-text);
 
   font-size: 8px;
 
@@ -812,15 +974,15 @@ main {
 
   color: var(--ink);
 
-  font-family: var(--font-accent);
+  font-family: var(--font-text);
 
-  font-size: 10px;
+  font-size: 11.5px;
 
-  font-weight: 600;
+  font-weight: 400;
 
   text-transform: uppercase;
 
-  letter-spacing: .10em;
+  letter-spacing: .12em;
 }
 
 
@@ -992,6 +1154,15 @@ main {
   color: var(--ink);
 
   font-weight: 500;
+}
+
+
+.intro-copy__stack {
+  display: grid;
+
+  align-content: start;
+
+  gap: 18px;
 }
 
 
@@ -2567,7 +2738,7 @@ span:not(:last-child)::after {
 
 
 .project-reel__caption h4 {
-  font-family: inherit;
+  font-family: var(--font-heading);
 
   font-size:
     clamp(
@@ -7288,8 +7459,20 @@ span:not(:last-child)::after {
   }
 
 
+  .brand {
+    gap: 14px;
+  }
+
+
   .brand-name {
-    font-size: 25px;
+    font-size: 38px;
+  }
+
+
+  .brand-sub {
+    font-size: 8.5px;
+
+    letter-spacing: .14em;
   }
 
 
@@ -7352,15 +7535,28 @@ span:not(:last-child)::after {
   .hero-copy h1 {
     font-size:
       clamp(
-        43px,
-        12vw,
-        65px
+        32px,
+        8.8vw,
+        46px
       );
+
+    line-height: 1.08;
+  }
+
+
+  .hero-copy__accent {
+    font-size: .84em;
   }
 
 
   .hero-description {
-    font-size: 15px;
+    max-width: 330px;
+
+    margin-top: 24px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
   }
 
 
