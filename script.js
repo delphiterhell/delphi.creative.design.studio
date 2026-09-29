@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // slow domain-warped noise = liquid drift
         vec2 p = vUv * vec2(canvasRatio, 1.0) * 2.2;
-        float t = uTime * 0.045;
+        float t = uTime * 0.062;
 
         vec2 q = vec2(
           fbm(p + vec2(0.0, t)),
@@ -286,7 +286,15 @@ document.addEventListener("DOMContentLoaded", () => {
           fbm(p + 2.0 * q + vec2(8.3, 2.8) - t * 0.6)
         ) - 0.5;
 
-        uv += d * 0.018 * visible;
+        // portrait screens zoom the image in, so the same drift
+        // reads smaller: boost it progressively as the ratio narrows
+        float boost = mix(
+          1.0,
+          2.2,
+          clamp((1.2 - canvasRatio) / 0.7, 0.0, 1.0)
+        );
+
+        uv += d * 0.036 * boost * visible;
 
         gl_FragColor = texture2D(uImage, uv);
       }
