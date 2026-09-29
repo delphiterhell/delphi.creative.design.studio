@@ -180,7 +180,6 @@ h5,
 h6,
 .case__title,
 .concept__title,
-.concept__overlay strong,
 .service-accordion__title,
 .service-tab strong,
 .offer__title,
@@ -2772,8 +2771,7 @@ span:not(:last-child)::after {
 
 
 /* ============================================================
-   CONCEPTS — EDITORIAL PROJECT LIST
-   three large projects stacked vertically, alternating layout
+   CONCEPTS — PROJECT GALLERY
    ============================================================ */
 
 .concepts-section {
@@ -2859,24 +2857,28 @@ span:not(:last-child)::after {
 
 
 /* ============================================================
-   PROJECT LIST
+   PROJECT GALLERY
+   three equal cards side by side, compact
    ============================================================ */
 
 .concepts-list {
   display: grid;
 
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
   gap:
     clamp(
-      110px,
-      12vw,
-      210px
+      18px,
+      2vw,
+      32px
     );
 
   margin-top:
     clamp(
-      70px,
-      8vw,
-      140px
+      50px,
+      5vw,
+      80px
     );
 }
 
@@ -2891,43 +2893,33 @@ span:not(:last-child)::after {
 }
 
 
-.concept--wide {
-  --c-accent: #9a6a45;
-  --c-tint: #ddd0bb;
-}
-
-
-.concept--offset {
-  --c-accent: #8a7447;
-  --c-tint: #d3cdbf;
-}
-
-
-.concept--editorial {
+.concept--wedding {
   --c-accent: var(--deep-sage);
   --c-tint: #d9dbcf;
 }
 
 
+.concept--balloon {
+  --c-accent: #9a5a3a;
+  --c-tint: #ddd0bb;
+}
+
+
+.concept--empty {
+  --c-accent: rgba(32, 33, 31, .42);
+  --c-tint: transparent;
+}
+
+
 .concept__link {
-  display: grid;
-
-  grid-template-columns:
-    repeat(12, minmax(0, 1fr));
-
-  column-gap:
-    clamp(
-      18px,
-      2vw,
-      32px
-    );
+  display: block;
 
   color: inherit;
 }
 
 
 /* ============================================================
-   VISUALS
+   VISUAL — same portrait frame for every card
    ============================================================ */
 
 .concept__visual {
@@ -2935,106 +2927,23 @@ span:not(:last-child)::after {
 
   overflow: hidden;
 
+  aspect-ratio:
+    4 / 5;
+
+  border-radius: 4px;
+
   background: var(--c-tint);
 }
 
 
-/* browser mockup — the page scrolls slowly on hover */
-
-.concept__visual--browser {
-  border-radius: var(--radius-md);
-
-  box-shadow:
-    0 1px 0 rgba(32, 33, 31, .04),
-    0 40px 80px -50px rgba(32, 33, 31, .45);
-}
-
-
-.concept__chrome {
-  display: flex;
-
-  align-items: center;
-
-  gap: 5px;
-
-  height: 22px;
-
-  padding: 0 12px;
-
-  background:
-    color-mix(in srgb, var(--c-tint) 30%, #f6f3ee);
-}
-
-
-.concept__chrome i {
-  width: 5px;
-  height: 5px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(32, 33, 31, .12);
-}
-
-
-.concept__chrome b {
-  margin: 0 auto;
-
-  padding-right: 30px;
-
-  color:
-    rgba(32, 33, 31, .34);
-
-  font-family: var(--font-accent);
-
-  font-size: 7px;
-
-  font-weight: 500;
-
-  letter-spacing: .08em;
-}
-
-
-.concept__screen {
-  position: relative;
-
-  overflow: hidden;
-
-  aspect-ratio:
-    16 / 9;
-}
-
-
-.concept__screen img,
-.concept__visual--photo img {
+.concept__visual img {
   display: block;
 
   width: 100%;
   height: 100%;
 
   object-fit: cover;
-}
 
-
-.concept__screen img {
-  object-position: 50% 0%;
-
-  transition:
-    object-position 7s cubic-bezier(.45, 0, .2, 1);
-}
-
-
-/* photographic visual — very slow zoom on hover */
-
-.concept__visual--photo {
-  aspect-ratio:
-    10 / 11;
-
-  border-radius: 4px;
-}
-
-
-.concept__visual--photo img {
   transform:
     scale(1.001);
 
@@ -3043,8 +2952,44 @@ span:not(:last-child)::after {
 }
 
 
+.concept--balloon
+.concept__visual img {
+  object-position: 54% 50%;
+}
+
+
+/* empty slot — an outline waiting for the next project */
+
+.concept--empty
+.concept__visual {
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px dashed
+    rgba(32, 33, 31, .22);
+}
+
+
+.concept__soon {
+  color:
+    rgba(32, 33, 31, .38);
+
+  font-family: var(--font-accent);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: .16em;
+}
+
+
 /* ============================================================
-   META — index, category, title, place, CTA
+   META — category, title, line, arrow
    ============================================================ */
 
 .concept__meta {
@@ -3054,31 +2999,18 @@ span:not(:last-child)::after {
     minmax(0, 1fr)
     auto;
 
-  align-content: start;
+  align-items: start;
 
-  gap: 18px 24px;
-}
+  gap: 16px;
 
-
-.concept__index {
-  grid-column: 1 / -1;
-
-  color: var(--c-accent);
-
-  font-family: var(--font-accent);
-
-  font-size: 9px;
-
-  font-weight: 500;
-
-  letter-spacing: .1em;
+  margin-top: 22px;
 }
 
 
 .concept__category {
   display: block;
 
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 
   color: var(--c-accent);
 
@@ -3099,23 +3031,30 @@ span:not(:last-child)::after {
 
   font-size:
     clamp(
-      38px,
-      4.6vw,
-      78px
+      26px,
+      2.3vw,
+      38px
     );
 
   font-weight: 300;
 
-  line-height: .96;
+  line-height: 1;
 
-  letter-spacing: -.05em;
+  letter-spacing: -.04em;
+}
+
+
+.concept--empty
+.concept__title {
+  color:
+    rgba(32, 33, 31, .42);
 }
 
 
 .concept__place {
   max-width: 34ch;
 
-  margin: 18px 0 0;
+  margin: 10px 0 0;
 
   color:
     rgba(32, 33, 31, .56);
@@ -3124,292 +3063,25 @@ span:not(:last-child)::after {
 
   font-weight: 300;
 
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 
-.concept__cta {
-  display: inline-flex;
-
-  align-items: center;
-
-  align-self: end;
-
-  gap: 14px;
-
-  color:
-    rgba(32, 33, 31, .7);
-
-  font-family: var(--font-accent);
-
-  font-size: 8px;
-
-  font-weight: 600;
-
-  text-transform: uppercase;
-
-  letter-spacing: .12em;
-
-  white-space: nowrap;
+.concept__meta .circle-arrow {
+  margin-top: 18px;
 }
 
 
 /* ============================================================
-   01 — WIDE: case-study preview, not a second hero
-   88% of the container, capped, with extra air around it
-   ============================================================ */
-
-.concept--wide {
-  width: 88%;
-  max-width: 1500px;
-
-  margin:
-    clamp(20px, 4vw, 70px)
-    auto
-    clamp(20px, 4vw, 70px);
-}
-
-
-.concept--wide
-.concept__visual {
-  grid-column: 1 / -1;
-}
-
-
-.concept--wide
-.concept__screen {
-  aspect-ratio: auto;
-
-  height:
-    clamp(
-      420px,
-      38vw,
-      560px
-    );
-}
-
-
-/* live title laid over the preview */
-
-.concept__overlay {
-  position: absolute;
-  z-index: 2;
-
-  inset: auto 0 0 0;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 16px;
-
-  padding:
-    clamp(22px, 2.8vw, 40px);
-
-  padding-top: 90px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(20, 16, 10, 0),
-      rgba(20, 16, 10, .38)
-    );
-
-  color: #fff;
-
-  pointer-events: none;
-
-  transition:
-    opacity 1s var(--ease),
-    transform 1.4s var(--ease);
-}
-
-
-.concept__overlay span {
-  color:
-    rgba(255, 255, 255, .78);
-
-  font-family: var(--font-accent);
-
-  font-size: 8px;
-
-  font-weight: 600;
-
-  text-transform: uppercase;
-
-  letter-spacing: .16em;
-}
-
-
-.concept__overlay strong {
-  max-width: 60%;
-
-  font-size:
-    clamp(
-      52px,
-      6vw,
-      96px
-    );
-
-  font-weight: 200;
-
-  line-height: .95;
-
-  letter-spacing: -.05em;
-}
-
-
-.concept--wide
-.concept__meta {
-  grid-column: 1 / -1;
-
-  grid-template-columns:
-    minmax(60px, 1fr)
-    minmax(0, 6fr)
-    auto;
-
-  align-items: end;
-
-  margin-top: 34px;
-
-  padding-top: 26px;
-
-  border-top:
-    1px solid
-    color-mix(in srgb, var(--c-accent) 26%, transparent);
-}
-
-
-.concept--wide
-.concept__index {
-  grid-column: auto;
-
-  align-self: start;
-}
-
-
-/* ============================================================
-   02 — OFFSET: visual pushed right, meta bottom-left
-   ============================================================ */
-
-.concept--offset
-.concept__visual {
-  grid-column: 5 / -1;
-  grid-row: 1;
-}
-
-
-.concept--offset
-.concept__screen {
-  aspect-ratio:
-    5 / 4;
-}
-
-
-.concept--offset
-.concept__meta {
-  grid-column: 1 / 5;
-  grid-row: 1;
-
-  grid-template-columns:
-    minmax(0, 1fr);
-
-  align-self: end;
-
-  gap: 26px;
-
-  padding-bottom: 6px;
-}
-
-
-.concept--offset
-.concept__cta {
-  justify-self: start;
-}
-
-
-/* ============================================================
-   03 — EDITORIAL: large photograph, meta alongside
-   ============================================================ */
-
-.concept--editorial
-.concept__visual {
-  grid-column: 1 / 8;
-}
-
-
-.concept--editorial
-.concept__meta {
-  grid-column: 9 / -1;
-
-  grid-template-columns:
-    minmax(0, 1fr);
-
-  grid-template-rows:
-    auto
-    1fr
-    auto;
-
-  align-self: stretch;
-
-  gap: 26px;
-
-  padding-top: clamp(20px, 6vw, 110px);
-}
-
-
-.concept--editorial
-.concept__title {
-  font-size:
-    clamp(
-      42px,
-      5.4vw,
-      96px
-    );
-}
-
-
-.concept--editorial
-.concept__cta {
-  justify-content: space-between;
-
-  width: 100%;
-
-  padding-top: 26px;
-
-  border-top:
-    1px solid
-    color-mix(in srgb, var(--c-accent) 30%, transparent);
-}
-
-
-/* ============================================================
-   HOVER — slow scroll / slow zoom, arrow turns
+   HOVER — slow zoom, arrow turns
    ============================================================ */
 
 @media (hover: hover) and (pointer: fine) {
 
   .concept__link:hover
-  .concept__screen img {
-    object-position: 50% 42%;
-  }
-
-
-  .concept__link:hover
-  .concept__visual--photo img {
+  .concept__visual img {
     transform:
       scale(1.045);
-  }
-
-
-  /* the title steps aside while the page scrolls */
-
-  .concept__link:hover
-  .concept__overlay {
-    opacity: 0;
-
-    transform:
-      translateY(12px);
   }
 
 
@@ -3429,7 +3101,7 @@ span:not(:last-child)::after {
 
 
 /* ============================================================
-   CONCEPTS TABLET — stacked, visual first
+   CONCEPTS TABLET
    ============================================================ */
 
 @media (max-width: 950px) {
@@ -3442,117 +3114,11 @@ span:not(:last-child)::after {
     gap: 36px;
   }
 
-
-  .concept__link {
-    display: flex;
-
-    flex-direction: column;
-  }
-
-
-  .concept__meta,
-  .concept--wide .concept__meta,
-  .concept--offset .concept__meta,
-  .concept--editorial .concept__meta {
-    grid-template-columns:
-      minmax(0, 1fr)
-      auto;
-
-    grid-template-rows: none;
-
-    align-self: stretch;
-
-    align-items: end;
-
-    gap: 14px 20px;
-
-    margin-top: 22px;
-
-    padding: 0;
-
-    border-top: 0;
-  }
-
-
-  .concept__index,
-  .concept--wide .concept__index {
-    grid-column: 1 / -1;
-  }
-
-
-  .concept--offset {
-    padding-left: 12%;
-  }
-
-
-  .concept--wide {
-    width: 92%;
-
-    margin-block: 24px;
-  }
-
-
-  .concept--wide
-  .concept__screen {
-    height:
-      clamp(
-        280px,
-        46vw,
-        420px
-      );
-  }
-
-
-  .concept__overlay {
-    gap: 12px;
-
-    padding: 60px 24px 24px;
-  }
-
-
-  .concept__overlay strong {
-    max-width: 70%;
-
-    font-size:
-      clamp(
-        32px,
-        5.6vw,
-        52px
-      );
-  }
-
-
-  .concept--editorial
-  .concept__visual {
-    width: 88%;
-  }
-
-
-  /* CTA collapses to the arrow alone */
-
-  .concept__cta,
-  .concept--editorial .concept__cta {
-    width: auto;
-
-    gap: 0;
-
-    padding-top: 0;
-
-    border-top: 0;
-
-    font-size: 0;
-  }
-
-
-  .concept__cta .circle-arrow {
-    font-size: 13px;
-  }
-
 }
 
 
 /* ============================================================
-   CONCEPTS MOBILE — near full-bleed visuals
+   CONCEPTS MOBILE — swipeable gallery row
    ============================================================ */
 
 @media (max-width: 700px) {
@@ -3582,146 +3148,51 @@ span:not(:last-child)::after {
   }
 
 
+  /* two-up grid — everything stays on screen, no sideways scroll */
+
   .concepts-list {
-    gap: 72px;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
 
-    margin-top: 44px;
+    gap: 28px 12px;
+
+    margin-top: 36px;
   }
 
 
-  .concept--offset {
-    padding-left: 0;
+  .concept__meta {
+    margin-top: 12px;
   }
 
 
-  .concept--editorial
-  .concept__visual {
-    width: 100%;
-  }
-
-
-  .concept__visual--browser {
-    border-radius: var(--radius-sm);
-  }
-
-
-  .concept__chrome {
-    height: 18px;
-
-    padding: 0 9px;
-  }
-
-
-  .concept__chrome i {
-    width: 4px;
-    height: 4px;
-  }
-
-
-  .concept__chrome b {
-    padding-right: 21px;
-
-    font-size: 6px;
-  }
-
-
-  .concept__screen,
-  .concept--offset .concept__screen {
-    aspect-ratio:
-      4 / 3.4;
-  }
-
-
-  .concept--wide {
-    width: 100%;
-
-    margin-block: 8px;
-  }
-
-
-  .concept--wide
-  .concept__screen {
-    height:
-      clamp(
-        210px,
-        62vw,
-        290px
-      );
-  }
-
-
-  /* crop in slightly so only the hero shows at this size */
-
-  .concept--wide
-  .concept__screen img {
-    width: 125%;
-
-    max-width: none;
-  }
-
-
-  .concept__overlay {
-    gap: 8px;
-
-    padding: 48px 16px 16px;
-  }
-
-
-  .concept__overlay span {
-    font-size: 6px;
-  }
-
-
-  .concept__overlay strong {
-    max-width: 82%;
-
-    font-size:
-      clamp(
-        24px,
-        7.2vw,
-        32px
-      );
-  }
-
-
-  .concept__visual--photo {
-    aspect-ratio:
-      4 / 4.6;
-  }
-
-
-  .concept__meta,
-  .concept--wide .concept__meta,
-  .concept--offset .concept__meta,
-  .concept--editorial .concept__meta {
-    margin-top: 18px;
-  }
-
-
-  .concept__index,
-  .concept--wide .concept__index {
+  .concept__meta .circle-arrow {
     display: none;
   }
 
 
   .concept__category {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+
+    font-size: 7px;
   }
 
 
-  .concept__title,
-  .concept--editorial .concept__title {
+  .concept__title {
     font-size:
       clamp(
-        32px,
-        9vw,
-        42px
+        20px,
+        5.6vw,
+        26px
       );
   }
 
 
   .concept__place {
-    margin-top: 10px;
+    margin-top: 6px;
+
+    font-size: 11px;
+
+    line-height: 1.45;
   }
 
 }
@@ -3740,8 +3211,7 @@ span:not(:last-child)::after {
   }
 
 
-  .concept__screen img,
-  .concept__visual--photo img {
+  .concept__visual img {
     transition: none !important;
   }
 
