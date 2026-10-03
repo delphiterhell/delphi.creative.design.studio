@@ -1728,6 +1728,27 @@ span:not(:last-child)::after {
 }
 
 
+/* half-width projects: services on its own row, the rest paired */
+
+@media (min-width: 701px) {
+
+  .projects-duo
+  .case__meta {
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap: 20px 32px;
+  }
+
+
+  .projects-duo
+  .case__meta > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+
 /* ============================================================
    LORENZO PREVIEW
    ============================================================ */
