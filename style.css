@@ -3898,6 +3898,45 @@ span:not(:last-child)::after {
 }
 
 
+/* footnote for the starred items (riprese video / drone) */
+
+.service-subgrid__note {
+  grid-column: 1 / -1;
+
+  margin: -10px 0 0;
+
+  color: var(--ink);
+
+  font-size: 12px;
+
+  line-height: 1.35;
+
+  opacity: .6;
+}
+
+
+.service-accordion__list .service-accordion__note {
+  display: block;
+
+  grid-column: 1 / -1;
+
+  margin-top: -2px;
+
+  font-size: 12px;
+
+  line-height: 1.35;
+
+  letter-spacing: 0;
+
+  opacity: .6;
+}
+
+
+.service-accordion__list .service-accordion__note::before {
+  content: none;
+}
+
+
 .subgrid-item span {
   flex: 0 0 auto;
 
